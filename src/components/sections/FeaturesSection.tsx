@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion"
-import { useState, useEffect, useRef, type MouseEvent, type ReactNode } from "react"
+import { useState, useEffect, useRef, type ReactNode } from "react"
 import {
   CheckCircle, Code2, Flame, Users, Zap,
   TerminalSquare, Video, BookOpen, AlertCircle,
