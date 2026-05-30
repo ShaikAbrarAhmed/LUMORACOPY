@@ -47,31 +47,31 @@ const coreTeam = [
 ]
 
 const values = [
-  { label: "Build in Public" },
-  { label: "Community First" },
-  { label: "Learn by Doing" },
-  { label: "Growth Mindset" },
-  { label: "Hackathon Culture" },
-  { label: "Students First" },
+  { label: "Build in Public", emoji: "🚀" },
+  { label: "Community First", emoji: "🤝" },
+  { label: "Learn by Doing", emoji: "🛠️" },
+  { label: "Growth Mindset", emoji: "🌱" },
+  { label: "Hackathon Culture", emoji: "💡" },
+  { label: "Students First", emoji: "🎓" },
 ]
 
 /* ─────────────────────── ANIMATION VARIANTS ─────────────────────── */
 
-const fadeUp = {
+const fadeUp: any = {
   hidden: { opacity: 0, y: 28 },
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, delay: i * 0.09, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.55, delay: i * 0.09, ease: "easeOut" },
   }),
 }
 
-const scaleIn = {
+const scaleIn: any = {
   hidden: { opacity: 0, scale: 0.94 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.6, ease: "easeOut" },
   },
 }
 

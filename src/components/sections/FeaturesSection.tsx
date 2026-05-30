@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, type MouseEvent, type ReactNode } from "react"
 import {
   CheckCircle, Code2, Flame, Users, Zap,
   TerminalSquare, Video, BookOpen, AlertCircle,
@@ -44,7 +44,7 @@ const journeySteps = [
 
 /* ─── 3D tilt hook ──────────────────────────────────────────── */
 function use3DTilt(strength = 12) {
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement | null>(null)
   const rawX = useMotionValue(0)
   const rawY = useMotionValue(0)
   const rotateX = useSpring(useTransform(rawY, [-0.5, 0.5], [strength, -strength]), { stiffness: 260, damping: 28 })
@@ -61,7 +61,7 @@ function use3DTilt(strength = 12) {
 }
 
 /* ─── Card wrapper ──────────────────────────────────────────── */
-function Card3D({ children, strength = 12, className = "" }) {
+function Card3D({ children, strength = 12, className = "" }: { children: ReactNode; strength?: number; className?: string }) {
   const t = use3DTilt(strength)
   return (
     <motion.div
@@ -350,8 +350,10 @@ function Demo6() {
           </div>
         </motion.div>
         {/* Celebration confetti */}
-        {[["#f472b6", "-30px", "80px", 0.2], ["#facc15", "40px", "-60px", 0.05], ["#60a5fa", "10px", "40px", 0.6],
-        ["#34d399", "60px", "-20px", 0.8], ["#f97316", "-20px", "60px", 0.35]].map(([col, x1, x2, delay], i) => (
+        {([
+          ["#f472b6", "-30px", "80px", 0.2], ["#facc15", "40px", "-60px", 0.05], ["#60a5fa", "10px", "40px", 0.6],
+          ["#34d399", "60px", "-20px", 0.8], ["#f97316", "-20px", "60px", 0.35],
+        ] as [string, string, string, number][]).map(([col, x1, x2, delay], i) => (
           <motion.div key={i}
             animate={{ y: ["-10%", "110%"], x: [x1, x2], opacity: [0, 1, 1, 0], rotate: [0, 360] }}
             transition={{ duration: 2.2 + i * 0.25, repeat: Infinity, delay, ease: "easeIn" }}
@@ -482,8 +484,8 @@ export default function FeaturesSection() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const idx = parseInt(entry.target.dataset.index, 10)
+          if (entry.isIntersecting && entry.target instanceof HTMLElement) {
+            const idx = parseInt(entry.target.dataset.index ?? "0", 10)
             setActiveStep(idx)
           }
         })
