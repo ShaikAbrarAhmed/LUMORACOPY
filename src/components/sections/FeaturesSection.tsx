@@ -51,8 +51,9 @@ function use3DTilt(strength = 12) {
   const rotateY = useSpring(useTransform(rawX, [-0.5, 0.5], [-strength, strength]), { stiffness: 260, damping: 28 })
 
   const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const r = ref.current?.getBoundingClientRect()
-    if (!r) return
+   const current = ref.current
+    if (!current) return
+    const r = current.getBoundingClientRect()
     rawX.set((e.clientX - r.left) / r.width - 0.5)
     rawY.set((e.clientY - r.top) / r.height - 0.5)
   }
