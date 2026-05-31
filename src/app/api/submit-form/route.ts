@@ -69,14 +69,12 @@ export async function POST(req: Request) {
         `,
       });
 
-      if (error) {
-        console.error("Resend API returned an error:", error);
-        throw new Error(error.message);
-      }
-    } catch (emailError) {
-      console.error("Error sending email:", emailError);
-      throw new Error("Failed to send email");
-    }
+   if (error) {
+  console.error("Resend API returned an error:", error);
+}
+} catch (emailError) {
+  console.error("Error sending email:", emailError);
+}
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
