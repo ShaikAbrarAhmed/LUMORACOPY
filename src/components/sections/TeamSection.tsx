@@ -42,7 +42,7 @@ const coFounders = [
 const coreTeam = [
   { name: "Yuvi", role: "Content & Brand Lead", initial: "Y", image: "/team/Yuvi.jpeg", linkedin: "https://www.linkedin.com/in/yuvaraj-dudukuru/", github: "https://github.com/yuvaraj-dudukuru" },
   { name: "Rajitha", role: "Founding Member & Innovation Lead", initial: "R", image: "/team/Raji2.jpeg" },
-  { name: "Shruthi", role: "Design Lead", initial: "S", image: "/team/Sruthi.jpeg", linkedin: "https://www.linkedin.com/in/sruthi-kakarla" },
+  { name: "Sruthi", role: "Design Lead", initial: "S", image: "/team/Sruthi.jpeg", linkedin: "https://www.linkedin.com/in/sruthi-kakarla" },
   { name: "Jassi", role: "Community Lead", initial: "J", image: "/team/Jasmeetg.jpeg", linkedin: "https://www.linkedin.com/in/sardar-jasmeeth-singh-raj" },
 ]
 
