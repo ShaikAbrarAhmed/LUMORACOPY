@@ -47,12 +47,12 @@ const coreTeam = [
 ]
 
 const values = [
-  { label: "Build in Public", emoji: "🚀" },
-  { label: "Community First", emoji: "🤝" },
-  { label: "Learn by Doing", emoji: "🛠️" },
-  { label: "Growth Mindset", emoji: "🌱" },
-  { label: "Hackathon Culture", emoji: "💡" },
-  { label: "Students First", emoji: "🎓" },
+  { label: "Build in Public"},
+  { label: "Community First"},
+  { label: "Learn by Doing"},
+  { label: "Growth Mindset"},
+  { label: "Hackathon Culture"},
+  { label: "Students First"},
 ]
 
 /* ─────────────────────── ANIMATION VARIANTS ─────────────────────── */
@@ -330,12 +330,7 @@ export default function TeamSection() {
           className="text-center max-w-4xl mx-auto"
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-50 border border-sky-100 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-            <span className="text-sky-600 text-xs font-semibold uppercase tracking-[0.2em]">
-              Meet The Team
-            </span>
-          </div>
+          
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-[-0.04em] leading-[1.08] text-[#0F172A]">
             Meet the Builders{" "}
