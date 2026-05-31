@@ -583,7 +583,7 @@ export default function TeamSection() {
                   cursor-default select-none
                 "
               >
-                <span className="text-xl leading-none">{value.emoji}</span>
+                
                 <span className="text-sm font-semibold text-[#1E293B]">
                   {value.label}
                 </span>
