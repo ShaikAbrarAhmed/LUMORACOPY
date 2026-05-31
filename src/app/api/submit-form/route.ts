@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import * as admin from "firebase-admin";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+
 
 // Initialize Firebase Admin if not already initialized
 if (!admin.apps.length) {
@@ -24,6 +24,7 @@ const db = admin.firestore();
 
 export async function POST(req: Request) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const data = await req.json();
     const { name, email, cohort, college, phone, message } = data;
 

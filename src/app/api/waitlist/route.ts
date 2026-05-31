@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import * as admin from "firebase-admin";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+
 
 if (!admin.apps.length) {
   try {
@@ -22,6 +22,7 @@ const db = admin.firestore();
 
 export async function POST(req: Request) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY!);
     const data = await req.json();
     const { email } = data;
 
