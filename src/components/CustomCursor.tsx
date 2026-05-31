@@ -39,11 +39,11 @@ export default function CustomCursor() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: `
+      {/* <style dangerouslySetInnerHTML={{ __html: `
         * {
           cursor: none !important;
         }
-      `}} />
+      `}} /> */}
       
       {/* Outer trailing circle */}
       <motion.div

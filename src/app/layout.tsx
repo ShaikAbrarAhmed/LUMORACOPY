@@ -3,7 +3,7 @@ import { Inter, Outfit, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import AuthSessionProvider from "@/components/auth/AuthSessionProvider";
 import WaterBubbleBg from "@/components/WaterBubbleBg";
-import CustomCursor from "@/components/CustomCursor";
+// import CustomCursor from "@/components/CustomCursor";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-heading" });
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${outfit.variable} ${playfair.variable} font-sans min-h-screen bg-background text-foreground antialiased selection:bg-[#0EA5E9]/20 selection:text-foreground relative`}>
-        <CustomCursor />
+        {/* <CustomCursor /> */}
         <WaterBubbleBg />
         <div className="relative z-10">
           <AuthSessionProvider>

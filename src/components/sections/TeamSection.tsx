@@ -14,7 +14,7 @@ const founder = {
   role: "Founder",
   tagline: "Building the ecosystem I wish existed when I started.",
   initial: "A",
-  image: "team/abrar.png",
+  image: "/team/abrar.png",
   linkedin: "https://www.linkedin.com/in/shaikabrarahmed/",
   github: "https://github.com/ShaikAbrarAhmed",
 }
