@@ -41,19 +41,20 @@ export async function POST(req: Request) {
 
     const adminEmail = process.env.ADMIN_EMAIL || "admin@example.com";
     
-    try {
-      const { error } = await resend.emails.send({
-        from: "Lumora Waitlist <onboarding@resend.dev>",
-        to: [adminEmail],
-        subject: `New Waitlist Signup: ${email}`,
-        html: `<p>A new user joined the waitlist: <strong>${email}</strong></p>`,
-      });
+   try {
+  const { error } = await resend.emails.send({
+    from: "Lumora Waitlist <onboarding@resend.dev>",
+    to: [adminEmail],
+    subject: `New Waitlist Signup: ${email}`,
+    html: `<p>A new user joined the waitlist: <strong>${email}</strong></p>`,
+  });
 
-      if (error) throw new Error(error.message);
-    } catch (emailError) {
-      console.error("Error sending email:", emailError);
-      throw new Error("Failed to send email");
-    }
+  if (error) {
+    console.error("Resend Error:", error);
+  }
+} catch (emailError) {
+  console.error("Error sending email:", emailError);
+}
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
