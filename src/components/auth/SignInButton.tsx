@@ -15,27 +15,27 @@ export default function SignInButton() {
 
   if (session && session.user) {
     return (
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3">
         <div className="flex items-center gap-2">
           {session.user.image && (
             <img
               src={session.user.image}
               alt="Profile"
-              className="w-8 h-8 rounded-full border border-sky-200"
+              className="w-7 h-7 rounded-full border border-border"
             />
           )}
-          <span className="text-sm font-medium text-slate-700 hidden md:inline-block">
+          <span className="text-sm font-medium text-muted-foreground hidden lg:inline-block">
             {session.user.name}
           </span>
         </div>
         <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           onClick={() => signOut()}
-          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-slate-800 rounded-full hover:bg-slate-900 transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
         >
-          <LogOut className="w-4 h-4" />
-          Sign Out
+          <LogOut className="w-3.5 h-3.5" />
+          Logout
         </motion.button>
       </div>
     );
@@ -43,13 +43,13 @@ export default function SignInButton() {
 
   return (
     <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
       onClick={() => signIn("google")}
-      className="flex items-center gap-2 px-5 py-2 text-sm font-medium text-white bg-sky-500 rounded-full hover:bg-sky-600 shadow-md shadow-sky-200 transition-colors"
+      className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
     >
-      <LogIn className="w-4 h-4" />
-      Sign In
+      <LogIn className="w-3.5 h-3.5" />
+      Login
     </motion.button>
   );
 }

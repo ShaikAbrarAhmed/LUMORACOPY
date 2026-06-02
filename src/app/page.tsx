@@ -1,10 +1,10 @@
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
+import { IntroScreen } from "@/components/IntroScreen"
 
 import HeroSection from "@/components/sections/HeroSection"
-import StorySection from "@/components/sections/StorySection"
-
-import { IntroScreen } from "@/components/IntroScreen"
+import { ProblemSection } from "@/components/sections/ProblemSection"
+import { CTASection } from "@/components/sections/CTASection"
 
 export default function Home() {
   return (
@@ -15,8 +15,14 @@ export default function Home() {
         <Navbar />
 
         <div className="flex-1">
+          {/* 1. Hero */}
           <HeroSection />
-          <StorySection />
+
+          {/* 2. The Problem */}
+          <ProblemSection />
+
+          {/* 3. Call to Action */}
+          <CTASection />
         </div>
 
         <Footer />

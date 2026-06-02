@@ -1,244 +1,266 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { MessageSquare, Zap, Target } from "lucide-react"
-import Image from "next/image"
+import {
+  Users, Compass, Code2, Trophy, Calendar,
+  GitPullRequest, MessageSquare, Target, Sparkles
+} from "lucide-react"
+import { useMembership } from "@/components/auth/MembershipContext"
+import { CommunityCardSkeleton, CommunityActivitySkeleton } from "@/components/ui/Skeleton"
 
-const chatMessages = [
-  { sender: "Abrar", time: "Just now", text: "Beginners deserve clarity, not confusion 🚀", align: "left", avatar: "/team/Abrar.png", initial: "A" },
-  { sender: "Ashwini", time: "2m ago", text: "Let’s build the kind of community we never had while learning 💙", align: "right", avatar: "/team/Ashwini2.jpeg", initial: "A" },
-  { sender: "Yuvaraj", time: "5m ago", text: "Imagine how many students we can help stay consistent ✨", align: "left", avatar: "/team/Yuvi.jpeg", initial: "Y" },
-  { sender: "Mounika", time: "Today", text: "No more learning alone. That’s the goal 🌱", align: "right", avatar: "/team/Mouni2.jpeg", initial: "M" },
-  { sender: "Rajitha & Jasmeet", time: "Team Chat", text: "Lumora is for every student who feels lost but still wants to grow 💫", align: "left", avatar: "/team/Raji2.jpeg", initial: "R&J" },
-  { sender: "Sruthi", time: "Today", text: "We’re creating a space where beginners finally feel seen ✨", align: "right", avatar: "/team/Sruthi.jpeg", initial: "S" },
-]
+/* ─── Ecosystem Network Visualizer ───────────────────────────── */
+function EcosystemNetwork() {
+  const nodes = [
+    { name: "Students", icon: Users, color: "text-primary", border: "border-primary/20", bg: "bg-primary/5", x: "77.5%", y: "40%", dx: 310, dy: 160 },
+    { name: "Mentors", icon: Compass, color: "text-secondary", border: "border-secondary/20", bg: "bg-secondary/5", x: "20%", y: "30%", dx: 80, dy: 120 },
+    { name: "Projects", icon: Code2, color: "text-accent", border: "border-accent/20", bg: "bg-accent/5", x: "70%", y: "75%", dx: 280, dy: 300 },
+    { name: "Hackathons", icon: Trophy, color: "text-amber-500", border: "border-amber-500/20", bg: "bg-amber-500/5", x: "17.5%", y: "65%", dx: 70, dy: 260 },
+    { name: "Events", icon: Calendar, color: "text-primary", border: "border-primary/20", bg: "bg-primary/5", x: "45%", y: "16.25%", dx: 180, dy: 65 },
+    { name: "Collaborations", icon: GitPullRequest, color: "text-success", border: "border-success/20", bg: "bg-success/5", x: "52.5%", y: "85%", dx: 210, dy: 340 },
+  ]
 
-export default function CommunitySection() {
   return (
-    <section
-      id="community"
-      className="relative overflow-hidden py-32 bg-[#F7FBFF]"
-    >
+    <div className="relative w-full aspect-square max-w-[400px] mx-auto flex items-center justify-center bg-transparent">
 
-      {/* ================= BACKGROUND ================= */}
-
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-
-        {/* Glow */}
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-sky-100/40 blur-[120px] rounded-full" />
-
-        {/* Particles */}
-        {[...Array(30)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.2, 0.6, 0.2],
-            }}
-            transition={{
-              duration: 5 + i,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute rounded-full bg-sky-300/40 blur-[1px]"
-            style={{
-              width: `${(i % 4) + 2}px`,
-              height: `${(i % 4) + 2}px`,
-              top: `${(i * 13) % 100}%`,
-              left: `${(i * 17) % 100}%`,
-            }}
+      {/* Background SVG connections */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 400 400">
+        {/* Draw connections from center (200,200) to each node */}
+        {nodes.map((node, i) => (
+          <motion.line
+            key={`center-${i}`}
+            x1="200"
+            y1="200"
+            x2={node.dx}
+            y2={node.dy}
+            stroke="currentColor"
+            className={node.color}
+            strokeWidth="1.5"
+            strokeDasharray="4 4"
+            opacity="0.2"
+            initial={{ pathLength: 0 }}
+            whileInView={{ pathLength: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: i * 0.1 }}
           />
         ))}
+
+        {/* Web connections between nodes */}
+        <line x1="310" y1="160" x2="280" y2="300" stroke="currentColor" className="text-border" strokeWidth="1" opacity="0.25" />
+        <line x1="80" y1="120" x2="70" y2="260" stroke="currentColor" className="text-border" strokeWidth="1" opacity="0.25" />
+        <line x1="180" y1="70" x2="310" y2="160" stroke="currentColor" className="text-border" strokeWidth="1" opacity="0.25" />
+        <line x1="180" y1="70" x2="80" y2="120" stroke="currentColor" className="text-border" strokeWidth="1" opacity="0.25" />
+        <line x1="70" y1="260" x2="210" y2="340" stroke="currentColor" className="text-border" strokeWidth="1" opacity="0.25" />
+        <line x1="280" y1="300" x2="210" y2="340" stroke="currentColor" className="text-border" strokeWidth="1" opacity="0.25" />
+      </svg>
+
+      {/* Central Hub Node */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+        <motion.div
+          animate={{ scale: [1, 1.06, 1] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="relative w-20 h-20 rounded-full bg-card border border-primary/20 flex items-center justify-center shadow-md shadow-primary/5"
+        >
+          {/* Inner pulse */}
+          <div className="absolute inset-0 rounded-full bg-primary/5 animate-ping opacity-75" />
+          <span className="font-heading font-bold text-xs tracking-wider text-primary uppercase">Ecosystem</span>
+        </motion.div>
       </div>
 
-      {/* ================= MAIN CONTENT ================= */}
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-
-          {/* ================= LEFT ================= */}
-
+      {/* Outer Nodes */}
+      {nodes.map((node, idx) => {
+        const Icon = node.icon
+        return (
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            key={node.name}
+            style={{
+              left: node.x,
+              top: node.y,
+              transform: "translate(-50%, -50%)"
+            }}
+            animate={{
+              y: [0, -6 - (idx % 3), 0],
+              x: [0, 4 + (idx % 2), 0]
+            }}
+            transition={{
+              duration: 5 + idx,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            whileHover={{ scale: 1.06 }}
+            className={`absolute z-20 flex items-center gap-1.5 px-3 py-1.5 bg-card border ${node.border} rounded-full shadow-sm cursor-default select-none`}
           >
-
-            <span className="text-sky-500 uppercase tracking-[0.3em] text-xs font-semibold">
-              OUR STORY
-            </span>
-
-            <h2 className="mt-5 text-5xl md:text-6xl font-semibold tracking-[-0.06em] leading-[1] text-[#0F172A]">
-              We built the guidance
-              <br />
-              we once needed.
-            </h2>
-
-            <div className="mt-10 space-y-8">
-
-              <p className="text-xl leading-relaxed text-[#64748B]">
-                Most of us came from Tier-2 and Tier-3 colleges
-                where learning tech often felt confusing,
-                isolating, and directionless.
-              </p>
-
-              <p className="text-xl leading-relaxed text-[#64748B]">
-                There were endless tutorials but very little
-                clarity, mentorship, or practical exposure.
-              </p>
-
-              <p className="text-xl leading-relaxed text-[#64748B]">
-                So we started Lumora — a beginner-first ecosystem
-                designed to help students learn practical skills,
-                build real projects, stay consistent, and grow
-                with a supportive community beside them.
-              </p>
-
+            <div className={`w-5 h-5 rounded-full ${node.bg} flex items-center justify-center`}>
+              <Icon className={`w-3 h-3 ${node.color}`} />
             </div>
-
-            {/* Points */}
-
-            <ul className="mt-16 space-y-10">
-
-              {[
-                {
-                  icon: MessageSquare,
-                  title: "Learn Together",
-                  desc: "Connect with students facing the same struggles and journey as you.",
-                },
-
-                {
-                  icon: Zap,
-                  title: "Get Real Guidance",
-                  desc: "Receive mentorship and support instead of learning alone.",
-                },
-
-                {
-                  icon: Target,
-                  title: "Stay Consistent",
-                  desc: "Build confidence through accountability and growth.",
-                },
-              ].map((item, i) => (
-                <li key={i} className="flex gap-5">
-
-                  <div
-                    className="
-                      w-14 h-14 rounded-2xl
-                      bg-white border border-sky-100
-                      flex items-center justify-center
-                      shrink-0 shadow-sm
-                    "
-                  >
-                    <item.icon
-                      className="h-6 w-6 text-sky-500"
-                      strokeWidth={1.8}
-                    />
-                  </div>
-
-                  <div>
-
-                    <h4 className="font-semibold text-lg text-[#0F172A] mb-2">
-                      {item.title}
-                    </h4>
-
-                    <p className="text-[#64748B] leading-relaxed">
-                      {item.desc}
-                    </p>
-
-                  </div>
-
-                </li>
-              ))}
-            </ul>
-
+            <span className="text-[11px] font-semibold text-foreground">{node.name}</span>
           </motion.div>
+        )
+      })}
+    </div>
+  )
+}
 
-          {/* ================= RIGHT ================= */}
+/* ─── Community Feature Cards Data ───────────────────────────── */
+const communityFeatures = [
+  {
+    title: "Daily Discussions",
+    description: "Engage in topics on architecture, languages, and technical concepts.",
+    icon: MessageSquare,
+    color: "text-primary",
+    bg: "bg-primary/5"
+  },
+  {
+    title: "Project Showcases",
+    description: "Share what you ship, ask for critiques, and inspect peer codebases.",
+    icon: Code2,
+    color: "text-accent",
+    bg: "bg-accent/5"
+  },
+  {
+    title: "Hackathons & Challenges",
+    description: "Team up in time-boxed sprint hackathons to test and scale designs.",
+    icon: Trophy,
+    color: "text-amber-500",
+    bg: "bg-amber-500/5"
+  },
+  {
+    title: "Accountability Groups",
+    description: "Participate in small groups to maintain building consistency.",
+    icon: Target,
+    color: "text-secondary",
+    bg: "bg-secondary/5"
+  },
+  {
+    title: "Peer Learning",
+    description: "Join co-working voice channels and participate in code reviews.",
+    icon: Users,
+    color: "text-primary",
+    bg: "bg-primary/5"
+  },
+  {
+    title: "Networking & Mentorship",
+    description: "Make connections with technical leaders and software founders.",
+    icon: Sparkles,
+    color: "text-success",
+    bg: "bg-success/5"
+  }
+]
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative"
-          >
+/* ─── Main Section Component ─────────────────────────────────── */
+export default function CommunitySection() {
+  const { requireMembership } = useMembership()
+  const [isLoading, setIsLoading] = useState(true)
 
-            <div
-              className="
-                rounded-[40px]
-                border border-sky-100
-                p-8
-                shadow-[0_20px_80px_rgba(125,211,252,0.10)]
-                relative bg-white/80 backdrop-blur-2xl
-                overflow-hidden
-              "
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 600)
+    return () => clearTimeout(timer)
+  }, [])
+
+  return (
+    <section id="community" className="relative py-24 md:py-36 overflow-hidden bg-transparent">
+
+      {/* Background radial elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-secondary/4 rounded-full blur-[130px]" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/3 rounded-full blur-[110px]" />
+      </div>
+
+      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8">
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-center">
+
+          {/* ================= LEFT COLUMN: Network Visual ================= */}
+          <div className="lg:col-span-5 flex justify-center items-center relative min-h-[360px]">
+            {isLoading ? (
+              <CommunityActivitySkeleton />
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="w-full"
+              >
+                <EcosystemNetwork />
+              </motion.div>
+            )}
+          </div>
+
+          {/* ================= RIGHT COLUMN: Content & Features ================= */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="space-y-4"
             >
+              <span className="inline-block px-3.5 py-1 rounded-full text-primary text-[10px] font-bold uppercase tracking-wider bg-primary/5 border border-primary/10">
+                Belonging
+              </span>
 
-              {/* Pattern */}
-              <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle,#0ea5e9_1px,transparent_1px)] [background-size:24px_24px]" />
+              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground leading-tight">
+                Learn Together. Build Together. Grow Together.
+              </h2>
 
-              {/* Glow */}
-              <div className="absolute top-10 right-10 w-40 h-40 bg-sky-100/40 blur-[80px] rounded-full" />
+              <p className="text-muted-foreground text-sm md:text-base leading-relaxed font-light">
+                The best opportunities often come from the people around you. Lumora brings students, mentors, builders, and dreamers together in one collaborative ecosystem designed for mutual growth.
+              </p>
 
-              {/* Chats */}
-              <div className="relative z-10 flex flex-col gap-5">
-                {chatMessages.map((msg, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.5, delay: i * 0.15, type: "spring", stiffness: 100 }}
-                    className={`flex w-full ${msg.align === "right" ? "justify-end" : "justify-start"}`}
-                  >
-                    <div className={`flex items-end gap-3 max-w-[90%] ${msg.align === "right" ? "flex-row-reverse" : "flex-row"}`}>
-                      
-                      {/* Avatar Mini */}
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full border border-sky-200 overflow-hidden shadow-sm relative bg-sky-50 flex items-center justify-center text-[10px] font-bold text-sky-500">
-                        {msg.avatar ? (
-                          <Image src={msg.avatar} alt={msg.sender} fill className="object-cover" />
-                        ) : (
-                          msg.initial
-                        )}
-                      </div>
-
-                      {/* Message Bubble */}
-                      <div className={`flex flex-col ${msg.align === "right" ? "items-end" : "items-start"}`}>
-                        <div className="flex items-baseline gap-2 mb-1 px-1">
-                          <span className="text-xs font-semibold text-slate-700">{msg.sender}</span>
-                          <span className="text-[10px] text-slate-400">{msg.time}</span>
-                        </div>
-                        
-                        <div className={`
-                          px-4 py-2.5 rounded-2xl text-sm leading-relaxed shadow-[0_4px_20px_rgba(15,23,42,0.04)] relative
-                          ${msg.align === "left" 
-                            ? "bg-white border border-sky-100 text-slate-700 rounded-bl-none" 
-                            : "bg-gradient-to-br from-sky-500 to-violet-500 text-white border border-sky-400/20 rounded-br-none"
-                          }
-                        `}>
-                          {msg.text}
-                        </div>
-                      </div>
-
-                    </div>
-                  </motion.div>
-                ))}
-
-                {/* Status */}
-                <div className="pt-4 flex items-center justify-end gap-3">
-                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
-                  <p className="text-[#64748B] text-sm font-medium">
-                    Team Lumora Building Live
-                  </p>
-                </div>
-
+              <div className="pt-4 flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={() => {
+                    requireMembership("join_community", () => {
+                      alert("Welcome! You have successfully joined the Lumora Community ecosystem.")
+                    })
+                  }}
+                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-6 py-3.5 text-xs font-semibold bg-primary text-white hover:bg-primary/95 transition-all duration-200 shadow-sm shadow-primary/25 hover:shadow-md hover:-translate-y-0.5 cursor-pointer text-center border-none"
+                >
+                  Join Community
+                </button>
               </div>
+            </motion.div>
 
+            {/* Feature Blocks */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 md:mt-10">
+              {isLoading ? (
+                Array.from({ length: 6 }).map((_, i) => (
+                  <CommunityCardSkeleton key={i} />
+                ))
+              ) : (
+                communityFeatures.map((feat, i) => {
+                  const Icon = feat.icon
+                  return (
+                    <motion.div
+                      key={feat.title}
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.08 }}
+                      className="p-4 bg-card/45 backdrop-blur-sm border border-border/40 hover:border-primary/20 rounded-2xl flex gap-3 transition-colors duration-200"
+                    >
+                      <div className={`w-8 h-8 rounded-xl ${feat.bg} flex items-center justify-center shrink-0`}>
+                        <Icon className={`w-4 h-4 ${feat.color}`} />
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-semibold text-foreground mb-1">
+                          {feat.title}
+                        </h4>
+                        <p className="text-[11px] text-muted-foreground leading-relaxed font-light">
+                          {feat.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )
+                })
+              )}
             </div>
 
-          </motion.div>
+          </div>
 
         </div>
 

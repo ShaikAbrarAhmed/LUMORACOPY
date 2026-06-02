@@ -9,8 +9,8 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
           <div className="col-span-1 md:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-6 group inline-flex">
-              <Logo size="md" />
+            <Link href="/" className="flex items-center gap-2.5 mb-6 group inline-flex">
+              <Logo size="md" className="transition-transform duration-300 group-hover:scale-105" />
               <span className="font-heading font-bold text-xl tracking-tight text-foreground">Lumora</span>
             </Link>
             <p className="text-muted-foreground text-sm max-w-sm leading-relaxed">
@@ -33,16 +33,16 @@ export function Footer() {
             <h3 className="font-heading font-medium mb-6 text-foreground">Ecosystem</h3>
             <ul className="space-y-4">
               <li>
-                <Link href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</Link>
+                <Link href="/features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</Link>
               </li>
               <li>
-                <Link href="#mentors" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Mentors</Link>
+                <Link href="/mentors" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Mentors</Link>
               </li>
               <li>
-                <Link href="#cohorts" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Cohorts</Link>
+                <Link href="/cohorts" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Cohorts</Link>
               </li>
               <li>
-                <Link href="#community" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Community</Link>
+                <Link href="/community" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Community</Link>
               </li>
             </ul>
           </div>

@@ -29,44 +29,56 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-brand-purple: #A88BFF;
-  --color-brand-blue: #6FA8FF;
-  --color-brand-cyan: #3DD9FF;
+  --color-brand-purple: #818CF8;
+  --color-brand-blue: #4F46E5;
+  --color-brand-cyan: #F59E0B;
+
+  /* Overriding Tailwind sky colors to transition to the new color identity seamlessly */
+  --color-sky-50: #FAFBFF;   /* Surface color */
+  --color-sky-100: #E2E8F0;  /* Light gray / border color */
+  --color-sky-200: #C7D2FE;  /* Light secondary tint */
+  --color-sky-300: #818CF8;  /* Secondary color */
+  --color-sky-400: #6366F1;  /* Slight primary-secondary blend */
+  --color-sky-500: #4F46E5;  /* Primary color */
+  --color-sky-600: #4338CA;  /* Darker primary */
+  --color-sky-700: #3730A3;  /* Even darker primary */
+  --color-sky-800: #312E81;
+  --color-sky-900: #0F172A;  /* Dark text color */
 }
 
 :root {
-  /* Light Theme Palette - Lumora Final Brand */
-  --background: #FFFFFF;
+  /* Premium Light Theme Palette - Lumorous Space Brand */
+  --background: #FAFBFF;
   --foreground: #0F172A;
   
-  --card: #F8FAFC;
+  --card: #FFFFFF;
   --card-foreground: #0F172A;
   
-  --popover: #FFFFFF;
+  --popover: #FAFBFF;
   --popover-foreground: #0F172A;
   
-  /* Primary Accent: Light Blue */
-  --primary: #0EA5E9;
+  /* Primary Accent: Indigo-blue */
+  --primary: #4F46E5;
   --primary-foreground: #FFFFFF;
   
-  /* Subtle secondary surfaces */
-  --secondary: #F1F5F9;
-  --secondary-foreground: #0F172A;
+  /* Secondary Accent: Lumora Gold */
+  --secondary: #F59E0B;
+  --secondary-foreground: #FFFFFF;
   
-  --muted: #F8FAFC;
+  --muted: #F1F5F9;
   --muted-foreground: #64748B;
   
-  --accent: #F1F5F9;
+  --accent: #F59E0B;
   --accent-foreground: #0F172A;
   
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
   
-  --border: rgba(15, 23, 42, 0.1);
-  --input: rgba(15, 23, 42, 0.1);
-  --ring: rgba(14, 165, 233, 0.2);
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: rgba(79, 70, 229, 0.25);
   
-  --radius: 0.75rem;
+  --radius: 1.25rem;
 }
 
 @layer base {
@@ -86,11 +98,43 @@
     @apply font-heading tracking-tight;
   }
   
-  /* Refined minimal glassmorphism (Only used sparingly) */
+  /* Refined minimal glassmorphism */
   .glass {
-    @apply bg-white/[0.02] backdrop-blur-md border border-white/10;
+    @apply bg-background/70 backdrop-blur-lg border border-border/50 shadow-[0_8px_32px_rgba(15,23,42,0.03)];
   }
   .font-fancy {
     font-family: var(--font-fancy), serif;
   }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-sweep::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 20%,
+    rgba(255, 255, 255, 0.7) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2s infinite;
+  content: '';
 }

@@ -11,24 +11,18 @@ export function Logo({
   size = "md",
 }: LogoProps) {
 
-  const sizeMap = {
-    sm: 34,
-    md: 48,
-    lg: 72,
-    xl: 100,
-    "2xl": 140,
-    "3xl": 200,
+  const sizeClasses = {
+    sm: "w-8.5 h-8.5",
+    md: "w-9.5 h-9.5 md:w-12 md:h-12", // Responsive logo
+    lg: "w-14 h-14 md:w-[72px] md:h-[72px]",
+    xl: "w-20 h-20 md:w-[100px] md:h-[100px]",
+    "2xl": "w-28 h-28 md:w-[140px] md:h-[140px]",
+    "3xl": "w-40 h-40 md:w-[200px] md:h-[200px]",
   }
-
-  const dimension = sizeMap[size]
 
   return (
     <div
-      className={`relative flex items-center justify-center ${className}`}
-      style={{
-        width: dimension,
-        height: dimension,
-      }}
+      className={`relative flex items-center justify-center rounded-xl overflow-hidden bg-[#0B1020] border border-white/10 shadow-[0_4px_20px_rgba(11,16,32,0.08)] shrink-0 p-1.5 ${sizeClasses[size]} ${className}`}
     >
       <Image
         src="/logo.png"
@@ -36,7 +30,7 @@ export function Logo({
         fill
         priority
         unoptimized
-        className="object-contain"
+        className="object-contain p-1 transition-transform duration-300"
       />
     </div>
   )

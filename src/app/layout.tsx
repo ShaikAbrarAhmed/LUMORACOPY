@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${outfit.variable} ${playfair.variable} font-sans min-h-screen bg-background text-foreground antialiased selection:bg-[#0EA5E9]/20 selection:text-foreground relative`}>
+      <body className={`${inter.variable} ${outfit.variable} ${playfair.variable} font-sans min-h-screen bg-background text-foreground antialiased selection:bg-primary/20 selection:text-foreground relative`}>
         {/* <CustomCursor /> */}
         <WaterBubbleBg />
         <div className="relative z-10">

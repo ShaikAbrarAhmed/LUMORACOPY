@@ -1,294 +1,159 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
+import { motion } from "framer-motion"
 
-const journeyCards = [
-  {
-    image: "/roadmap.png",
-    title: "STRUCTURED LEARNING",
-    description: "Follow a clear roadmap, not random tutorials.",
-  },
-  {
-    image: "/projects.png",
-    title: "BUILD REAL PROJECTS",
-    description: "Learn by building. Not by endlessly watching.",
-  },
-  {
-    image: "/community.png",
-    title: "COMMUNITY & MENTORSHIP",
-    description:
-      "Grow alongside ambitious students and mentors who genuinely care.",
-  },
-  {
-    image: "/growth.png",
-    title: "CONSISTENCY WINS",
-    description:
-      "Small progress every day creates extraordinary results.",
-  },
-]
+// --- Custom Inline SVGs & Icon Components (Prevents Lucide Turbopack Cache Issues) ---
+const ArrowRightIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+  </svg>
+)
+
+const MessageIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379L12 21l3.62-3.62c1.153-.086 2.294-.213 3.423-.379 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v5.78z" />
+  </svg>
+)
 
 export default function StorySection() {
-  const [activeCardIndex, setActiveCardIndex] = useState(0)
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveCardIndex((prev) => (prev + 1) % journeyCards.length)
-    }, 4000)
-    return () => clearInterval(interval)
-  }, [])
-
   return (
-    <section className="relative overflow-hidden bg-[#F7FBFF] py-32">
+    <section id="story" className="relative overflow-hidden py-32 md:py-40 bg-background border-t border-border/40">
+      
+      {/* Background Soft Glows */}
+      <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-primary/3 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-[10%] right-[-10%] w-[600px] h-[600px] bg-accent/2 rounded-full blur-[165px] pointer-events-none" />
 
-      {/* ================= BACKGROUND ================= */}
-
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-
-        <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-sky-100/40 blur-[120px] rounded-full" />
-
-        {[
-          "Am I learning the right things?",
-          "How do I even start?",
-          "Everyone feels ahead of me.",
-          "I don't want to stay stuck.",
-        ].map((text, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -12, 0],
-              opacity: [0.15, 0.3, 0.15],
-            }}
-            transition={{
-              duration: 6 + i,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="
-              absolute text-sm
-              text-sky-300/60
-              font-medium
-              hidden md:block
-            "
-            style={{
-              top: `${20 + i * 18}%`,
-              left: i % 2 === 0 ? "8%" : "72%",
-            }}
-          >
-            {text}
-          </motion.div>
-        ))}
-      </div>
-
-      {/* ================= CONTENT ================= */}
-
-      <div className="relative z-10">
-
-        <div className="grid lg:grid-cols-2 gap-20 items-center max-w-7xl mx-auto px-6">
-
-          {/* LEFT */}
-
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="uppercase tracking-[0.3em] text-sky-500 text-xs font-semibold">
-              Why We Started Lumora
-            </span>
-
-            <h2 className="mt-6 text-4xl md:text-5xl font-semibold tracking-[-0.03em] leading-tight text-[#0F172A]">
-              We built the
-              <br />
-              guidance we
-              <br />
-              never had.
-            </h2>
-
-            <p className="mt-8 text-xl text-[#64748B] leading-relaxed max-w-xl">
-              Most of us came from Tier-2 and Tier-3 colleges where learning tech
-              often felt confusing, isolating, and directionless.
-            </p>
-
-            <p className="mt-6 text-lg text-[#64748B] max-w-xl">
-              So instead of creating another course platform, we built an ecosystem
-              focused on clarity, mentorship, projects, accountability, and growth.
-            </p>
-
-            <div className="mt-12 relative min-h-[480px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeCardIndex}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
-                  className="
-                    bg-white
-                    border border-sky-100
-                    rounded-[28px]
-                    overflow-hidden
-                    shadow-[0_20px_60px_rgba(14,165,233,0.08)]
-                    absolute
-                    w-full
-                  "
-                >
-                  <div className="h-[300px] relative bg-sky-50">
-                    <Image
-                      src={journeyCards[activeCardIndex].image}
-                      alt={journeyCards[activeCardIndex].title}
-                      fill
-                      className="object-contain p-4"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold tracking-[-0.04em] text-[#0F172A]">
-                      {journeyCards[activeCardIndex].title}
-                    </h3>
-                    <p className="mt-3 text-[#64748B] leading-relaxed">
-                      {journeyCards[activeCardIndex].description}
-                    </p>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-
-              {/* Indicators */}
-              <div className="absolute -bottom-10 left-0 right-0 flex justify-center space-x-2">
-                {journeyCards.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveCardIndex(idx)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      idx === activeCardIndex ? "w-6 bg-sky-500" : "w-2 bg-sky-200"
-                    }`}
-                    aria-label={`Go to slide ${idx + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* RIGHT */}
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-
-            <motion.div
-              animate={{
-                y: [0, -12, 0],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-              }}
-              className="
-              bg-white
-              border border-sky-100
-              rounded-[32px]
-              p-8
-              shadow-[0_30px_80px_rgba(14,165,233,0.08)]
-            "
-            >
-
-              <div className="space-y-6">
-
-                <div className="flex items-center justify-between">
-                  <span className="font-semibold text-[#0F172A]">
-                    Lumora Ecosystem
-                  </span>
-
-                  <span className="text-xs text-green-500">
-                    ● Active
-                  </span>
-                </div>
-
-
-                <div className="bg-sky-50 rounded-2xl p-2">
-                  {/* Provide the path to your video file in the src attribute below (e.g., /your-video.mp4 if placed in the public folder) */}
-                  <video
-                    src="/my-video.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full rounded-xl object-cover aspect-video bg-sky-100"
-                  />
-                </div>
-
-              </div>
-            </motion.div>
-          </motion.div>
-
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        
+        {/* ================= SECTION HEADER ================= */}
+        <div className="max-w-3xl mb-20 md:mb-28">
+          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">
+            OUR STORY
+          </span>
+          <h2 className="text-4xl md:text-6xl font-heading font-bold text-foreground tracking-tight leading-[1.08] mb-6">
+            We Didn't Build Lumorous <br className="hidden md:inline" />
+            Because We Had All The Answers.
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground font-normal leading-relaxed">
+            We built it because we were once confused too.
+          </p>
         </div>
 
-        {/* ================= FINAL STATEMENT ================= */}
+        {/* ================= TWO-COLUMN STORY LAYOUT ================= */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center mb-32">
+          
+          {/* LEFT COLUMN: Founder Visual */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-start">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative w-full max-w-[380px] aspect-[4/5] bg-background border border-border/60 rounded-[32px] p-4 shadow-[0_16px_48px_rgba(15,23,42,0.03)] flex flex-col justify-between group"
+            >
+              {/* Outer decorative light border overlay */}
+              <div className="absolute inset-0 border border-gradient-to-tr from-primary/10 to-accent/10 rounded-[32px] pointer-events-none" />
+              
+              {/* Image Frame */}
+              <div className="relative w-full flex-1 rounded-[24px] overflow-hidden bg-muted">
+                <Image
+                  src="/team/abrar.png"
+                  alt="Abrar Ahmed, Founder of Lumora"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-103"
+                  priority
+                />
+                
+                {/* Floating status tag */}
+                <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold text-foreground shadow-xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  Coding Next.js
+                </div>
+              </div>
 
-        <motion.div
-          initial={{
-            opacity: 0,
-            scale: 0.96,
-          }}
-          whileInView={{
-            opacity: 1,
-            scale: 1,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 1,
-          }}
-          className="mt-48 text-center relative overflow-hidden max-w-5xl mx-auto px-6"
-        >
+              {/* Founder Details Footer */}
+              <div className="pt-4 flex items-center justify-between px-2">
+                <div>
+                  <h4 className="font-bold text-foreground text-sm">Abrar Ahmed</h4>
+                  <p className="text-[10px] text-muted-foreground font-medium tracking-wide uppercase mt-0.5">Founder & Mentor</p>
+                </div>
+                <div className="w-8 h-8 rounded-full bg-muted border border-border/60 flex items-center justify-center text-primary">
+                  <MessageIcon className="w-4 h-4" />
+                </div>
+              </div>
+            </motion.div>
+          </div>
 
-          {/* Glow */}
-          <div className="absolute inset-0 flex items-center justify-center">
+          {/* RIGHT COLUMN: Storytelling content */}
+          <div className="lg:col-span-7 space-y-6 text-muted-foreground text-base leading-relaxed font-normal">
+            
+            <p className="text-lg text-foreground font-semibold leading-relaxed">
+              A few years ago, we were sitting exactly where you are today.
+            </p>
 
-            <div className="w-[450px] h-[450px] bg-sky-200/20 blur-[140px] rounded-full" />
+            <p>
+              We wanted to build software, create dynamic products, and participate in hackathons. But the path forward was completely blank. Coming from a Tier-3 college, we didn't have access to startup networks or industry veterans.
+            </p>
 
-            <div className="absolute left-0 top-0 h-full w-[220px] bg-gradient-to-r from-black/[0.04] to-transparent" />
+            <p>
+              Instead of structure, we found a flood of recommendations. We bought online courses, watched endless 40-hour playlist tutorials, and copy-pasted boilerplate code. We fell directly into <span className="text-primary font-semibold">tutorial hell</span>—feeling highly productive while watching a video, but completely freezing when opening an empty code editor.
+            </p>
 
-            <div className="absolute right-0 top-0 h-full w-[220px] bg-gradient-to-l from-white to-transparent" />
+            <p>
+              We realized that the traditional education system is built on memorizing syntax, not solving real problems. There was no step-by-step roadmap to build confidence, and no peer community to critique pull requests, discuss system designs, or build products alongside.
+            </p>
+
+            <p>
+              We realized that this is why we built Lumorous.
+            </p>
+
+            <p>
+              We didn’t design this platform to sell video packages or certificate grids. We created it as a collaborative, mentorship-driven ecosystem where beginners can learn the actual developer mental models, ship real-world projects, and build true engineering confidence alongside other builders.
+            </p>
+
+            {/* Optional CTA Link */}
+            <div className="pt-4">
+              <Link
+                href="/cohorts"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors group cursor-pointer"
+              >
+                Read Our Full Story
+                <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
 
           </div>
 
-          {/* Final Text */}
-          <motion.h2
-            animate={{
-              y: [0, -4, 0],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="
-            relative z-10
-            text-3xl md:text-4xl lg:text-5xl
-            font-semibold
-            tracking-tight
-            leading-tight
-            text-[#0F172A]
-          "
-          >
-            THE RIGHT GUIDANCE
-            <br />
-            CAN COMPLETELY CHANGE
-            <br />
-            SOMEONE'S FUTURE.
-          </motion.h2>
+        </div>
 
-        </motion.div>
+        {/* ================= FINAL QUOTE BLOCK ================= */}
+        <div className="relative border-t border-border/40 pt-20 text-center max-w-4xl mx-auto">
+          
+          {/* Quote Mark background */}
+          <div className="absolute top-[40px] left-1/2 -translate-x-1/2 text-8xl font-fancy font-bold tracking-tight text-primary/5 pointer-events-none select-none">
+            “
+          </div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative z-10 space-y-4"
+          >
+            <p className="text-2xl md:text-3xl font-heading font-medium tracking-tight text-foreground leading-relaxed font-fancy italic">
+              “Every expert was once a beginner. <br />
+              Lumorous exists to make that journey less lonely.”
+            </p>
+            <p className="text-xs text-muted-foreground font-semibold uppercase tracking-widest mt-4">
+              — The Lumora Team
+            </p>
+          </motion.div>
+        </div>
 
       </div>
-
     </section>
   )
 }

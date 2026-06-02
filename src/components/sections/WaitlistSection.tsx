@@ -4,8 +4,10 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, CheckCircle2 } from "lucide-react"
+import { useMembership } from "@/components/auth/MembershipContext"
 
 export function WaitlistSection() {
+  const { requireMembership } = useMembership()
   const [email, setEmail] = useState("")
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle")
 
@@ -13,23 +15,25 @@ export function WaitlistSection() {
     e.preventDefault()
     if (!email) return
 
-    setStatus("submitting")
-    try {
-      const res = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      })
-      
-      if (!res.ok) throw new Error("Failed to join")
-      
-      setStatus("success")
-      setEmail("")
-    } catch (err) {
-      console.error(err)
-      setStatus("idle")
-      alert("Something went wrong. Please try again.")
-    }
+    requireMembership("join_waitlist", async () => {
+      setStatus("submitting")
+      try {
+        const res = await fetch("/api/waitlist", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email }),
+        })
+        
+        if (!res.ok) throw new Error("Failed to join")
+        
+        setStatus("success")
+        setEmail("")
+      } catch (err) {
+        console.error(err)
+        setStatus("idle")
+        alert("Something went wrong. Please try again.")
+      }
+    }, { email })
   }
 
   return (

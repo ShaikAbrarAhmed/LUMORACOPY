@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Link from "next/link"
 const particles = [
   { size: 2, top: "8%", left: "12%" },
   { size: 3, top: "18%", left: "75%" },
@@ -40,20 +41,20 @@ const particles = [
 ]
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#F7FBFF]">
+    <section className="relative min-h-screen overflow-hidden bg-background">
 
       {/* ================= BACKGROUND ================= */}
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
 
         {/* Left Glow */}
-        <div className="absolute top-[-10%] left-[-10%] w-[700px] h-[700px] bg-sky-200/30 blur-[140px] rounded-full" />
+        <div className="absolute top-[-10%] left-[-10%] w-[700px] h-[700px] bg-primary/5 blur-[140px] rounded-full" />
 
         {/* Right Glow */}
-        <div className="absolute bottom-[-20%] right-[-10%] w-[800px] h-[800px] bg-sky-100/40 blur-[180px] rounded-full" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[800px] h-[800px] bg-primary/3 blur-[180px] rounded-full" />
 
         {/* Vertical Beam */}
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[300px] h-full bg-sky-100/20 blur-[120px]" />
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[300px] h-full bg-primary/2 blur-[120px]" />
 
       </div>
 
@@ -71,7 +72,7 @@ export default function HeroSection() {
           absolute left-1/2 top-1/2
           w-[80vw] max-w-[1200px]
           h-[80vw] max-h-[1200px]
-          border border-sky-200/40
+          border border-primary/10
           rounded-full
           -translate-x-1/2 -translate-y-1/2
         "
@@ -90,7 +91,7 @@ export default function HeroSection() {
           absolute left-1/2 top-1/2
           w-[65vw] max-w-[950px]
           h-[65vw] max-h-[950px]
-          border border-sky-100/50
+          border border-primary/10
           rounded-full
           -translate-x-1/2 -translate-y-1/2
         "
@@ -99,33 +100,33 @@ export default function HeroSection() {
 
       {/* ================= PARTICLES ================= */}
 
-<div className="absolute inset-0 overflow-hidden pointer-events-none">
-  {particles.map((particle, i) => (
-    <motion.div
-      key={i}
-      animate={{
-        y: [0, -20, 0],
-        opacity: [0.15, 0.5, 0.15],
-      }}
-      transition={{
-        duration: 5 + i,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-      className="absolute rounded-full bg-sky-300/40"
-      style={{
-        width: `${particle.size}px`,
-        height: `${particle.size}px`,
-        top: particle.top,
-        left: particle.left,
-      }}
-    />
-  ))}
-</div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {particles.map((particle, i) => (
+          <motion.div
+            key={i}
+            animate={{
+              y: [0, -20, 0],
+              opacity: [0.15, 0.5, 0.15],
+            }}
+            transition={{
+              duration: 5 + i,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute rounded-full bg-primary/20"
+            style={{
+              width: `${particle.size}px`,
+              height: `${particle.size}px`,
+              top: particle.top,
+              left: particle.left,
+            }}
+          />
+        ))}
+      </div>
 
       {/* ================= HERO CONTENT ================= */}
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 min-h-screen flex flex-col items-center justify-center text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 min-h-screen flex flex-col items-center justify-start text-center pt-44 md:pt-48">
 
         {/* ================= FLOATING CORE ================= */}
 
@@ -143,11 +144,11 @@ export default function HeroSection() {
           transition={{
             duration: 1.2,
           }}
-          className="relative w-[260px] h-[260px] mb-10 flex items-center justify-center"
+          className="relative w-[260px] h-[260px] mb-16 md:mb-24 flex items-center justify-center"
         >
 
           {/* Outer Glow */}
-          <div className="absolute inset-0 bg-sky-300/20 blur-[100px] rounded-full" />
+          <div className="absolute inset-0 bg-primary/8 blur-[100px] rounded-full" />
 
           {/* Main Orb */}
           <motion.div
@@ -162,9 +163,9 @@ export default function HeroSection() {
             className="
               relative w-[180px] h-[180px]
               rounded-full
-              bg-gradient-to-br from-white to-sky-100
-              border border-white/80
-              shadow-[0_30px_80px_rgba(56,189,248,0.18)]
+              bg-gradient-to-br from-white to-primary/5
+              border border-border/50
+              shadow-[0_20px_50px_rgba(79,70,229,0.06)]
               backdrop-blur-xl
               flex items-center justify-center
             "
@@ -183,7 +184,7 @@ export default function HeroSection() {
               className="
                 absolute inset-3
                 rounded-full
-                border border-sky-200/60
+                border border-primary/15
               "
             />
 
@@ -199,15 +200,15 @@ export default function HeroSection() {
               }}
               className="absolute inset-0"
             >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-sky-400 rounded-full shadow-[0_0_25px_rgba(56,189,248,0.5)]" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-primary rounded-full shadow-[0_0_20px_rgba(79,70,229,0.4)]" />
             </motion.div>
 
             {/* Core */}
             <div className="relative flex items-center justify-center">
 
-              <div className="absolute w-20 h-20 bg-sky-300/20 rounded-full blur-2xl" />
+              <div className="absolute w-20 h-20 bg-primary/10 rounded-full blur-2xl" />
 
-              <div className="w-8 h-8 rounded-full bg-sky-500 shadow-[0_0_35px_rgba(56,189,248,0.6)]" />
+              <div className="w-8 h-8 rounded-full bg-primary shadow-[0_0_30px_rgba(91,95,239,0.4)]" />
 
             </div>
           </motion.div>
@@ -223,15 +224,15 @@ export default function HeroSection() {
             }}
             className="
               absolute left-[-40px] top-[30px]
-              bg-white/80 backdrop-blur-xl
-              border border-white
+              bg-[#FCFCFE]/80 backdrop-blur-xl
+              border border-border/40
               rounded-2xl
               px-4 py-3
-              shadow-lg
+              shadow-[0_4px_20px_rgba(0,0,0,0.02)]
             "
           >
-            <p className="text-xs text-[#64748B]">
-              🚀 Built first project
+            <p className="text-xs text-muted-foreground">
+              Built first project
             </p>
           </motion.div>
 
@@ -246,15 +247,15 @@ export default function HeroSection() {
             }}
             className="
               absolute right-[-40px] bottom-[20px]
-              bg-white/80 backdrop-blur-xl
-              border border-white
+              bg-[#FCFCFE]/80 backdrop-blur-xl
+              border border-border/40
               rounded-2xl
               px-4 py-3
-              shadow-lg
+              shadow-[0_4px_20px_rgba(0,0,0,0.02)]
             "
           >
-            <p className="text-xs text-[#64748B]">
-              💙 Mentor guidance
+            <p className="text-xs text-muted-foreground">
+              Mentor guidance
             </p>
           </motion.div>
 
@@ -281,7 +282,7 @@ export default function HeroSection() {
               absolute top-[10px]
               w-[380px] h-[380px]
               rounded-full
-              bg-sky-200/30
+              bg-primary/4
               blur-[90px]
               z-0
             "
@@ -304,7 +305,7 @@ export default function HeroSection() {
               relative z-10
               uppercase tracking-[0.35em]
               text-[11px]
-              text-sky-500
+              text-primary
               font-semibold
               mb-6
             "
@@ -348,7 +349,7 @@ export default function HeroSection() {
                 font-semibold
                 tracking-[-0.07em]
                 leading-[1]
-                text-[#0F172A]
+                text-foreground
               "
             >
               FROM CONFUSED
@@ -358,8 +359,8 @@ export default function HeroSection() {
 
           </motion.div>
 
-          {/* Learn Build Grow */}
-          <motion.div
+          {/* Description / Subheadline */}
+          <motion.p
             initial={{
               opacity: 0,
               y: 10,
@@ -374,54 +375,38 @@ export default function HeroSection() {
             }}
             className="
               relative z-10
-              flex flex-wrap justify-center items-center
-              gap-4 mt-10
-              text-sm md:text-base
-              font-medium
-              text-[#0F172A]
-            "
-          >
-            <span>Learn</span>
-
-            <span className="text-sky-300">•</span>
-
-            <span>Build</span>
-
-            <span className="text-sky-300">•</span>
-
-            <span>Grow</span>
-
-            <span className="text-sky-300">•</span>
-
-            <span>Belong</span>
-          </motion.div>
-
-          {/* Description */}
-          <motion.p
-            initial={{
-              opacity: 0,
-              y: 10,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              delay: 0.9,
-              duration: 0.8,
-            }}
-            className="
-              relative z-10
               mt-8 max-w-2xl
-              text-[#64748B]
+              text-muted-foreground
               text-base md:text-lg
               leading-relaxed
             "
           >
-            A beginner-first tech ecosystem helping students become
-            confident builders through mentorship, projects,
-            and community-driven growth.
+            A beginner-first ecosystem helping students break into tech through guidance, projects, accountability, and community.
           </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.9,
+              duration: 0.8,
+            }}
+            className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 w-full sm:w-auto"
+          >
+            <Link
+              href="/cohorts"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold bg-primary text-white hover:bg-primary/95 transition-all duration-300 shadow-[0_8px_30px_rgba(91,95,239,0.25)] hover:shadow-[0_8px_35px_rgba(91,95,239,0.4)] hover:-translate-y-0.5 cursor-pointer text-center"
+            >
+              Start Your Journey
+            </Link>
+            <Link
+              href="/problem"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold border border-[#E5E7EB]/80 bg-background/50 hover:bg-[#F7F8FF]/80 backdrop-blur-md text-foreground transition-all duration-300 hover:-translate-y-0.5 cursor-pointer text-center"
+            >
+              Explore Lumora
+            </Link>
+          </motion.div>
 
         </div>
       </div>
