@@ -401,7 +401,7 @@ export default function HeroSection() {
               Start Your Journey
             </Link>
             <Link
-              href="/problem"
+              href="/ProblemSection"
               className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold border border-[#E5E7EB]/80 bg-background/50 hover:bg-[#F7F8FF]/80 backdrop-blur-md text-foreground transition-all duration-300 hover:-translate-y-0.5 cursor-pointer text-center"
             >
               Explore Lumora
