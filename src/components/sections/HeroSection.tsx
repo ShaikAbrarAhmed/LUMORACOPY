@@ -1,7 +1,9 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
 const particles = [
   { size: 2, top: "8%", left: "12%" },
   { size: 3, top: "18%", left: "75%" },
@@ -40,6 +42,18 @@ const particles = [
   { size: 2, top: "20%", left: "10%" },
 ]
 export default function HeroSection() {
+  const router = useRouter()
+  const [isTransitioning, setIsTransitioning] = useState(false)
+
+  const handleExploreClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (e.metaKey || e.ctrlKey || e.button === 1) return
+    e.preventDefault()
+    setIsTransitioning(true)
+    setTimeout(() => {
+      router.push("/features")
+    }, 800)
+  }
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-background">
 
@@ -401,7 +415,8 @@ export default function HeroSection() {
               Start Your Journey
             </Link>
             <Link
-              href="/ProblemSection"
+              href="/features"
+              onClick={handleExploreClick}
               className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold border border-[#E5E7EB]/80 bg-background/50 hover:bg-[#F7F8FF]/80 backdrop-blur-md text-foreground transition-all duration-300 hover:-translate-y-0.5 cursor-pointer text-center"
             >
               Explore Lumora
@@ -410,6 +425,47 @@ export default function HeroSection() {
 
         </div>
       </div>
+
+      <AnimatePresence>
+        {isTransitioning && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-background pointer-events-auto"
+          >
+            <motion.div
+              initial={{ scale: 0.85, opacity: 0, filter: "blur(20px)" }}
+              animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="relative flex flex-col items-center justify-center"
+            >
+              {/* Outer Glow */}
+              <div className="absolute w-[300px] h-[300px] bg-primary/20 blur-[100px] rounded-full" />
+              
+              {/* Center Orbiting Ring */}
+              <div className="relative w-20 h-20 rounded-full border border-primary/20 flex items-center justify-center">
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 rounded-full border-t border-primary"
+                />
+                <div className="w-3.5 h-3.5 rounded-full bg-primary shadow-[0_0_20px_rgba(79,70,229,0.5)]" />
+              </div>
+              
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.4 }}
+                className="mt-6 text-xs font-semibold tracking-[0.25em] uppercase text-primary"
+              >
+                Entering Lumora
+              </motion.p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }
