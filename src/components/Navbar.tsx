@@ -102,10 +102,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[92%] max-w-5xl rounded-full flex items-center justify-between pl-4 md:pl-6 pr-2.5 md:pr-3 py-2 md:py-2.5 bg-background/70 backdrop-blur-md border border-border/60 ${
+      className={`fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[92%] max-w-5xl rounded-full flex items-center justify-between pl-4 md:pl-6 pr-2.5 md:pr-3 py-2 md:py-2.5 bg-white/75 backdrop-blur-xl border border-border/70 ${
         isScrolled
-          ? "shadow-[0_8px_32px_rgba(15,23,42,0.04)] border-border/80 bg-background/80"
-          : "shadow-[0_4px_24px_rgba(15,23,42,0.02)]"
+          ? "shadow-[0_12px_40px_rgba(15,23,42,0.08)] border-border bg-white/85"
+          : "shadow-[0_8px_32px_rgba(15,23,42,0.03)]"
       }`}
     >
       <div className="flex items-center">
@@ -225,7 +225,7 @@ export function Navbar() {
                 initial="hidden"
                 animate="show"
                 exit="exit"
-                className="absolute top-[calc(100%+12px)] right-0 w-[260px] md:w-[280px] bg-background/90 backdrop-blur-xl border border-border/60 rounded-2xl shadow-[0_12px_40px_rgba(15,23,42,0.06)] p-3 flex flex-col gap-1.5 z-50 origin-top-right"
+                className="absolute top-[calc(100%+12px)] right-0 w-[260px] md:w-[280px] bg-white/90 backdrop-blur-xl border border-border/70 rounded-2xl shadow-[0_16px_48px_rgba(15,23,42,0.1)] p-3 flex flex-col gap-1.5 z-50 origin-top-right"
               >
                 
                 {/* --- Primary Navigation --- */}
