@@ -4,9 +4,8 @@ import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect, useRef } from "react"
 import { Logo } from "@/components/Logo"
-import { signIn, signOut, useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
-import { useMembership } from "@/components/auth/MembershipContext"
+import { signOut, useSession } from "next-auth/react"
 
 // --- Custom Animated Path Component for Dynamic Hamburger -> X Icon ---
 const Path = (props: any) => (
@@ -21,7 +20,6 @@ const Path = (props: any) => (
 
 export function Navbar() {
   const router = useRouter()
-  const { requireMembership } = useMembership()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const { data: session, status } = useSession()
@@ -120,7 +118,7 @@ export function Navbar() {
       </div>
 
       {/* Centered navigation links (Desktop only) */}
-      <nav className="hidden md:flex items-center gap-8">
+      <nav className="hidden lg:flex items-center gap-8">
         <Link
           href="/features"
           className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
@@ -128,25 +126,75 @@ export function Navbar() {
           Features
         </Link>
         <Link
+          href="/community"
+          className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+        >
+          Community
+        </Link>
+        <Link
           href="/cohorts"
           className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
         >
           Cohorts
         </Link>
+        <Link
+          href="/team"
+          className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+        >
+          Team
+        </Link>
+        <a
+          href="mailto:Support.lumoraspace@gmail.com"
+          className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+        >
+          Contact
+        </a>
       </nav>
 
       {/* Right side actions */}
-      <div className="flex items-center gap-2 md:gap-3">
-        <Link
-          href="/create-account"
-          className="inline-flex items-center justify-center rounded-full px-4 sm:px-5 py-2 text-xs font-semibold bg-primary text-white hover:bg-primary/90 transition-all duration-200 shadow-sm shadow-primary/25 hover:shadow-md hover:shadow-primary/30 hover:-translate-y-0.5"
-        >
-          <span className="hidden sm:inline">Start Your Journey</span>
-          <span className="sm:hidden">Start</span>
-        </Link>
+      <div className="flex items-center gap-4">
+        {status === "loading" ? (
+          <div className="hidden lg:block w-20 h-8 bg-muted animate-pulse rounded-full" />
+        ) : session && session.user ? (
+          <div className="hidden lg:flex items-center gap-3">
+            <div className="flex items-center gap-2 max-w-[150px] overflow-hidden">
+              {session.user.image && (
+                <img
+                  src={session.user.image}
+                  alt="Profile Avatar"
+                  className="w-7 h-7 rounded-full border border-border flex-shrink-0"
+                />
+              )}
+              <span className="text-xs font-semibold text-foreground truncate">
+                {session.user.name}
+              </span>
+            </div>
+            <button
+              onClick={() => signOut()}
+              className="text-xs font-semibold text-red-500 hover:text-red-600 transition-colors cursor-pointer"
+            >
+              Log Out
+            </button>
+          </div>
+        ) : (
+          <>
+            <Link
+              href="/signin"
+              className="hidden lg:inline-flex text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
+              Sign In
+            </Link>
+            <Link
+              href="/create-account"
+              className="hidden lg:inline-flex items-center justify-center rounded-full px-5 py-2 text-xs font-semibold bg-primary text-white hover:bg-primary/90 transition-all duration-200 shadow-sm shadow-primary/25 hover:shadow-md hover:shadow-primary/30 hover:-translate-y-0.5"
+            >
+              Join Lumora
+            </Link>
+          </>
+        )}
 
         {/* Dynamic Hamburger Menu Toggle with Anchored Floating Dropdown */}
-        <div ref={navWrapperRef} className="relative flex items-center">
+        <div ref={navWrapperRef} className="relative flex items-center lg:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 md:p-2.5 rounded-full hover:bg-muted text-foreground transition-colors flex items-center justify-center cursor-pointer"
@@ -180,10 +228,10 @@ export function Navbar() {
                 className="absolute top-[calc(100%+12px)] right-0 w-[260px] md:w-[280px] bg-background/90 backdrop-blur-xl border border-border/60 rounded-2xl shadow-[0_12px_40px_rgba(15,23,42,0.06)] p-3 flex flex-col gap-1.5 z-50 origin-top-right"
               >
                 
-                {/* --- 1. CORE EXPERIENCE --- */}
+                {/* --- Primary Navigation --- */}
                 <div className="flex flex-col gap-0.5">
                   <span className="text-[9px] font-bold text-slate-400 tracking-widest px-3 py-1.5 uppercase select-none block">
-                    Core Experience
+                    Primary Navigation
                   </span>
 
                   {/* Features */}
@@ -226,23 +274,11 @@ export function Navbar() {
                 {/* Divider */}
                 <div className="w-full h-px bg-border/50 my-1" />
 
-                {/* --- 2. ABOUT & SUPPORT --- */}
+                {/* --- Secondary Navigation --- */}
                 <div className="flex flex-col gap-0.5">
                   <span className="text-[9px] font-bold text-slate-400 tracking-widest px-3 py-1.5 uppercase select-none block">
-                    About & Support
+                    Secondary Navigation
                   </span>
-
-                  {/* Our Story */}
-                  <motion.div variants={itemVariants}>
-                    <Link
-                      href="/our-story"
-                      onClick={() => setIsOpen(false)}
-                      className="w-full text-left px-3.5 py-2.5 rounded-xl text-[14px] font-semibold text-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group"
-                    >
-                      <span>Our Story</span>
-                      <span className="opacity-0 group-hover:opacity-100 transition-opacity text-xs font-bold">→</span>
-                    </Link>
-                  </motion.div>
 
                   {/* Team */}
                   <motion.div variants={itemVariants}>
@@ -258,29 +294,24 @@ export function Navbar() {
 
                   {/* Contact */}
                   <motion.div variants={itemVariants}>
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        setIsOpen(false);
-                        requireMembership("apply_cohort", () => {
-                          router.push("/cohorts/join");
-                        });
-                      }}
-                      className="w-full text-left px-3.5 py-2.5 rounded-xl text-[14px] font-semibold text-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group cursor-pointer bg-transparent border-none"
+                    <a
+                      href="mailto:Support.lumoraspace@gmail.com"
+                      onClick={() => setIsOpen(false)}
+                      className="w-full text-left px-3.5 py-2.5 rounded-xl text-[14px] font-semibold text-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group"
                     >
                       <span>Contact</span>
                       <span className="opacity-0 group-hover:opacity-100 transition-opacity text-xs font-bold">→</span>
-                    </button>
+                    </a>
                   </motion.div>
                 </div>
 
                 {/* Divider */}
                 <div className="w-full h-px bg-border/50 my-1" />
 
-                {/* --- 3. MEMBERSHIP ACTIONS --- */}
+                {/* --- Actions --- */}
                 <div className="flex flex-col gap-1.5 mt-1">
                   <span className="text-[9px] font-bold text-slate-400 tracking-widest px-3 py-0.5 uppercase select-none block">
-                    Membership
+                    Actions
                   </span>
 
                   {/* Login state */}
@@ -317,22 +348,23 @@ export function Navbar() {
                         onClick={() => setIsOpen(false)}
                         className="w-full text-left px-3.5 py-2 rounded-xl text-[14px] font-semibold text-muted-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group cursor-pointer"
                       >
-                        <span>Login</span>
+                        <span>Sign In</span>
                         <span className="opacity-0 group-hover:opacity-100 transition-opacity text-xs font-bold">→</span>
                       </Link>
                     )}
                   </motion.div>
 
-                  {/* CTA */}
-                  <motion.div variants={itemVariants} className="px-1">
-                    <Link
-                      href="/create-account"
-                      onClick={() => setIsOpen(false)}
-                      className="w-full py-2.5 px-4 bg-primary hover:bg-primary/95 text-white text-xs font-bold rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md text-center block cursor-pointer"
-                    >
-                      Join Lumora →
-                    </Link>
-                  </motion.div>
+                  {!session && (
+                    <motion.div variants={itemVariants} className="px-1">
+                      <Link
+                        href="/create-account"
+                        onClick={() => setIsOpen(false)}
+                        className="w-full py-2.5 px-4 bg-primary hover:bg-primary/95 text-white text-xs font-bold rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md text-center block cursor-pointer"
+                      >
+                        Join Lumora →
+                      </Link>
+                    </motion.div>
+                  )}
                 </div>
 
               </motion.div>
