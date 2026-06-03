@@ -4,43 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
-const particles = [
-  { size: 2, top: "8%", left: "12%" },
-  { size: 3, top: "18%", left: "75%" },
-  { size: 2, top: "28%", left: "30%" },
-  { size: 4, top: "40%", left: "85%" },
-  { size: 3, top: "55%", left: "15%" },
-  { size: 2, top: "68%", left: "60%" },
-  { size: 4, top: "80%", left: "35%" },
-  { size: 3, top: "90%", left: "82%" },
-  { size: 2, top: "12%", left: "50%" },
-  { size: 4, top: "72%", left: "90%" },
-  { size: 3, top: "48%", left: "70%" },
-  { size: 2, top: "35%", left: "5%" },
-  { size: 4, top: "60%", left: "45%" },
-  { size: 3, top: "22%", left: "90%" },
-  { size: 2, top: "95%", left: "55%" },
-  { size: 4, top: "15%", left: "25%" },
-  { size: 3, top: "75%", left: "5%" },
-  { size: 2, top: "88%", left: "25%" },
-  { size: 4, top: "30%", left: "60%" },
-  { size: 3, top: "65%", left: "78%" },
-  { size: 2, top: "45%", left: "92%" },
-  { size: 3, top: "58%", left: "8%" },
-  { size: 4, top: "5%", left: "65%" },
-  { size: 2, top: "25%", left: "42%" },
-  { size: 3, top: "85%", left: "15%" },
-  { size: 4, top: "52%", left: "28%" },
-  { size: 2, top: "14%", left: "88%" },
-  { size: 3, top: "78%", left: "48%" },
-  { size: 4, top: "33%", left: "73%" },
-  { size: 2, top: "62%", left: "95%" },
-  { size: 3, top: "7%", left: "35%" },
-  { size: 2, top: "97%", left: "68%" },
-  { size: 4, top: "42%", left: "18%" },
-  { size: 3, top: "70%", left: "55%" },
-  { size: 2, top: "20%", left: "10%" },
-]
+
 export default function HeroSection() {
   const router = useRouter()
   const [isTransitioning, setIsTransitioning] = useState(false)
@@ -112,31 +76,7 @@ export default function HeroSection() {
         style={{ transformStyle: "preserve-3d" }}
       />
 
-      {/* ================= PARTICLES ================= */}
 
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {particles.map((particle, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.15, 0.5, 0.15],
-            }}
-            transition={{
-              duration: 5 + i,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="absolute rounded-full bg-primary/20"
-            style={{
-              width: `${particle.size}px`,
-              height: `${particle.size}px`,
-              top: particle.top,
-              left: particle.left,
-            }}
-          />
-        ))}
-      </div>
 
       {/* ================= HERO CONTENT ================= */}
 
