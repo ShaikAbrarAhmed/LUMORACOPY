@@ -86,10 +86,10 @@ export function Footer() {
 
       {/* Background Watermark */}
       <div className="absolute inset-x-0 bottom-0 pointer-events-none select-none overflow-hidden z-0 flex flex-col items-center justify-end h-full">
-        <div className="font-heading font-black tracking-tighter text-foreground/4 leading-none text-[clamp(5rem,20vw,20rem)] translate-y-[25%] select-none pointer-events-none text-center">
+        <div className="font-heading font-black tracking-tighter text-foreground/[0.015] leading-none text-[clamp(5rem,20vw,20rem)] translate-y-[25%] select-none pointer-events-none text-center">
           LUMORA
         </div>
-        <div className="font-heading font-bold tracking-[0.4em] text-foreground/2 text-[clamp(0.6rem,1.8vw,1.2rem)] translate-y-[15%] select-none pointer-events-none text-center uppercase pb-6 mt-3">
+        <div className="font-heading font-bold tracking-[0.4em] text-foreground/[0.008] text-[clamp(0.6rem,1.8vw,1.2rem)] translate-y-[15%] select-none pointer-events-none text-center uppercase pb-6 mt-3">
           LEARN • BUILD • GROW • BELONG
         </div>
       </div>

@@ -120,7 +120,7 @@ function EcosystemSVG({ activeBenefit, setActiveBenefit }: EcosystemSVGProps) {
 
         {/* Central Core */}
         <g className="cursor-pointer" onMouseEnter={() => setActiveBenefit(null)}>
-          <circle cx="240" cy="180" r="22" fill="#0F172A" />
+          <circle cx="240" cy="180" r="22" fill="#1E293B" />
           <circle cx="240" cy="180" r="22" fill="url(#core-gradient)" />
           <circle cx="240" cy="180" r="22" stroke="#4F46E5" strokeWidth="2" strokeOpacity="0.4" />
           <motion.circle
@@ -135,7 +135,7 @@ function EcosystemSVG({ activeBenefit, setActiveBenefit }: EcosystemSVGProps) {
         </g>
         <radialGradient id="core-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(240 180) rotate(90) scale(22)">
           <stop stopColor="#4F46E5" />
-          <stop offset="1" stopColor="#0F172A" />
+          <stop offset="1" stopColor="#1E293B" />
         </radialGradient>
 
         {/* Orbiting Nodes */}
@@ -630,7 +630,7 @@ function CreateAccountContent() {
                       type="button"
                       disabled={profileSaving}
                       onClick={handleSaveProfile}
-                      className="w-full py-3 bg-[#0F172A] text-white hover:bg-[#1E293B] font-semibold text-xs rounded-xl transition-all shadow-md flex items-center justify-center gap-2 disabled:opacity-75"
+                      className="w-full btn-primary rounded-xl py-3 text-xs flex items-center justify-center gap-2 disabled:opacity-75 shadow-none"
                     >
                       {profileSaving ? (
                         <>
@@ -649,14 +649,14 @@ function CreateAccountContent() {
                 <div className="flex flex-col sm:flex-row gap-3 w-full mt-2">
                   <button
                     onClick={() => router.push("/")}
-                    className="flex-1 py-4 bg-primary text-white font-semibold rounded-2xl hover:bg-primary/95 transition-all shadow-md text-sm flex items-center justify-center gap-1.5"
+                    className="flex-1 btn-primary rounded-2xl py-4 flex items-center justify-center gap-1.5 shadow-none"
                   >
                     Explore Lumora
                     <ArrowRight className="w-4 h-4" />
                   </button>
                   <button
                     onClick={handleSaveProfile}
-                    className="flex-1 py-4 border border-slate-200 bg-white hover:bg-[#F7F8FF] text-slate-800 font-semibold rounded-2xl transition-all text-sm"
+                    className="flex-1 btn-secondary rounded-2xl py-4 flex items-center justify-center gap-1.5"
                   >
                     Complete Profile
                   </button>
@@ -780,7 +780,7 @@ function CreateAccountContent() {
                 {/* Primary Button */}
                 <button
                   type="submit"
-                  className="w-full mt-2 py-3.5 bg-primary hover:bg-primary/95 text-white font-semibold rounded-xl text-sm transition-all shadow-[0_8px_20px_rgba(79,70,229,0.15)] flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full mt-2 btn-primary rounded-xl py-3.5 flex items-center justify-center gap-1.5 cursor-pointer shadow-none"
                 >
                   Create Account
                   <ArrowRight className="w-4 h-4" />
@@ -800,7 +800,7 @@ function CreateAccountContent() {
               <button
                 type="button"
                 onClick={handleGoogleSignIn}
-                className="w-full py-3 border border-slate-200 bg-white hover:bg-[#F7F8FF] text-slate-800 font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2.5 shadow-[0_2px_8px_rgba(0,0,0,0.01)] cursor-pointer"
+                className="w-full btn-secondary rounded-xl py-3 flex items-center justify-center gap-2.5 shadow-[0_2px_8px_rgba(0,0,0,0.01)] cursor-pointer"
               >
                 <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
                   <path

@@ -22,7 +22,7 @@ export function Logo({
 
   return (
     <div
-      className={`relative flex items-center justify-center rounded-xl overflow-hidden bg-[#0B1020] border border-white/10 shadow-[0_4px_20px_rgba(11,16,32,0.08)] shrink-0 p-1.5 ${sizeClasses[size]} ${className}`}
+      className={`relative flex items-center justify-center rounded-xl overflow-hidden bg-[#1E293B] border border-slate-200/50 shadow-[0_4px_20px_rgba(11,16,32,0.08)] shrink-0 p-1.5 ${sizeClasses[size]} ${className}`}
     >
       <Image
         src="/logo.png"

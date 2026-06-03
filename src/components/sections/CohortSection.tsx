@@ -12,7 +12,7 @@ export default function CohortSection() {
   return (
     <section
       id="cohorts"
-      className="relative overflow-hidden py-24 bg-white"
+      className="relative overflow-hidden py-24 bg-background border-t border-border"
     >
 
       {/* ================= BACKGROUND ================= */}
@@ -20,7 +20,7 @@ export default function CohortSection() {
       <div className="absolute inset-0 overflow-hidden">
 
         {/* Soft Glow */}
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-sky-100/40 blur-[120px] rounded-full" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/15 blur-[120px] rounded-full" />
 
         {/* Floating Particles */}
         {[...Array(25)].map((_, i) => (
@@ -35,7 +35,7 @@ export default function CohortSection() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="absolute rounded-full bg-sky-300/40 blur-[1px]"
+            className="absolute rounded-full bg-primary/20 blur-[1px]"
             style={{
               width: `${(i % 4) + 2}px`,
               height: `${(i % 4) + 2}px`,
@@ -72,17 +72,17 @@ export default function CohortSection() {
           >
 
             {/* Heading */}
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.04em] leading-tight text-[#0F172A]">
+            <h2 className="text-4xl md:text-5xl font-semibold tracking-[-0.04em] leading-tight text-headings">
               A focused learning journey built for serious growth.
             </h2>
 
             {/* Description */}
-            <p className="mt-6 text-lg text-[#64748B] leading-relaxed">
+            <p className="mt-6 text-lg text-foreground leading-relaxed">
               Lumora cohorts are intentionally small so every student gets
               proper guidance, mentorship, accountability, and real support.
             </p>
 
-            <p className="mt-6 text-lg text-[#64748B] leading-relaxed">
+            <p className="mt-6 text-lg text-foreground leading-relaxed">
               This isn’t another overcrowded learning community filled with
               noise and endless tutorials.
 
@@ -96,18 +96,18 @@ export default function CohortSection() {
               {/* Card */}
               <div
                 className="
-                  rounded-3xl border border-sky-100
+                  rounded-3xl border border-border
                   bg-white/80 backdrop-blur-xl
                   p-6 shadow-sm
                 "
               >
-                <Users className="h-5 w-5 text-sky-500 mb-4" />
+                <Users className="h-5 w-5 text-primary mb-4" />
 
-                <p className="text-3xl font-semibold text-[#0F172A]">
+                <p className="text-3xl font-semibold text-headings">
                   Small
                 </p>
 
-                <p className="mt-2 text-sm text-[#64748B]">
+                <p className="mt-2 text-sm text-foreground">
                   Focused learning groups
                 </p>
               </div>
@@ -115,18 +115,18 @@ export default function CohortSection() {
               {/* Card */}
               <div
                 className="
-                  rounded-3xl border border-sky-100
+                  rounded-3xl border border-border
                   bg-white/80 backdrop-blur-xl
                   p-6 shadow-sm
                 "
               >
-                <Clock className="h-5 w-5 text-sky-500 mb-4" />
+                <Clock className="h-5 w-5 text-primary mb-4" />
 
-                <p className="text-3xl font-semibold text-[#0F172A]">
+                <p className="text-3xl font-semibold text-headings">
                   Weekly
                 </p>
 
-                <p className="mt-2 text-sm text-[#64748B]">
+                <p className="mt-2 text-sm text-foreground">
                   Mentorship & accountability
                 </p>
               </div>
@@ -134,18 +134,18 @@ export default function CohortSection() {
               {/* Card */}
               <div
                 className="
-                  rounded-3xl border border-sky-100
+                  rounded-3xl border border-border
                   bg-white/80 backdrop-blur-xl
                   p-6 shadow-sm
                 "
               >
-                <Calendar className="h-5 w-5 text-sky-500 mb-4" />
+                <Calendar className="h-5 w-5 text-primary mb-4" />
 
-                <p className="text-3xl font-semibold text-[#0F172A]">
+                <p className="text-3xl font-semibold text-headings">
                   Real
                 </p>
 
-                <p className="mt-2 text-sm text-[#64748B]">
+                <p className="mt-2 text-sm text-foreground">
                   Projects & practical growth
                 </p>
               </div>
@@ -171,25 +171,25 @@ export default function CohortSection() {
               delay: 0.2,
             }}
             className="
-              rounded-3xl border border-sky-100
+              rounded-3xl border border-border
               bg-white/80 backdrop-blur-xl
               p-8 lg:p-10
-              shadow-[0_20px_80px_rgba(125,211,252,0.10)]
+              shadow-[0_20px_80px_rgba(140,192,235,0.12)]
             "
           >
 
             {/* Small Label */}
-            <span className="text-sky-500 uppercase tracking-[0.25em] text-xs font-medium">
+            <span className="text-primary uppercase tracking-[0.25em] text-xs font-semibold">
               Join Lumora
             </span>
 
             {/* Heading */}
-            <h3 className="mt-4 text-3xl font-semibold tracking-tight leading-tight text-[#0F172A]">
+            <h3 className="mt-4 text-3xl font-semibold tracking-tight leading-tight text-headings">
               Ready to build your future?
             </h3>
 
             {/* Description */}
-            <p className="mt-5 text-[#64748B] leading-relaxed">
+            <p className="mt-5 text-foreground leading-relaxed">
               Join the waitlist for Cohort 1.
 
               We’ll notify you when applications officially open.
@@ -202,8 +202,8 @@ export default function CohortSection() {
               <div
                 className="
                   flex items-center
-                  rounded-2xl border border-sky-100
-                  bg-white px-5 py-4
+                  rounded-2xl border border-border
+                  bg-card px-5 py-4
                   shadow-sm
                 "
               >
@@ -213,7 +213,7 @@ export default function CohortSection() {
                   placeholder="Enter your email address"
                   className="
                     w-full bg-transparent outline-none
-                    text-[#0F172A]
+                    text-headings
                     placeholder:text-[#94A3B8]
                   "
                 />
@@ -228,16 +228,16 @@ export default function CohortSection() {
             </div>
 
             {/* Divider */}
-            <div className="w-full h-px bg-sky-100 my-10" />
+            <div className="w-full h-px bg-border my-10" />
 
             {/* Bottom Content */}
             <div>
 
-              <h4 className="text-2xl font-semibold tracking-tight leading-tight text-[#0F172A]">
+              <h4 className="text-2xl font-semibold tracking-tight leading-tight text-headings">
                 Built for beginners who want real growth.
               </h4>
 
-              <p className="mt-5 text-[#64748B] leading-relaxed">
+              <p className="mt-5 text-foreground leading-relaxed">
                 Lumora is being built carefully from the ground up —
                 focused on mentorship, consistency, practical learning,
                 and a supportive beginner-first ecosystem.

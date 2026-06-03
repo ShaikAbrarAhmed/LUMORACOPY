@@ -199,9 +199,6 @@ export default function CommunitySection() {
               transition={{ duration: 0.6 }}
               className="space-y-4"
             >
-              <span className="inline-block px-3.5 py-1 rounded-full text-primary text-[10px] font-bold uppercase tracking-wider bg-primary/5 border border-primary/10">
-                Belonging
-              </span>
 
               <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground leading-tight">
                 Learn Together. Build Together. Grow Together.
@@ -218,7 +215,7 @@ export default function CommunitySection() {
                       alert("Welcome! You have successfully joined the Lumora Community ecosystem.")
                     })
                   }}
-                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-6 py-3.5 text-xs font-semibold bg-primary text-white hover:bg-primary/95 transition-all duration-200 shadow-sm shadow-primary/25 hover:shadow-md hover:-translate-y-0.5 cursor-pointer text-center border-none"
+                  className="w-full sm:w-auto btn-primary px-6 py-3 text-xs"
                 >
                   Join Community
                 </button>

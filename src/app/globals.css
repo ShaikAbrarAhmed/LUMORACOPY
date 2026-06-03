@@ -29,54 +29,62 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-brand-purple: #818CF8;
-  --color-brand-blue: #4F46E5;
-  --color-brand-cyan: #F59E0B;
+  --color-brand-purple: #1E293B;
+  --color-brand-blue: #8CC0EB;
+  --color-brand-cyan: #BFDDF0;
 
   /* Overriding Tailwind sky colors to transition to the new color identity seamlessly */
-  --color-sky-50: #FAFBFF;   /* Surface color */
-  --color-sky-100: #E2E8F0;  /* Light gray / border color */
-  --color-sky-200: #C7D2FE;  /* Light secondary tint */
-  --color-sky-300: #818CF8;  /* Secondary color */
-  --color-sky-400: #6366F1;  /* Slight primary-secondary blend */
-  --color-sky-500: #4F46E5;  /* Primary color */
-  --color-sky-600: #4338CA;  /* Darker primary */
-  --color-sky-700: #3730A3;  /* Even darker primary */
-  --color-sky-800: #312E81;
-  --color-sky-900: #0F172A;  /* Dark text color */
+  --color-sky-50: #FCFBF7;   /* Surface color */
+  --color-sky-100: rgba(30, 41, 59, 0.08);  /* Border color */
+  --color-sky-200: #BFDDF0;  /* Light secondary tint */
+  --color-sky-300: #8CC0EB;  /* Secondary color */
+  --color-sky-400: #7CB5E2;  /* Slight primary-secondary blend */
+  --color-sky-500: #8CC0EB;  /* Primary color */
+  --color-sky-600: #71A9D9;  /* Darker primary */
+  --color-sky-700: #5C94C4;  /* Even darker primary */
+  --color-sky-800: #1E293B;
+  --color-sky-950: #FCFBF7;
+  --color-sky-900: #1E293B;  /* Dark headings color */
+  
+  --color-headings: var(--headings);
+  --color-warm-surface: var(--warm-surface);
 }
 
 :root {
-  /* Premium Light Theme Palette - Lumorous Space Brand */
-  --background: #FAFBFF;
-  --foreground: #0F172A;
+  /* Premium Warm Cream & Soft Blue Theme Palette - Lumora */
+  --background: #FCFBF7;
+  --foreground: #64748B;
   
   --card: #FFFFFF;
-  --card-foreground: #0F172A;
+  --card-foreground: #64748B;
   
-  --popover: #FAFBFF;
-  --popover-foreground: #0F172A;
+  --popover: #FCFBF7;
+  --popover-foreground: #64748B;
   
-  /* Primary Accent: Indigo-blue */
-  --primary: #4F46E5;
-  --primary-foreground: #FFFFFF;
+  /* Primary Accent: Brand Accent (#8CC0EB) */
+  --primary: #8CC0EB;
+  --primary-foreground: #1E293B;
   
-  /* Secondary Accent: Lumora Gold */
-  --secondary: #F59E0B;
-  --secondary-foreground: #FFFFFF;
+  /* Secondary Accent: Soft Blue (#BFDDF0) */
+  --secondary: #BFDDF0;
+  --secondary-foreground: #1E293B;
   
-  --muted: #F1F5F9;
+  --muted: #FCFBF7;
   --muted-foreground: #64748B;
   
-  --accent: #F59E0B;
-  --accent-foreground: #0F172A;
+  /* Warm Highlights & Surfaces */
+  --accent: #FFF9D2;
+  --accent-foreground: #1E293B;
+  
+  --warm-surface: #FFEBCC;
+  --headings: #1E293B;
   
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
   
-  --border: #E2E8F0;
-  --input: #E2E8F0;
-  --ring: rgba(79, 70, 229, 0.25);
+  --border: rgba(30, 41, 59, 0.08);
+  --input: rgba(30, 41, 59, 0.08);
+  --ring: rgba(140, 192, 235, 0.25);
   
   --radius: 1.25rem;
 }
@@ -96,6 +104,7 @@
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading tracking-tight;
+    color: var(--headings);
   }
   
   /* Refined minimal glassmorphism */
@@ -137,4 +146,48 @@
   );
   animation: shimmer 2s infinite;
   content: '';
+}
+
+@utility btn-primary {
+  background-color: #1E293B;
+  color: #FFFFFF;
+  border-radius: 9999px;
+  padding: 0.875rem 2rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none;
+  box-shadow: none;
+
+  &:hover {
+    background-color: #8CC0EB;
+    color: #1E293B;
+    transform: translateY(-1px);
+  }
+}
+
+@utility btn-secondary {
+  background-color: transparent;
+  color: #1E293B;
+  border: 1px solid #BFDDF0;
+  border-radius: 9999px;
+  padding: 0.875rem 2rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    background-color: rgba(140, 192, 235, 0.08);
+    transform: translateY(-1px);
+  }
 }

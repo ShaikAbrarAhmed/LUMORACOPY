@@ -238,8 +238,8 @@ export default function HeroSection() {
             }}
             className="
               absolute left-[-40px] top-[30px]
-              bg-[#FCFCFE]/80 backdrop-blur-xl
-              border border-border/40
+              bg-card/90 backdrop-blur-xl
+              border border-border
               rounded-2xl
               px-4 py-3
               shadow-[0_4px_20px_rgba(0,0,0,0.02)]
@@ -261,8 +261,8 @@ export default function HeroSection() {
             }}
             className="
               absolute right-[-40px] bottom-[20px]
-              bg-[#FCFCFE]/80 backdrop-blur-xl
-              border border-border/40
+              bg-card/90 backdrop-blur-xl
+              border border-border
               rounded-2xl
               px-4 py-3
               shadow-[0_4px_20px_rgba(0,0,0,0.02)]
@@ -410,14 +410,14 @@ export default function HeroSection() {
           >
             <Link
               href="/cohorts"
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold bg-primary text-white hover:bg-primary/95 transition-all duration-300 shadow-[0_8px_30px_rgba(91,95,239,0.25)] hover:shadow-[0_8px_35px_rgba(91,95,239,0.4)] hover:-translate-y-0.5 cursor-pointer text-center"
+              className="w-full sm:w-auto btn-primary"
             >
               Start Your Journey
             </Link>
             <Link
               href="/features"
               onClick={handleExploreClick}
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold border border-[#E5E7EB]/80 bg-background/50 hover:bg-[#F7F8FF]/80 backdrop-blur-md text-foreground transition-all duration-300 hover:-translate-y-0.5 cursor-pointer text-center"
+              className="w-full sm:w-auto btn-secondary"
             >
               Explore Lumora
             </Link>

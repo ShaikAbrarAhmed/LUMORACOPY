@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react"
 
 export function CTASection() {
   return (
-    <section className="py-28 relative bg-[#FCFCFE] flex justify-center items-center overflow-hidden">
+    <section className="py-28 relative bg-background flex justify-center items-center overflow-hidden">
       {/* Background glow behind CTA panel */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-primary/5 blur-[100px] rounded-full" />
@@ -54,14 +54,14 @@ export function CTASection() {
             >
               <Link
                 href="/cohorts"
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold bg-primary text-white hover:bg-primary/95 transition-all duration-300 shadow-[0_8px_30px_rgba(91,95,239,0.25)] hover:shadow-[0_8px_35px_rgba(91,95,239,0.4)] hover:-translate-y-0.5 cursor-pointer text-center group"
+                className="w-full sm:w-auto btn-primary group"
               >
                 Start Your Journey
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/cohorts"
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-semibold border border-[#E5E7EB]/80 bg-background/50 hover:bg-[#F7F8FF]/80 backdrop-blur-md text-foreground transition-all duration-300 hover:-translate-y-0.5 cursor-pointer text-center"
+                className="w-full sm:w-auto btn-secondary"
               >
                 Explore Cohorts
               </Link>

@@ -28,7 +28,7 @@ const problems = [
 
 export function ProblemSection() {
   return (
-    <section id="problem" className="py-28 bg-[#FCFCFE] relative overflow-hidden border-t border-[#E5E7EB]/40">
+    <section id="problem" className="py-28 bg-background relative overflow-hidden border-t border-[#E5E7EB]/40">
       {/* Background glow effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full" />
@@ -92,7 +92,7 @@ export function ProblemSection() {
 
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-[#F7F8FF] border border-[#E5E7EB]/60 flex items-center justify-center group-hover:bg-primary/5 group-hover:border-primary/10 transition-colors duration-300">
+                  <div className="w-12 h-12 rounded-2xl bg-secondary/15 border border-[#E5E7EB]/60 flex items-center justify-center group-hover:bg-primary/5 group-hover:border-primary/10 transition-colors duration-300">
                     <problem.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground tracking-tight group-hover:text-primary transition-colors duration-300">
