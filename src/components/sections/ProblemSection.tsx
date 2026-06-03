@@ -6,25 +6,21 @@ import { Compass, BookOpen, Users, TrendingUp } from "lucide-react"
 const problems = [
   {
     icon: Compass,
-    emoji: "🧭",
     title: "No Clear Direction",
     description: "Too many roadmaps. Too many opinions."
   },
   {
     icon: BookOpen,
-    emoji: "📚",
     title: "Tutorial Overload",
     description: "Watching content without building."
   },
   {
     icon: Users,
-    emoji: "🤝",
     title: "Learning Alone",
     description: "No support system or peer group."
   },
   {
     icon: TrendingUp,
-    emoji: "📈",
     title: "Lack of Accountability",
     description: "Starting strong and losing momentum."
   }
@@ -96,8 +92,8 @@ export function ProblemSection() {
 
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-[#F7F8FF] border border-[#E5E7EB]/60 flex items-center justify-center text-xl group-hover:bg-primary/5 group-hover:border-primary/10 transition-colors duration-300">
-                    {problem.emoji}
+                  <div className="w-12 h-12 rounded-2xl bg-[#F7F8FF] border border-[#E5E7EB]/60 flex items-center justify-center group-hover:bg-primary/5 group-hover:border-primary/10 transition-colors duration-300">
+                    <problem.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground tracking-tight group-hover:text-primary transition-colors duration-300">
                     {problem.title}

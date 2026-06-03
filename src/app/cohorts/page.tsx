@@ -18,7 +18,9 @@ import {
   Smile, 
   Users, 
   Code2, 
-  ArrowDown
+  ArrowDown,
+  Target,
+  Zap
 } from "lucide-react"
 
 export default function CohortsPage() {
@@ -157,15 +159,15 @@ export default function CohortsPage() {
 
             {/* Visual nodes representing states */}
             {[
-              { label: "Lost", state: "🧭", desc: "Tutorial overload & roadmap confusion" },
-              { label: "Direction", state: "🎯", desc: "Structured guidance on where to start" },
-              { label: "Consistency", state: "⚡", desc: "Daily building habits & rhythm" },
-              { label: "Confidence", state: "💪", desc: "Belief in your engineering execution" },
-              { label: "Builder", state: "🛠️", desc: "Shipping production-ready creations" }
+              { label: "Lost", icon: Compass, desc: "Tutorial overload & roadmap confusion" },
+              { label: "Direction", icon: Target, desc: "Structured guidance on where to start" },
+              { label: "Consistency", icon: Zap, desc: "Daily building habits & rhythm" },
+              { label: "Confidence", icon: Sparkles, desc: "Belief in your engineering execution" },
+              { label: "Builder", icon: Code2, desc: "Shipping production-ready creations" }
             ].map((node, i) => (
               <div key={i} className="relative z-10 flex flex-col items-center w-full md:w-1/5 text-center group">
                 <div className="w-14 h-14 rounded-full flex items-center justify-center border border-border/80 bg-white shadow-xs group-hover:border-primary/30 group-hover:shadow-[0_8px_30px_rgba(79,70,229,0.05)] transition-all duration-300">
-                  <span className="text-xl">{node.state}</span>
+                  <node.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
                 </div>
                 <h4 className="mt-4 font-semibold text-sm text-foreground">{node.label}</h4>
                 <p className="mt-2 text-xs text-muted-foreground leading-normal max-w-[150px] font-light">
@@ -230,7 +232,7 @@ export default function CohortsPage() {
                     whileHover={{ scale: 1.02 }}
                     className={`p-4 rounded-2xl bg-white/50 border border-border/40 shadow-[0_4px_12px_rgba(0,0,0,0.005)] flex items-start gap-3 transform ${item.rotate} ${item.translate} transition-all duration-200`}
                   >
-                    <span className="text-destructive font-bold text-sm mt-0.5">✗</span>
+                    <X className="w-4 h-4 text-destructive shrink-0 mt-1" />
                     <div>
                       <h4 className="font-semibold text-sm text-foreground">{item.text}</h4>
                       <p className="text-xs text-muted-foreground mt-0.5 font-light leading-normal">{item.desc}</p>
@@ -282,7 +284,7 @@ export default function CohortsPage() {
                     whileHover={{ scale: 1.02, x: 2 }}
                     className="p-4 rounded-2xl bg-white border border-border/80 shadow-[0_4px_18px_rgba(79,70,229,0.015)] flex items-start gap-3 transition-all duration-200"
                   >
-                    <span className="text-primary font-bold text-sm mt-0.5">✓</span>
+                    <Check className="w-4 h-4 text-primary shrink-0 mt-1" />
                     <div>
                       <h4 className="font-semibold text-sm text-foreground">{item.text}</h4>
                       <p className="text-xs text-muted-foreground mt-0.5 font-light leading-normal">{item.desc}</p>
@@ -447,7 +449,7 @@ export default function CohortsPage() {
                   "Builder-first mindset shift that unlocks confidence"
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-[14px] text-foreground font-light">
-                    <span className="text-primary font-bold mt-0.5">✓</span>
+                    <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -571,9 +573,10 @@ export default function CohortsPage() {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="w-full p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold text-sm"
+                    className="w-full p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold text-sm flex items-center justify-center gap-2"
                   >
-                    ✓ You've been added to the waitlist.
+                    <Check className="w-4 h-4 text-white shrink-0" />
+                    <span>You've been added to the waitlist.</span>
                   </motion.div>
                 ) : (
                   <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-3 w-full">

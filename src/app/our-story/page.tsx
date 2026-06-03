@@ -37,12 +37,12 @@ const SproutIcon = ({ className = "w-6 h-6" }) => (
 )
 
 const cycleSteps = [
-  { step: "01", title: "Opening YouTube", desc: "Searching for tutorials, getting hit with millions of search results.", emoji: "📺" },
-  { step: "02", title: "Saving Roadmaps", desc: "Bookmarking exhaustive path guides that span years of study.", emoji: "🗺️" },
-  { step: "03", title: "Watching Videos", desc: "Following tutorials passively, typing along, feeling productive.", emoji: "🎓" },
-  { step: "04", title: "Starting Projects", desc: "Opening a blank screen, trying to code, and freezing completely.", emoji: "💻" },
-  { step: "05", title: "Quitting Projects", desc: "Hitting compile errors, feeling isolated, losing motivation.", emoji: "❌" },
-  { step: "06", title: "Starting Again", desc: "Taking a break, resolving to try once more, returning to step one.", emoji: "🔄" },
+  { step: "01", title: "Opening YouTube", desc: "Searching for tutorials, getting hit with millions of search results." },
+  { step: "02", title: "Saving Roadmaps", desc: "Bookmarking exhaustive path guides that span years of study." },
+  { step: "03", title: "Watching Videos", desc: "Following tutorials passively, typing along, feeling productive." },
+  { step: "04", title: "Starting Projects", desc: "Opening a blank screen, trying to code, and freezing completely." },
+  { step: "05", title: "Quitting Projects", desc: "Hitting compile errors, feeling isolated, losing motivation." },
+  { step: "06", title: "Starting Again", desc: "Taking a break, resolving to try once more, returning to step one." },
 ]
 
 export default function OurStoryPage() {
@@ -113,8 +113,8 @@ export default function OurStoryPage() {
                       {step.step}
                     </span>
                     <div className="space-y-1">
-                      <h4 className="text-lg font-bold text-foreground flex items-center gap-2">
-                        {step.title} <span className="text-xl">{step.emoji}</span>
+                      <h4 className="text-lg font-bold text-foreground">
+                        {step.title}
                       </h4>
                       <p className="text-sm text-muted-foreground leading-relaxed max-w-xl">
                         {step.desc}

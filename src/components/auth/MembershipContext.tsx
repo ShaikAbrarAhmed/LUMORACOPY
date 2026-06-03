@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useSession, signIn } from "next-auth/react"
+import { Sparkles, Users, Rocket, TrendingUp } from "lucide-react"
 
 interface MembershipContextType {
   requireMembership: (action: string, onApprove: () => void, data?: any) => void
@@ -148,25 +149,25 @@ export function MembershipProvider({ children }: { children: React.ReactNode }) 
               {/* Benefits */}
               <div className="bg-muted/60 border border-border/50 rounded-2xl p-6 mb-8 space-y-4">
                 <div className="flex items-start gap-3">
-                  <span className="text-base select-none shrink-0 mt-0.5">✨</span>
+                  <Sparkles className="w-4 h-4 text-primary select-none shrink-0 mt-1" />
                   <p className="text-sm font-semibold text-foreground">
                     Early access to upcoming cohorts
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-base select-none shrink-0 mt-0.5">🤝</span>
+                  <Users className="w-4 h-4 text-primary select-none shrink-0 mt-1" />
                   <p className="text-sm font-semibold text-foreground">
                     Community participation
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-base select-none shrink-0 mt-0.5">🚀</span>
+                  <Rocket className="w-4 h-4 text-primary select-none shrink-0 mt-1" />
                   <p className="text-sm font-semibold text-foreground">
                     Priority updates and launches
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-base select-none shrink-0 mt-0.5">📈</span>
+                  <TrendingUp className="w-4 h-4 text-primary select-none shrink-0 mt-1" />
                   <p className="text-sm font-semibold text-foreground">
                     Track your growth journey
                   </p>

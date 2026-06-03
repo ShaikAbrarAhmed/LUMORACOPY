@@ -60,7 +60,7 @@ const coreTeam = [
   },
 
   {
-    name: "Shruthi",
+    name: "Sruthi",
     role: "Design Lead",
     image: "/team/Sruthi.jpeg",
     desc: "Crafting beautiful layouts and visual systems."
@@ -380,15 +380,12 @@ export default function TeamSection() {
           </span>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             <div className="px-5 py-2.5 bg-muted border border-border/80 rounded-full text-xs font-semibold text-foreground shadow-xs flex items-center gap-2 cursor-default select-none">
-              <span>👥</span>
               <span>1000+ active learners</span>
             </div>
             <div className="px-5 py-2.5 bg-muted border border-border/80 rounded-full text-xs font-semibold text-foreground shadow-xs flex items-center gap-2 cursor-default select-none">
-              <span>🚀</span>
               <span>500+ projects shipped</span>
             </div>
             <div className="px-5 py-2.5 bg-muted border border-border/80 rounded-full text-xs font-semibold text-foreground shadow-xs flex items-center gap-2 cursor-default select-none">
-              <span>🌱</span>
               <span>Growth Mindset First</span>
             </div>
           </div>

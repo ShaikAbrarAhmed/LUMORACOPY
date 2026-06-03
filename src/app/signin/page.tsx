@@ -28,9 +28,9 @@ interface EcosystemSVGProps {
 
 function EcosystemSVG({ activeCard, setActiveCard }: EcosystemSVGProps) {
   const nodes = [
-    { id: 0, label: "Direction", x: 120, y: 100, color: "#4F46E5", emoji: "🧭" },
-    { id: 1, label: "Confidence", x: 360, y: 110, color: "#4F46E5", emoji: "🚀" },
-    { id: 2, label: "Together", x: 240, y: 280, color: "#F59E0B", emoji: "🤝" },
+    { id: 0, label: "Direction", x: 120, y: 100, color: "#4F46E5", icon: Compass },
+    { id: 1, label: "Confidence", x: 360, y: 110, color: "#4F46E5", icon: Rocket },
+    { id: 2, label: "Together", x: 240, y: 280, color: "#F59E0B", icon: Users },
   ];
 
   return (
@@ -161,15 +161,15 @@ function EcosystemSVG({ activeCard, setActiveCard }: EcosystemSVGProps) {
                 strokeWidth={isActive ? "2.5" : "1.5"}
                 className="transition-all duration-300 shadow-sm"
               />
-              <text
-                x={node.x}
-                y={node.y + 5}
-                textAnchor="middle"
-                fontSize="15"
+              <svg
+                x={node.x - 8}
+                y={node.y - 8}
+                width="16"
+                height="16"
                 className="select-none pointer-events-none"
               >
-                {node.emoji}
-              </text>
+                <node.icon className="w-4 h-4 text-slate-700" />
+              </svg>
             </g>
           );
         })}
@@ -240,19 +240,19 @@ function SignInContent() {
   const valueCards = [
     {
       id: 0,
-      emoji: "🧭",
+      icon: Compass,
       title: "Find Direction",
       desc: "Re-align with personalized career tracks and milestone roadmaps."
     },
     {
       id: 1,
-      emoji: "🚀",
+      icon: Rocket,
       title: "Build Confidence",
       desc: "Track your engineering progress through concrete, real-world portfolio tasks."
     },
     {
       id: 2,
-      emoji: "🤝",
+      icon: Users,
       title: "Grow Together",
       desc: "Re-engage with cohort peers, accountability partners, and active mentors."
     }
@@ -379,9 +379,11 @@ function SignInContent() {
                       : "bg-background/60 border-slate-200/50 hover:bg-white/80 hover:border-slate-300"
                   }`}
                 >
-                  <span className="text-2xl mt-0.5 filter drop-shadow-sm select-none shrink-0">
-                    {card.emoji}
-                  </span>
+                  <div className={`p-2 rounded-xl border flex items-center justify-center shrink-0 transition-colors ${
+                    isHovered ? "bg-primary/10 border-primary/20 text-primary" : "bg-muted border-slate-200/60 text-slate-500"
+                  }`}>
+                    <card.icon className="w-5 h-5" />
+                  </div>
                   <div className="space-y-1">
                     <h4 className={`text-xs font-semibold tracking-tight transition-colors ${
                       isHovered ? "text-primary" : "text-foreground"
