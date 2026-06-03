@@ -43,7 +43,7 @@ function EcosystemSVG({ activeBenefit, setActiveBenefit }: EcosystemSVGProps) {
   ];
 
   return (
-    <div className="relative w-full aspect-[4/3] max-w-[400px] mx-auto mb-8 bg-[#FCFCFE]/40 rounded-3xl border border-slate-200/50 backdrop-blur-sm p-4 overflow-hidden shadow-[0_8px_30px_rgba(91,95,239,0.02)]">
+    <div className="relative w-full aspect-[4/3] max-w-[400px] mx-auto mb-8 bg-background/40 rounded-3xl border border-slate-200/50 backdrop-blur-sm p-4 overflow-hidden shadow-[0_8px_30px_rgba(91,95,239,0.02)]">
       {/* Decorative inner gradient blobs */}
       <div className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(circle_at_50%_50%,rgba(91,95,239,0.1),transparent_70%)]" />
       
@@ -120,7 +120,7 @@ function EcosystemSVG({ activeBenefit, setActiveBenefit }: EcosystemSVGProps) {
 
         {/* Central Core */}
         <g className="cursor-pointer" onMouseEnter={() => setActiveBenefit(null)}>
-          <circle cx="240" cy="180" r="22" fill="#1E293B" />
+          <circle cx="240" cy="180" r="22" fill="#2D2433" />
           <circle cx="240" cy="180" r="22" fill="url(#core-gradient)" />
           <circle cx="240" cy="180" r="22" stroke="#4F46E5" strokeWidth="2" strokeOpacity="0.4" />
           <motion.circle
@@ -135,7 +135,7 @@ function EcosystemSVG({ activeBenefit, setActiveBenefit }: EcosystemSVGProps) {
         </g>
         <radialGradient id="core-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(240 180) rotate(90) scale(22)">
           <stop stopColor="#4F46E5" />
-          <stop offset="1" stopColor="#1E293B" />
+          <stop offset="1" stopColor="#2D2433" />
         </radialGradient>
 
         {/* Orbiting Nodes */}
@@ -792,7 +792,7 @@ function CreateAccountContent() {
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-slate-200/60" />
                 </div>
-                <span className="relative px-3 text-[10px] font-bold text-slate-400 uppercase bg-[#FCFCFE] select-none">
+                <span className="relative px-3 text-[10px] font-bold text-slate-400 uppercase bg-white select-none">
                   Or Connect Instantly
                 </span>
               </div>

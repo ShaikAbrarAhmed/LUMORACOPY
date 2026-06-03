@@ -3,27 +3,27 @@ import { Footer } from "@/components/Footer"
 
 export default function PrivacyPage() {
   return (
-    <main className="flex min-h-screen flex-col bg-[#FCFCFE] text-[#0B1020]">
+    <main className="flex min-h-screen flex-col bg-background text-foreground">
       <Navbar />
       
       <div className="flex-1 pt-36 pb-16">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <div className="space-y-8">
             <div>
-              <h1 className="text-4xl font-bold tracking-tight text-[#0B1020] mb-4">Privacy Policy</h1>
+              <h1 className="text-4xl font-bold tracking-tight mb-4">Privacy Policy</h1>
               <p className="text-slate-500">Last updated: {new Date().toLocaleDateString()}</p>
             </div>
             
             <div className="prose prose-slate max-w-none space-y-6 text-slate-600">
               <section>
-                <h2 className="text-2xl font-semibold text-[#0B1020] mb-3">1. Introduction</h2>
+                <h2 className="text-2xl font-semibold mb-3">1. Introduction</h2>
                 <p>
                   Welcome to Lumorous ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-[#0B1020] mb-3">2. Data We Collect</h2>
+                <h2 className="text-2xl font-semibold mb-3">2. Data We Collect</h2>
                 <p>
                   We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:
                 </p>
@@ -36,7 +36,7 @@ export default function PrivacyPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-[#0B1020] mb-3">3. How We Use Your Data</h2>
+                <h2 className="text-2xl font-semibold mb-3">3. How We Use Your Data</h2>
                 <p>
                   We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:
                 </p>
@@ -48,14 +48,14 @@ export default function PrivacyPage() {
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-[#0B1020] mb-3">4. Data Security</h2>
+                <h2 className="text-2xl font-semibold mb-3">4. Data Security</h2>
                 <p>
                   We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorised way, altered or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-[#0B1020] mb-3">5. Contact Us</h2>
+                <h2 className="text-2xl font-semibold mb-3">5. Contact Us</h2>
                 <p>
                   If you have any questions about this privacy policy or our privacy practices, please contact us at: <a href="mailto:Support.lumoraspace@gmail.com" className="text-sky-600 hover:underline">Support.lumoraspace@gmail.com</a>
                 </p>
