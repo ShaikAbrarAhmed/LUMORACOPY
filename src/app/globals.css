@@ -29,62 +29,62 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-brand-purple: #2D2433;
-  --color-brand-blue: #574964;
-  --color-brand-cyan: #9F8383;
+  --color-brand-purple: #0F172A;
+  --color-brand-blue: #4F46E5;
+  --color-brand-cyan: #818CF8;
 
   /* Overriding Tailwind sky colors to transition to the new color identity seamlessly */
-  --color-sky-50: #FAF8F7;   /* Surface color */
-  --color-sky-100: rgba(45, 36, 51, 0.08);  /* Border color */
-  --color-sky-200: #C8AAAA;  /* Light secondary tint */
-  --color-sky-300: #9F8383;  /* Secondary color */
-  --color-sky-400: #7C6C8A;  /* Slight primary-secondary blend */
-  --color-sky-500: #574964;  /* Primary color */
-  --color-sky-600: #4B3E56;  /* Darker primary */
-  --color-sky-700: #3E3347;  /* Even darker primary */
-  --color-sky-800: #2D2433;
-  --color-sky-950: #FAF8F7;
-  --color-sky-900: #2D2433;  /* Dark headings color */
+  --color-sky-50: #FAFBFF;   /* Surface color */
+  --color-sky-100: rgba(15, 23, 42, 0.08);  /* Border color */
+  --color-sky-200: rgba(79, 70, 229, 0.1);  /* Light secondary tint */
+  --color-sky-300: #818CF8;  /* Secondary color */
+  --color-sky-400: #6366F1;  /* Slight primary-secondary blend */
+  --color-sky-500: #4F46E5;  /* Primary color */
+  --color-sky-600: #4338CA;  /* Darker primary */
+  --color-sky-700: #3730A3;  /* Even darker primary */
+  --color-sky-800: #0F172A;
+  --color-sky-950: #FAFBFF;
+  --color-sky-900: #0F172A;  /* Dark headings color */
   
   --color-headings: var(--headings);
   --color-warm-surface: var(--warm-surface);
 }
 
 :root {
-  /* Premium Deep Dusty Plum & Muted Rose Taupe Theme Palette - Lumora V1.1 */
-  --background: #FAF8F7;
-  --foreground: #5E5A67;
+  /* Premium Indigo & Gold Theme Palette - Lumora V1.1 */
+  --background: #FAFBFF;
+  --foreground: #64748B;
   
   --card: #FFFFFF;
-  --card-foreground: #5E5A67;
+  --card-foreground: #64748B;
   
-  --popover: #FAF8F7;
-  --popover-foreground: #5E5A67;
+  --popover: #FAFBFF;
+  --popover-foreground: #64748B;
   
-  /* Primary Accent: Brand Accent (#574964) */
-  --primary: #574964;
+  /* Primary Accent: Indigo (#4F46E5) */
+  --primary: #4F46E5;
   --primary-foreground: #FFFFFF;
   
-  /* Secondary Accent: Rose Taupe (#9F8383) */
-  --secondary: #9F8383;
-  --secondary-foreground: #FFFFFF;
+  /* Secondary Accent: Light Indigo (#818CF8) */
+  --secondary: #818CF8;
+  --secondary-foreground: #0F172A;
   
-  --muted: #FAF8F7;
-  --muted-foreground: #5E5A67;
+  --muted: #FAFBFF;
+  --muted-foreground: #64748B;
   
-  /* Warm Highlights & Surfaces */
-  --accent: #FFDAB3;
-  --accent-foreground: #2D2433;
+  /* Gold Accents & Highlights */
+  --accent: #F59E0B;
+  --accent-foreground: #0F172A;
   
-  --warm-surface: #C8AAAA;
-  --headings: #2D2433;
+  --warm-surface: #FEF3C7;
+  --headings: #0F172A;
   
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
   
-  --border: rgba(45, 36, 51, 0.08);
-  --input: rgba(45, 36, 51, 0.08);
-  --ring: rgba(87, 73, 100, 0.2);
+  --border: rgba(15, 23, 42, 0.08);
+  --input: rgba(15, 23, 42, 0.08);
+  --ring: rgba(79, 70, 229, 0.25);
   
   --radius: 1.25rem;
 }
@@ -109,7 +109,7 @@
   
   /* Refined minimal glassmorphism */
   .glass {
-    @apply bg-background/70 backdrop-blur-lg border border-border/50 shadow-[0_8px_32px_rgba(45,36,51,0.03)];
+    @apply bg-background/70 backdrop-blur-lg border border-border/50 shadow-[0_8px_32px_rgba(15,23,42,0.03)];
   }
   .font-fancy {
     font-family: var(--font-fancy), serif;
@@ -149,7 +149,7 @@
 }
 
 @utility btn-primary {
-  background-color: #574964;
+  background-color: #4F46E5;
   color: #FFFFFF;
   border-radius: 9999px;
   padding: 0.875rem 2rem;
@@ -165,7 +165,7 @@
   box-shadow: none;
 
   &:hover {
-    background-color: #9F8383;
+    background-color: #4338CA;
     color: #FFFFFF;
     transform: translateY(-1px);
   }
@@ -173,8 +173,8 @@
 
 @utility btn-secondary {
   background-color: transparent;
-  color: #2D2433;
-  border: 1px solid #9F8383;
+  color: #0F172A;
+  border: 1px solid rgba(15, 23, 42, 0.15);
   border-radius: 9999px;
   padding: 0.875rem 2rem;
   font-weight: 600;
@@ -187,7 +187,7 @@
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 
   &:hover {
-    background-color: rgba(159, 131, 131, 0.08);
+    background-color: rgba(79, 70, 229, 0.05);
     transform: translateY(-1px);
   }
 }

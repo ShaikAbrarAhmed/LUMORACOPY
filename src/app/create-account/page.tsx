@@ -120,7 +120,7 @@ function EcosystemSVG({ activeBenefit, setActiveBenefit }: EcosystemSVGProps) {
 
         {/* Central Core */}
         <g className="cursor-pointer" onMouseEnter={() => setActiveBenefit(null)}>
-          <circle cx="240" cy="180" r="22" fill="#2D2433" />
+          <circle cx="240" cy="180" r="22" fill="#0F172A" />
           <circle cx="240" cy="180" r="22" fill="url(#core-gradient)" />
           <circle cx="240" cy="180" r="22" stroke="#4F46E5" strokeWidth="2" strokeOpacity="0.4" />
           <motion.circle
@@ -135,7 +135,7 @@ function EcosystemSVG({ activeBenefit, setActiveBenefit }: EcosystemSVGProps) {
         </g>
         <radialGradient id="core-gradient" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(240 180) rotate(90) scale(22)">
           <stop stopColor="#4F46E5" />
-          <stop offset="1" stopColor="#2D2433" />
+          <stop offset="1" stopColor="#0F172A" />
         </radialGradient>
 
         {/* Orbiting Nodes */}
