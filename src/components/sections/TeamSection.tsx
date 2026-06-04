@@ -133,10 +133,6 @@ export default function TeamSection() {
                       style={{ objectPosition: "top center" }}
                       priority
                     />
-                    <div className="absolute top-2 left-2 inline-flex items-center gap-1 px-1.5 py-0.5 bg-background/90 backdrop-blur-md rounded-full text-[8px] font-bold text-foreground border border-border/30">
-                      <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
-                      Active
-                    </div>
                   </div>
 
                   {/* Header Details */}
@@ -196,10 +192,6 @@ export default function TeamSection() {
                     style={{ objectPosition: "top center" }}
                     priority
                   />
-                  <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1.5 bg-background/90 backdrop-blur-md rounded-full text-[10px] font-bold text-foreground border border-border/30 shadow-xs">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                    Active Founder
-                  </div>
                 </div>
 
                 {/* Bio & Details (Right Column) */}

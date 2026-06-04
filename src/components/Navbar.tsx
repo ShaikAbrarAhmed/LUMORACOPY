@@ -179,12 +179,6 @@ export function Navbar() {
         ) : (
           <>
             <Link
-              href="/signin"
-              className="hidden lg:inline-flex text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
-            >
-              Sign In
-            </Link>
-            <Link
               href="/create-account"
               className="hidden lg:inline-flex items-center justify-center rounded-full px-5 py-2 text-xs font-semibold bg-primary text-white hover:bg-primary/90 transition-all duration-200 shadow-sm shadow-primary/25 hover:shadow-md hover:shadow-primary/30 hover:-translate-y-0.5"
             >
@@ -315,10 +309,12 @@ export function Navbar() {
                   </span>
 
                   {/* Login state */}
-                  <motion.div variants={itemVariants} className="px-1">
-                    {status === "loading" ? (
+                  {status === "loading" ? (
+                    <motion.div variants={itemVariants} className="px-1">
                       <div className="h-8 bg-slate-200 animate-pulse rounded-lg" />
-                    ) : session && session.user ? (
+                    </motion.div>
+                  ) : session && session.user ? (
+                    <motion.div variants={itemVariants} className="px-1">
                       <div className="flex items-center justify-between gap-3 p-2 bg-muted border border-border/40 rounded-xl">
                         <div className="flex items-center gap-2 overflow-hidden">
                           {session.user.image && (
@@ -342,17 +338,8 @@ export function Navbar() {
                           Log Out
                         </button>
                       </div>
-                    ) : (
-                      <Link
-                        href="/signin"
-                        onClick={() => setIsOpen(false)}
-                        className="w-full text-left px-3.5 py-2 rounded-xl text-[14px] font-semibold text-muted-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group cursor-pointer"
-                      >
-                        <span>Sign In</span>
-                        <span className="opacity-0 group-hover:opacity-100 transition-opacity text-xs font-bold">→</span>
-                      </Link>
-                    )}
-                  </motion.div>
+                    </motion.div>
+                  ) : null}
 
                   {!session && (
                     <motion.div variants={itemVariants} className="px-1">
