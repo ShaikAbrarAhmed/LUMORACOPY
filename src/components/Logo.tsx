@@ -1,14 +1,16 @@
 import React from "react"
 import Image from "next/image"
 
-interface LogoProps {
+export interface LogoProps {
   className?: string
   size?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl"
+  flat?: boolean
 }
 
 export function Logo({
   className = "",
   size = "md",
+  flat = false,
 }: LogoProps) {
 
   const sizeClasses = {
@@ -22,7 +24,11 @@ export function Logo({
 
   return (
     <div
-      className={`relative flex items-center justify-center rounded-xl overflow-hidden bg-[#0F172A] border border-slate-200/50 shadow-[0_4px_20px_rgba(11,16,32,0.08)] shrink-0 p-1.5 ${sizeClasses[size]} ${className}`}
+      className={`relative flex items-center justify-center overflow-hidden shrink-0 ${
+        flat
+          ? "bg-transparent border-none shadow-none p-0"
+          : "rounded-xl bg-[#0F172A] border border-slate-200/50 shadow-[0_4px_20px_rgba(11,16,32,0.08)] p-1.5"
+      } ${sizeClasses[size]} ${className}`}
     >
       <Image
         src="/logo.png"

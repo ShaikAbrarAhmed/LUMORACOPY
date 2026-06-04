@@ -68,7 +68,7 @@ export function Footer() {
             <p className="text-sm text-muted-foreground">
               &copy; {new Date().getFullYear()} Lumora. All rights reserved.
             </p>
-            <button 
+            {/* <button 
               onClick={() => {
                 window.scrollTo(0, 0);
                 window.dispatchEvent(new Event("replay-intro"));
@@ -76,7 +76,7 @@ export function Footer() {
               className="text-xs font-mono text-muted-foreground/50 hover:text-foreground transition-colors uppercase tracking-wider"
             >
               Replay Intro
-            </button>
+            </button> */}
           </div>
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             Built for the future of tech.
