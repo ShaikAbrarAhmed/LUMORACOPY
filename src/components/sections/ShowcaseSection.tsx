@@ -7,7 +7,7 @@ export function ShowcaseSection() {
     <section className="py-24 relative overflow-hidden bg-transparent border-t border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-heading font-medium tracking-tight mb-4 text-foreground">
+          <h2 className="text-3xl md:text-4xl font-heading font-medium tracking-tight mb-4 text-headings">
             Built for Action.
           </h2>
           <p className="text-muted-foreground font-light">

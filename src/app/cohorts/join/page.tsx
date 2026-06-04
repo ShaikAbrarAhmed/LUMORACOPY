@@ -87,7 +87,7 @@ export default function JoinCohortPage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h2 className="text-3xl font-bold text-slate-800 mb-4">Application Received!</h2>
+          <h2 className="text-3xl font-bold text-headings mb-4">Application Received!</h2>
           <p className="text-slate-600 mb-8">
             Thank you for applying to the {formData.cohort} cohort. We have sent an email notification to our team and we will get back to you shortly!
           </p>
@@ -114,7 +114,7 @@ export default function JoinCohortPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-10"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-800 tracking-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-headings tracking-tight mb-4">
             Join a Cohort
           </h1>
           <p className="text-lg text-slate-600">

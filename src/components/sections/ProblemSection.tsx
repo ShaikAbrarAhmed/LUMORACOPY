@@ -53,7 +53,7 @@ export function ProblemSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-semibold tracking-tight text-foreground leading-[1.15] mb-6"
+            className="text-4xl md:text-5xl font-semibold tracking-tight text-headings leading-[1.15] mb-6"
           >
             Most Students Don't Need More Tutorials.
             <br />
@@ -95,7 +95,7 @@ export function ProblemSection() {
                   <div className="w-12 h-12 rounded-2xl bg-secondary/15 border border-[#E5E7EB]/60 flex items-center justify-center group-hover:bg-primary/5 group-hover:border-primary/10 transition-colors duration-300">
                     <problem.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground tracking-tight group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-xl font-semibold text-headings tracking-tight group-hover:text-primary transition-colors duration-300">
                     {problem.title}
                   </h3>
                 </div>

@@ -11,7 +11,7 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="flex items-center gap-2.5 mb-6 group inline-flex">
               <Logo size="md" className="transition-transform duration-300 group-hover:scale-105" />
-              <span className="font-heading font-bold text-xl tracking-tight text-foreground">Lumora</span>
+              <span className="font-heading font-bold text-xl tracking-tight text-headings">Lumora</span>
             </Link>
             <p className="text-muted-foreground text-sm max-w-sm leading-relaxed">
               The futuristic beginner-first tech ecosystem. Build real tech skills through mentorship, projects, accountability, and community-driven growth.
@@ -30,7 +30,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-heading font-medium mb-6 text-foreground">Ecosystem</h3>
+            <h3 className="font-heading font-medium mb-6 text-headings">Ecosystem</h3>
             <ul className="space-y-4">
               <li>
                 <Link href="/features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</Link>
@@ -48,7 +48,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-heading font-medium mb-6 text-foreground">Legal</h3>
+            <h3 className="font-heading font-medium mb-6 text-headings">Legal</h3>
             <ul className="space-y-4">
               <li>
                 <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link>

@@ -200,7 +200,7 @@ export default function CommunitySection() {
               className="space-y-4"
             >
 
-              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-foreground leading-tight">
+              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-headings leading-tight">
                 Learn Together. Build Together. Grow Together.
               </h2>
 
@@ -244,7 +244,7 @@ export default function CommunitySection() {
                         <Icon className={`w-4 h-4 ${feat.color}`} />
                       </div>
                       <div>
-                        <h4 className="text-xs font-semibold text-foreground mb-1">
+                        <h4 className="text-xs font-semibold text-headings mb-1">
                           {feat.title}
                         </h4>
                         <p className="text-[11px] text-muted-foreground leading-relaxed font-light">

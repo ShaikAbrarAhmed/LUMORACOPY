@@ -29,7 +29,7 @@ export default function FeaturesSection() {
             {/* <span className="inline-block px-3.5 py-1.5 rounded-full text-primary text-[10px] font-bold uppercase tracking-[0.25em] mb-4 bg-primary/5 border border-primary/10 select-none">
               Lumora Features
             </span> */}
-          <h2 className="text-4xl md:text-6xl font-heading font-black tracking-tight leading-[1.08] text-[#0B1020]">
+          <h2 className="text-4xl md:text-6xl font-heading font-black tracking-tight leading-[1.08] text-headings">
             Everything We Wish We Had <br />
             <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
               When We Started.
@@ -58,7 +58,7 @@ export default function FeaturesSection() {
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/5 border border-primary/10 text-[9px] font-mono font-bold text-primary uppercase tracking-wider">
                 Ecosystem Core
               </div>
-              <h3 className="text-2xl font-bold text-[#0B1020] flex items-center gap-2.5">
+              <h3 className="text-2xl font-bold text-headings flex items-center gap-2.5">
                 <Compass className="w-6 h-6 text-primary" />
                 Find Direction
               </h3>
@@ -96,7 +96,7 @@ export default function FeaturesSection() {
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/15 text-[9px] font-mono font-bold text-primary uppercase tracking-wider">
                 Belonging
               </div>
-              <h3 className="text-xl font-bold text-foreground flex items-center gap-2.5">
+              <h3 className="text-xl font-bold text-headings flex items-center gap-2.5">
                 <Users className="w-5.5 h-5.5 text-primary" />
                 Community
               </h3>
@@ -131,7 +131,7 @@ export default function FeaturesSection() {
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F59E0B]/10 border border-[#F59E0B]/15 text-[9px] font-mono font-bold text-[#F59E0B] uppercase tracking-wider">
                 Experiences
               </div>
-              <h3 className="text-xl font-bold text-foreground flex items-center gap-2.5">
+              <h3 className="text-xl font-bold text-headings flex items-center gap-2.5">
                 <Rocket className="w-5.5 h-5.5 text-[#F59E0B]" />
                 Opportunities
               </h3>
@@ -163,7 +163,7 @@ export default function FeaturesSection() {
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EF4444]/10 border border-[#EF4444]/15 text-[9px] font-mono font-bold text-[#EF4444] uppercase tracking-wider">
                 Consistency
               </div>
-              <h3 className="text-xl font-bold text-foreground flex items-center gap-2.5">
+              <h3 className="text-xl font-bold text-headings flex items-center gap-2.5">
                 <Flame className="w-5.5 h-5.5 text-[#EF4444]" />
                 Accountability
               </h3>
@@ -195,7 +195,7 @@ export default function FeaturesSection() {
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/15 text-[9px] font-mono font-bold text-primary uppercase tracking-wider">
                 Progression
               </div>
-              <h3 className="text-xl font-bold text-foreground flex items-center gap-2.5">
+              <h3 className="text-xl font-bold text-headings flex items-center gap-2.5">
                 <Activity className="w-5.5 h-5.5 text-primary" />
                 Growth
               </h3>
@@ -230,7 +230,7 @@ export default function FeaturesSection() {
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/15 text-[9px] font-mono font-bold text-primary uppercase tracking-wider">
                 Action
               </div>
-              <h3 className="text-3xl md:text-4xl font-heading font-black text-foreground tracking-tight">
+              <h3 className="text-3xl md:text-4xl font-heading font-black text-headings tracking-tight">
                 Confidence <br />
                 <span className="text-primary font-bold">Build belief through action.</span>
               </h3>

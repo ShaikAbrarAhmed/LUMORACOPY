@@ -476,7 +476,7 @@ function CreateAccountContent() {
             transition={{ duration: 0.8 }}
             className="space-y-4 mb-8"
           >
-            <h1 className="text-4xl md:text-5xl font-heading font-black tracking-tight leading-[1.05] text-foreground">
+            <h1 className="text-4xl md:text-5xl font-heading font-black tracking-tight leading-[1.05] text-headings">
               Your Journey <br />
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Starts Here.
@@ -512,7 +512,7 @@ function CreateAccountContent() {
                   </div>
                   <div className="space-y-1">
                     <h4 className={`text-xs font-semibold tracking-tight transition-colors ${
-                      isHovered ? "text-primary" : "text-foreground"
+                      isHovered ? "text-primary" : "text-headings"
                     }`}>
                       {benefit.title}
                     </h4>
@@ -577,7 +577,7 @@ function CreateAccountContent() {
               </motion.div>
 
               <div className="space-y-3 mb-8">
-                <h2 className="text-3xl font-heading font-black tracking-tight text-foreground">
+                <h2 className="text-3xl font-heading font-black tracking-tight text-headings">
                   Welcome To Lumora
                 </h2>
                 <p className="text-sm text-slate-500 font-light max-w-sm mx-auto">
@@ -706,7 +706,7 @@ function CreateAccountContent() {
                 <span className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">
                   Join the Lumora Community
                 </span>
-                <h3 className="text-2xl font-heading font-black tracking-tight text-foreground">
+                <h3 className="text-2xl font-heading font-black tracking-tight text-headings">
                   Create Your Account
                 </h3>
                 <p className="text-xs text-slate-500 font-light leading-relaxed">

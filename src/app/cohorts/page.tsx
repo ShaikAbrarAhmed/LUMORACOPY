@@ -110,7 +110,7 @@ export default function CohortsPage() {
           </span>
 
           {/* Headline */}
-          <h1 className="text-5xl md:text-7xl font-heading font-bold tracking-tight text-foreground leading-[1.08] mb-6">
+          <h1 className="text-5xl md:text-7xl font-heading font-bold tracking-tight text-headings leading-[1.08] mb-6">
             From Confused
             <br />
             <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
@@ -169,7 +169,7 @@ export default function CohortsPage() {
                 <div className="w-14 h-14 rounded-full flex items-center justify-center border border-border/80 bg-white shadow-xs group-hover:border-primary/30 group-hover:shadow-[0_8px_30px_rgba(79,70,229,0.05)] transition-all duration-300">
                   <node.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
                 </div>
-                <h4 className="mt-4 font-semibold text-sm text-foreground">{node.label}</h4>
+                <h4 className="mt-4 font-semibold text-sm text-headings">{node.label}</h4>
                 <p className="mt-2 text-xs text-muted-foreground leading-normal max-w-[150px] font-light">
                   {node.desc}
                 </p>
@@ -184,7 +184,7 @@ export default function CohortsPage() {
       <section id="journey" className="py-28 px-6 max-w-7xl mx-auto border-t border-border/40 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold text-primary tracking-widest uppercase mb-3 block">THE DIFFERENCE</span>
-          <h2 className="text-4xl md:text-5xl font-semibold text-foreground tracking-tight mb-6">
+          <h2 className="text-4xl md:text-5xl font-semibold text-headings tracking-tight mb-6">
             The Difference Isn't What You Learn.
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
@@ -211,7 +211,7 @@ export default function CohortsPage() {
               <div className="flex items-center justify-between mb-8">
                 <div>
                   <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Current State</span>
-                  <h3 className="text-2xl font-bold text-foreground mt-1">Today</h3>
+                  <h3 className="text-2xl font-bold text-headings mt-1">Today</h3>
                 </div>
                 <div className="w-10 h-10 rounded-xl bg-destructive/5 flex items-center justify-center text-destructive">
                   <X className="w-5 h-5" />
@@ -234,7 +234,7 @@ export default function CohortsPage() {
                   >
                     <X className="w-4 h-4 text-destructive shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-sm text-foreground">{item.text}</h4>
+                      <h4 className="font-semibold text-sm text-headings">{item.text}</h4>
                       <p className="text-xs text-muted-foreground mt-0.5 font-light leading-normal">{item.desc}</p>
                     </div>
                   </motion.div>
@@ -263,7 +263,7 @@ export default function CohortsPage() {
               <div className="flex items-center justify-between mb-8">
                 <div>
                   <span className="text-xs font-bold text-primary uppercase tracking-widest">Transformation</span>
-                  <h3 className="text-2xl font-bold text-foreground mt-1">Tomorrow</h3>
+                  <h3 className="text-2xl font-bold text-headings mt-1">Tomorrow</h3>
                 </div>
                 <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center text-primary border border-primary/10">
                   <Check className="w-5 h-5" />
@@ -286,7 +286,7 @@ export default function CohortsPage() {
                   >
                     <Check className="w-4 h-4 text-primary shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-sm text-foreground">{item.text}</h4>
+                      <h4 className="font-semibold text-sm text-headings">{item.text}</h4>
                       <p className="text-xs text-muted-foreground mt-0.5 font-light leading-normal">{item.desc}</p>
                     </div>
                   </motion.div>
@@ -307,7 +307,7 @@ export default function CohortsPage() {
       <section className="py-28 px-6 max-w-7xl mx-auto border-t border-border/40 relative z-10 bg-muted/20">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-bold text-primary tracking-widest uppercase mb-3 block">OUTCOMES</span>
-          <h2 className="text-4xl md:text-5xl font-semibold text-foreground tracking-tight mb-6">
+          <h2 className="text-4xl md:text-5xl font-semibold text-headings tracking-tight mb-6">
             What You'll Walk Away With
           </h2>
           <p className="text-muted-foreground text-base md:text-lg font-light max-w-xl mx-auto leading-relaxed">
@@ -360,7 +360,7 @@ export default function CohortsPage() {
               <div className="w-10 h-10 rounded-2xl bg-muted border border-border/60 flex items-center justify-center mb-6 group-hover:bg-primary/5 group-hover:border-primary/10 transition-colors">
                 <item.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
+              <h3 className="text-lg font-semibold text-headings mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
               <p className="text-[14px] text-muted-foreground font-light leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
@@ -371,7 +371,7 @@ export default function CohortsPage() {
       <section className="py-28 px-6 max-w-6xl mx-auto border-t border-border/40 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-bold text-primary tracking-widest uppercase mb-3 block">THE DIFFERENCE</span>
-          <h2 className="text-4xl md:text-5xl font-semibold text-foreground tracking-tight mb-6">
+          <h2 className="text-4xl md:text-5xl font-semibold text-headings tracking-tight mb-6">
             Not Another Course Platform.
           </h2>
           <p className="text-muted-foreground text-base md:text-lg font-light leading-relaxed max-w-xl mx-auto">
@@ -394,7 +394,7 @@ export default function CohortsPage() {
                 <div className="w-10 h-10 rounded-xl bg-destructive/5 flex items-center justify-center text-destructive">
                   <X className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground">Traditional Learning</h3>
+                <h3 className="text-xl font-semibold text-headings">Traditional Learning</h3>
               </div>
               <ul className="space-y-4">
                 {[
@@ -433,7 +433,7 @@ export default function CohortsPage() {
                   <div className="w-10 h-10 rounded-xl bg-primary/5 flex items-center justify-center text-primary">
                     <Check className="w-5 h-5" />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground">Lumora Ecosystem</h3>
+                  <h3 className="text-xl font-semibold text-headings">Lumora Ecosystem</h3>
                 </div>
                 <span className="text-[10px] font-bold text-primary uppercase tracking-wider bg-primary/5 px-2.5 py-1 rounded-full border border-primary/10">
                   BUILDER-FIRST
@@ -482,7 +482,7 @@ export default function CohortsPage() {
           <>
             <div className="text-center max-w-3xl mx-auto mb-20">
               <span className="text-xs font-bold text-primary tracking-widest uppercase mb-3 block">FUTURE STEPS</span>
-              <h2 className="text-4xl md:text-5xl font-semibold text-foreground tracking-tight mb-6">
+              <h2 className="text-4xl md:text-5xl font-semibold text-headings tracking-tight mb-6">
                 What We're Building
               </h2>
               <p className="text-muted-foreground text-base md:text-lg font-light max-w-xl mx-auto leading-relaxed">
@@ -531,7 +531,7 @@ export default function CohortsPage() {
                         Launching Soon
                       </span>
                     </div>
-                    <h3 className="text-base font-semibold text-foreground mb-3">{item.title}</h3>
+                    <h3 className="text-base font-semibold text-headings mb-3">{item.title}</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed font-light">{item.desc}</p>
                   </div>
                   <div className="mt-8 pt-4 border-t border-border/40 text-[10px] text-muted-foreground uppercase tracking-wider font-semibold">

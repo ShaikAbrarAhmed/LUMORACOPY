@@ -32,7 +32,7 @@ export default function StorySection() {
           <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">
             OUR STORY
           </span>
-          <h2 className="text-4xl md:text-6xl font-heading font-bold text-foreground tracking-tight leading-[1.08] mb-6">
+          <h2 className="text-4xl md:text-6xl font-heading font-bold text-headings tracking-tight leading-[1.08] mb-6">
             We Didn't Build Lumorous <br className="hidden md:inline" />
             Because We Had All The Answers.
           </h2>
@@ -76,7 +76,7 @@ export default function StorySection() {
               {/* Founder Details Footer */}
               <div className="pt-4 flex items-center justify-between px-2">
                 <div>
-                  <h4 className="font-bold text-foreground text-sm">Abrar Ahmed</h4>
+                  <h4 className="font-bold text-headings text-sm">Abrar Ahmed</h4>
                   <p className="text-[10px] text-muted-foreground font-medium tracking-wide uppercase mt-0.5">Founder & Mentor</p>
                 </div>
                 <div className="w-8 h-8 rounded-full bg-muted border border-border/60 flex items-center justify-center text-primary">

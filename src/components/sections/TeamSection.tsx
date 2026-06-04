@@ -94,7 +94,7 @@ export default function TeamSection() {
           <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">
             THE SYSTEM ARCHITECTS
           </span>
-          <h2 className="text-4xl md:text-6xl font-heading font-bold text-foreground tracking-tight leading-[1.08] mb-6">
+          <h2 className="text-4xl md:text-6xl font-heading font-bold text-headings tracking-tight leading-[1.08] mb-6">
             Meet the Builders <br />
             Behind Lumorous.
           </h2>
@@ -144,7 +144,7 @@ export default function TeamSection() {
                     <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 border border-primary/15 text-[8px] font-mono font-semibold text-primary uppercase tracking-wider">
                       SYSTEM ARCHITECT
                     </div>
-                    <h3 className="text-2xl font-heading font-black text-foreground mt-1 mb-0.5 tracking-tight">
+                    <h3 className="text-2xl font-heading font-black text-headings mt-1 mb-0.5 tracking-tight">
                       Abrar
                     </h3>
                     <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">
@@ -209,7 +209,7 @@ export default function TeamSection() {
                       {/* <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/15 text-[9px] font-mono font-semibold text-primary uppercase tracking-wider mb-3">
                         SYSTEM ARCHITECT & INSTRUCTOR
                       </div> */}
-                      <h3 className="text-5xl font-heading font-black text-foreground mt-2 mb-1 tracking-tight">
+                      <h3 className="text-5xl font-heading font-black text-headings mt-2 mb-1 tracking-tight">
                         Shaik Abrar Ahmed
                       </h3>
                       <p className="text-xs font-bold text-primary uppercase tracking-widest">
@@ -281,7 +281,7 @@ export default function TeamSection() {
             </div>
             <div className="flex-1 text-left">
               <div className="mb-2">
-                <h4 className="text-lg sm:text-xl font-heading font-black text-foreground tracking-tight">Mounika</h4>
+                <h4 className="text-lg sm:text-xl font-heading font-black text-headings tracking-tight">Mounika</h4>
                 <p className="text-[10px] text-primary font-bold uppercase tracking-wider mt-1">
                   Co-Founder & Operations
                 </p>
@@ -314,7 +314,7 @@ export default function TeamSection() {
             </div>
             <div className="flex-1 text-left">
               <div className="mb-2">
-                <h4 className="text-lg sm:text-xl font-heading font-black text-foreground tracking-tight">Ashwini</h4>
+                <h4 className="text-lg sm:text-xl font-heading font-black text-headings tracking-tight">Ashwini</h4>
                 <p className="text-[10px] text-primary font-bold uppercase tracking-wider mt-1">
                   Lead Coordinator 
                 </p>
@@ -356,7 +356,7 @@ export default function TeamSection() {
                   </div>
                   <div className="flex-1 sm:flex-none">
                     <div>
-                      <h5 className="font-bold text-foreground text-sm leading-tight">
+                      <h5 className="font-bold text-headings text-sm leading-tight">
                         {member.name}
                       </h5>
                       <p className="text-[9px] text-primary font-bold tracking-wider uppercase mt-1">
@@ -395,7 +395,7 @@ export default function TeamSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-12 items-center border-t border-border/40 pt-8 md:pt-16 mb-8 md:mb-24">
           <div className="lg:col-span-5 text-center lg:text-left">
             <span className="text-xs font-bold text-primary uppercase tracking-widest">Our Culture</span>
-            <h3 className="text-3xl md:text-4xl font-heading font-bold text-foreground mt-3 mb-4">
+            <h3 className="text-3xl md:text-4xl font-heading font-bold text-headings mt-3 mb-4">
               Building for a <br />
               New Kind of Education.
             </h3>

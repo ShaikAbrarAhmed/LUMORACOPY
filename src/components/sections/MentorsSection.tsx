@@ -93,7 +93,7 @@ export default function MentorsSection() {
           <span className="inline-block px-3.5 py-1 rounded-full text-primary text-[10px] font-bold uppercase tracking-wider bg-primary/5 border border-primary/10 mb-4">
             Mentorship
           </span>
-          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight leading-tight text-foreground">
+          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight leading-tight text-headings">
             Learn From Builders,<br />Not Just Teachers.
           </h2>
           <p className="mt-4 text-base md:text-lg text-muted-foreground font-light leading-relaxed">
@@ -130,7 +130,7 @@ export default function MentorsSection() {
                   </div>
 
                   {/* Info */}
-                  <h4 className="text-lg font-semibold text-foreground">{mentor.name}</h4>
+                  <h4 className="text-lg font-semibold text-headings">{mentor.name}</h4>
                   <p className="text-xs text-muted-foreground mt-0.5">{mentor.role}</p>
 
                   {/* Tags */}
@@ -182,7 +182,7 @@ export default function MentorsSection() {
                     <Icon className={`w-5 h-5 ${belief.color}`} />
                   </div>
                   
-                  <h4 className="text-base font-semibold text-foreground">{belief.title}</h4>
+                  <h4 className="text-base font-semibold text-headings">{belief.title}</h4>
                   
                   <p className="text-muted-foreground text-xs leading-relaxed font-light">
                     {belief.description}

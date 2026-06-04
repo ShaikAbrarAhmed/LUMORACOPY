@@ -303,7 +303,7 @@ export default function HeroSection() {
                 font-semibold
                 tracking-[-0.07em]
                 leading-[1]
-                text-foreground
+                text-headings
               "
             >
               FROM CONFUSED

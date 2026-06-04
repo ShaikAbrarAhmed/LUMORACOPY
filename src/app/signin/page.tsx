@@ -350,7 +350,7 @@ function SignInContent() {
             transition={{ duration: 0.8 }}
             className="space-y-4 mb-8"
           >
-            <h1 className="text-4xl md:text-5xl font-heading font-black tracking-tight leading-[1.05] text-foreground">
+            <h1 className="text-4xl md:text-5xl font-heading font-black tracking-tight leading-[1.05] text-headings">
               Welcome Back, <br />
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Builder.
@@ -386,7 +386,7 @@ function SignInContent() {
                   </div>
                   <div className="space-y-1">
                     <h4 className={`text-xs font-semibold tracking-tight transition-colors ${
-                      isHovered ? "text-primary" : "text-foreground"
+                      isHovered ? "text-primary" : "text-headings"
                     }`}>
                       {card.title}
                     </h4>
@@ -464,7 +464,7 @@ function SignInContent() {
             <span className="text-[10px] font-bold tracking-[0.2em] text-primary uppercase">
               Access Your Space
             </span>
-            <h3 className="text-2xl font-heading font-black tracking-tight text-foreground">
+            <h3 className="text-2xl font-heading font-black tracking-tight text-headings">
               Sign In to Lumora
             </h3>
             <p className="text-xs text-slate-500 font-light leading-relaxed">
