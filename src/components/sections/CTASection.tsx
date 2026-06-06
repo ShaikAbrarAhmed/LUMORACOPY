@@ -30,9 +30,9 @@ export function CTASection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl font-semibold tracking-tight text-foreground mb-6"
+              className="text-4xl md:text-5xl font-heading font-bold tracking-tight text-headings mb-6"
             >
-              Ready To Stop Feeling Lost?
+              Build With People Who Get It.
             </motion.h2>
             
             <motion.p
@@ -50,20 +50,14 @@ export function CTASection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+              className="flex justify-center"
             >
               <Link
                 href="/cohorts"
-                className="w-full sm:w-auto btn-primary group"
+                className="w-full sm:w-auto btn-primary group inline-flex items-center justify-center"
               >
                 Start Your Journey
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
-                href="/cohorts"
-                className="w-full sm:w-auto btn-secondary"
-              >
-                Explore Cohorts
               </Link>
             </motion.div>
           </div>

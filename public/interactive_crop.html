@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Logo Cropper v2</title>
+  <style>
+    body {
+      background-color: #070A13;
+      color: white;
+      font-family: sans-serif;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .panel {
+      background: #0F172A;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 400px;
+    }
+    .slider-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #94A3B8;
+    }
+    input[type="range"] {
+      width: 100%;
+    }
+    .preview-area {
+      display: flex;
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .preview-box {
+      width: 80px;
+      height: 80px;
+      background: #070A13;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .preview-box-large {
+      width: 160px;
+      height: 160px;
+      border-radius: 24px;
+    }
+    .cropped-img {
+      position: absolute;
+    }
+    #css-output {
+      background: #000;
+      color: #00FF00;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 13px;
+      width: 400px;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <h1>Interactive Logo Cropper v2</h1>
+  
+  <div class="preview-area">
+    <div class="flex-col" style="display:flex; flex-direction:column; align-items:center; gap:5px;">
+      <div id="preview-sm" class="preview-box">
+        <img src="/logo2.png" id="img-sm" class="cropped-img" />
+      </div>
+      <span>80px Icon</span>
+    </div>
+    
+    <div class="flex-col" style="display:flex; flex-direction:column; align-items:center; gap:5px;">
+      <div id="preview-lg" class="preview-box preview-box-large">
+        <img src="/logo2.png" id="img-lg" class="cropped-img" />
+      </div>
+      <span>160px Icon</span>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="slider-group">
+      <div class="slider-label">
+        <span>Scale (Width %)</span>
+        <span id="val-scale">240%</span>
+      </div>
+      <input type="range" id="scale" min="150" max="350" value="240" />
+    </div>
+
+    <div class="slider-group">
+      <div class="slider-label">
+        <span>X Offset (Left %)</span>
+        <span id="val-left">-67%</span>
+      </div>
+      <input type="range" id="left" min="-180" max="-30" value="-67" />
+    </div>
+
+    <div class="slider-group">
+      <div class="slider-label">
+        <span>Y Offset (Top %)</span>
+        <span id="val-top">-30%</span>
+      </div>
+      <input type="range" id="top" min="-150" max="-10" value="-30" />
+    </div>
+
+    <div class="slider-group">
+      <div class="slider-label">
+        <span>Clip Bottom (%)</span>
+        <span id="val-clip">50%</span>
+      </div>
+      <input type="range" id="clip" min="20" max="80" value="50" />
+    </div>
+  </div>
+
+  <div id="css-output"></div>
+
+  <script>
+    const scaleSlider = document.getElementById('scale');
+    const leftSlider = document.getElementById('left');
+    const topSlider = document.getElementById('top');
+    const clipSlider = document.getElementById('clip');
+
+    const imgSm = document.getElementById('img-sm');
+    const imgLg = document.getElementById('img-lg');
+    const cssOutput = document.getElementById('css-output');
+
+    function update() {
+      const scale = scaleSlider.value;
+      const left = leftSlider.value;
+      const top = topSlider.value;
+      const clip = clipSlider.value;
+
+      document.getElementById('val-scale').textContent = scale + '%';
+      document.getElementById('val-left').textContent = left + '%';
+      document.getElementById('val-top').textContent = top + '%';
+      document.getElementById('val-clip').textContent = clip + '%';
+
+      const styleStr = `width: ${scale}%; height: auto; left: ${left}%; top: ${top}%; clip-path: inset(0% 0% ${clip}% 0%);`;
+      
+      imgSm.style.cssText = styleStr;
+      imgLg.style.cssText = styleStr;
+
+      cssOutput.textContent = `.logo-cropped-symbol {\n  position: absolute;\n  width: ${scale}%;\n  height: auto;\n  left: ${left}%;\n  top: ${top}%;\n  clip-path: inset(0% 0% ${clip}% 0%);\n}`;
+    }
+
+    scaleSlider.addEventListener('input', update);
+    leftSlider.addEventListener('input', update);
+    topSlider.addEventListener('input', update);
+    clipSlider.addEventListener('input', update);
+
+    update();
+  </script>
+</body>
+</html>

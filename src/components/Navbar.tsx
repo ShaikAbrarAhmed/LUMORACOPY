@@ -108,17 +108,21 @@ export function Navbar() {
           : "shadow-[0_8px_32px_rgba(15,23,42,0.03)]"
       }`}
     >
-      <div className="flex items-center">
-        <Link href="/" className="flex items-center gap-2.5 group" onClick={() => setIsOpen(false)}>
-          <Logo size="md" className="transition-transform duration-300 group-hover:scale-105" />
-          <span className="font-heading font-semibold text-lg tracking-tight text-foreground transition-colors group-hover:text-primary">
+      <div className="flex-1 flex items-center justify-start min-w-[200px]">
+        <Link href="/" className="flex items-center gap-3 group" onClick={() => setIsOpen(false)}>
+          <Logo
+            variant="icon"
+            size="md"
+            className="transition-transform duration-300 group-hover:scale-[1.03]"
+          />
+          <span className="font-heading font-bold text-xl md:text-2xl tracking-tight text-headings transition-colors group-hover:text-primary select-none mt-[1px]">
             Lumora
           </span>
         </Link>
       </div>
 
       {/* Centered navigation links (Desktop only) */}
-      <nav className="hidden lg:flex items-center gap-8">
+      <nav className="hidden lg:flex items-center justify-center gap-8 flex-1">
         <Link
           href="/features"
           className="text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors duration-200"
@@ -152,7 +156,7 @@ export function Navbar() {
       </nav>
 
       {/* Right side actions */}
-      <div className="flex items-center gap-4">
+      <div className="flex-1 flex items-center justify-end gap-4">
         {status === "loading" ? (
           <div className="hidden lg:block w-20 h-8 bg-muted animate-pulse rounded-full" />
         ) : session && session.user ? (
@@ -180,9 +184,25 @@ export function Navbar() {
           <>
             <Link
               href="/create-account"
-              className="hidden lg:inline-flex items-center justify-center rounded-full px-5 py-2 text-xs font-semibold bg-primary text-white hover:bg-primary/90 transition-all duration-200 shadow-sm shadow-primary/25 hover:shadow-md hover:shadow-primary/30 hover:-translate-y-0.5"
+              className="group hidden lg:inline-flex items-center justify-center gap-2 rounded-full px-5 py-2 text-xs font-semibold bg-primary text-white hover:bg-primary/90 transition-all duration-200 shadow-sm shadow-primary/25 hover:shadow-md hover:shadow-primary/30 hover:-translate-y-0.5"
             >
-              Join Lumora
+              <span className="relative flex h-2 w-2">
+                <motion.span
+                  className="absolute inset-0 rounded-full bg-secondary/80"
+                  animate={{
+                    scale: [1, 2.5],
+                    opacity: [0.8, 0],
+                  }}
+                  transition={{
+                    duration: 2.2,
+                    ease: "easeOut",
+                    repeat: Infinity,
+                    repeatDelay: 0.6,
+                  }}
+                />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary shadow-[0_0_8px_rgba(129,140,248,0.7)] group-hover:scale-110 group-hover:shadow-[0_0_14px_rgba(129,140,248,0.9)] transition-all duration-300" />
+              </span>
+              <span>Join Lumora</span>
             </Link>
           </>
         )}
@@ -346,9 +366,25 @@ export function Navbar() {
                       <Link
                         href="/create-account"
                         onClick={() => setIsOpen(false)}
-                        className="w-full py-2.5 px-4 bg-primary hover:bg-primary/95 text-white text-xs font-bold rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md text-center block cursor-pointer"
+                        className="group w-full py-2.5 px-4 bg-primary hover:bg-primary/95 text-white text-xs font-bold rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md flex items-center justify-center gap-2 cursor-pointer"
                       >
-                        Join Lumora →
+                        <span className="relative flex h-2 w-2">
+                          <motion.span
+                            className="absolute inset-0 rounded-full bg-secondary/80"
+                            animate={{
+                              scale: [1, 2.5],
+                              opacity: [0.8, 0],
+                            }}
+                            transition={{
+                              duration: 2.2,
+                              ease: "easeOut",
+                              repeat: Infinity,
+                              repeatDelay: 0.6,
+                            }}
+                          />
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary shadow-[0_0_8px_rgba(129,140,248,0.7)] group-hover:scale-110 group-hover:shadow-[0_0_14px_rgba(129,140,248,0.9)] transition-all duration-300" />
+                        </span>
+                        <span>Join Lumora →</span>
                       </Link>
                     </motion.div>
                   )}

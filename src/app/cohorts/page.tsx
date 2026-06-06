@@ -104,10 +104,7 @@ export default function CohortsPage() {
           className="max-w-4xl"
         >
           {/* Label Tag */}
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-primary/5 text-primary tracking-wide mb-8 border border-primary/10">
-            <Sparkles className="w-3.5 h-3.5" />
-            Ecosystem Cohorts
-          </span>
+        
 
           {/* Headline */}
           <h1 className="text-5xl md:text-7xl font-heading font-bold tracking-tight text-headings leading-[1.08] mb-6">

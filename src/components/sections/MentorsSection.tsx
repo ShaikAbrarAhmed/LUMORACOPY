@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Compass, HeartHandshake, ShieldCheck, Globe, Link2 } from "lucide-react"
+import { Compass, HeartHandshake, ShieldCheck, Sparkles } from "lucide-react"
 
 /* ─── Mentor Grid Data ──────────────────────────────────────── */
 const mentors = [
@@ -10,43 +10,49 @@ const mentors = [
     name: "Abrar Ahmed",
     role: "Senior Fullstack Mentor & Founder",
     image: "/team/abrar.png",
-    tags: ["Next.js", "Prisma", "Database Design", "DevOps"],
-    socials: { linkedin: "#", github: "#" }
+    quote: "Build first, perfect later.",
+    tags: ["Engineering", "Startups", "Fullstack"],
+    linkedin: "https://linkedin.com"
   },
   {
     name: "Ashwini",
     role: "Frontend Architect",
     image: "/team/Ashwini2.jpeg",
-    tags: ["React", "Framer Motion", "TailwindCSS"],
-    socials: { linkedin: "#", github: "#" }
+    quote: "Learn by creating.",
+    tags: ["UI/UX", "Engineering", "Frontend"],
+    linkedin: "https://linkedin.com"
   },
   {
     name: "Yuvaraj",
     role: "Backend Engineer",
     image: "/team/Yuvi.jpeg",
-    tags: ["Node.js", "Postgres", "Redis", "GraphQL"],
-    socials: { linkedin: "#", github: "#" }
+    quote: "Great products solve real problems.",
+    tags: ["Engineering", "Backend", "Databases"],
+    linkedin: "https://linkedin.com"
   },
   {
     name: "Mounika",
     role: "Fullstack Engineer",
     image: "/team/Mouni2.jpeg",
-    tags: ["Next.js", "Auth", "Firebase", "Serverless"],
-    socials: { linkedin: "#", github: "#" }
+    quote: "Clean code is simple code.",
+    tags: ["Engineering", "Fullstack", "Serverless"],
+    linkedin: "https://linkedin.com"
   },
   {
     name: "Sruthi",
     role: "UI/UX Mentor",
     image: "/team/Sruthi.jpeg",
-    tags: ["Figma", "User Research", "Visual Systems"],
-    socials: { linkedin: "#", github: "#" }
+    quote: "Design for real user needs.",
+    tags: ["UI/UX", "Product", "Design Systems"],
+    linkedin: "https://linkedin.com"
   },
   {
     name: "Rajitha & Jasmeet",
     role: "Project Coordinators",
     image: "/team/Raji2.jpeg",
-    tags: ["Scrum", "Product Management", "Git Workflows"],
-    socials: { linkedin: "#", github: "#" }
+    quote: "Momentum beats perfection.",
+    tags: ["Product", "Leadership", "Workflows"],
+    linkedin: "https://linkedin.com"
   }
 ]
 
@@ -54,116 +60,143 @@ const mentors = [
 const beliefs = [
   {
     title: "Give Back",
-    description: "We came from the same tier colleges. We understand the confusion, the lack of support, and the struggle to get noticed. We mentor to open the doors that were closed to us.",
+    description: "We understand the confusion and lack of support tier-3 students face. We mentor to open doors that were previously closed.",
     icon: HeartHandshake,
     color: "text-primary",
     bg: "bg-primary/5"
   },
   {
     title: "Accelerate Growth",
-    description: "Learning alone is slow. Mentorship compresses years of painful trial-and-error into weeks of focused, high-speed execution.",
+    description: "Learning alone is slow. Mentorship compresses years of painful trial-and-error into weeks of focused execution.",
     icon: Compass,
-    color: "text-accent",
-    bg: "bg-accent/5"
+    color: "text-amber-500",
+    bg: "bg-amber-500/5"
   },
   {
     title: "Build Confidence",
-    description: "Having an experienced engineer approve your PR and say 'this is production-grade' builds a level of self-trust no tutorial can replicate.",
+    description: "Having an experienced builder approve your PR and say 'this is production-ready' builds deep, lasting self-trust.",
     icon: ShieldCheck,
     color: "text-secondary",
     bg: "bg-secondary/5"
   }
 ]
 
-/* ─── Main Section Component ─────────────────────────────────── */
 export default function MentorsSection() {
   return (
-    <section id="mentors" className="relative py-24 md:py-36 overflow-hidden bg-background">
+    <section id="mentors" className="relative py-20 md:py-28 overflow-hidden bg-transparent">
       
-      {/* Background soft lighting */}
+      {/* Background soft ambient glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[130px]" />
-        <div className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[110px]" />
+        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/3 rounded-full blur-[130px]" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <span className="inline-block px-3.5 py-1 rounded-full text-primary text-[10px] font-bold uppercase tracking-wider bg-primary/5 border border-primary/10 mb-4">
-            Mentorship
-          </span>
-          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight leading-tight text-headings">
-            Learn From Builders,<br />Not Just Teachers.
-          </h2>
-          <p className="mt-4 text-base md:text-lg text-muted-foreground font-light leading-relaxed">
-            Get guidance from mentors who have built products, won hackathons, landed internships, and navigated the same journey you&apos;re on today.
-          </p>
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          {/* <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20 tracking-wide"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            Mentor Ecosystem
+          </motion.span> */}
+          <motion.h2 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-heading font-bold tracking-tight text-headings leading-tight"
+          >
+            Learn From Builders, Not Just Teachers
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl mx-auto font-light"
+          >
+            Get direct guidance from engineers and designers who build daily, review PRs, and help you navigate the same journey you're on today.
+          </motion.p>
         </div>
 
         {/* ================= PART 1: Mentor Grid ================= */}
-        <div className="mb-24">
-          <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-6">
-            The Mentor Ecosystem
-          </h3>
-          
+        <div className="mb-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {mentors.map((mentor, i) => (
               <motion.div
                 key={mentor.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                whileHover={{ y: -6 }}
-                className="rounded-3xl border border-border/50 bg-card/45 backdrop-blur-sm p-6 flex flex-col justify-between shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/20 group"
+                transition={{ duration: 0.5, delay: i * 0.05 }}
+                whileHover={{ y: -3 }}
+                className="group relative rounded-2xl border border-border/30 bg-card/25 backdrop-blur-xs p-5 flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:border-primary/20"
               >
-                <div>
-                  {/* Photo Frame */}
-                  <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-muted border border-border mb-5">
-                    <Image
-                      src={mentor.image}
-                      alt={mentor.name}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
+                {/* LinkedIn Icon (Absolute top-right corner) */}
+                <a
+                  href={mentor.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute top-5 right-5 text-slate-400 hover:text-primary transition-colors duration-250 p-1 shrink-0 z-20"
+                  aria-label={`${mentor.name}'s LinkedIn Profile`}
+                >
+                  <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+
+                <div className="space-y-4">
+                  {/* Avatar Layout Header */}
+                  <div className="flex items-center gap-4 text-left">
+                    {/* Compact circular avatar */}
+                    <div className="relative w-14 h-14 rounded-full overflow-hidden border border-border/40 shrink-0 bg-muted">
+                      <Image
+                        src={mentor.image}
+                        alt={mentor.name}
+                        fill
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-headings tracking-tight">
+                        {mentor.name}
+                      </h4>
+                      <p className="text-[11px] text-muted-foreground font-light mt-0.5 leading-tight max-w-[170px]">
+                        {mentor.role}
+                      </p>
+                    </div>
                   </div>
 
-                  {/* Info */}
-                  <h4 className="text-lg font-semibold text-headings">{mentor.name}</h4>
-                  <p className="text-xs text-muted-foreground mt-0.5">{mentor.role}</p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5 mt-4">
-                    {mentor.tags.map(t => (
+                  {/* Expertise Tags */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {mentor.tags.map(tag => (
                       <span
-                        key={t}
-                        className="px-2 py-0.5 rounded-full text-[9px] font-semibold text-secondary bg-secondary/5 border border-secondary/10"
+                        key={tag}
+                        className="px-2 py-0.5 rounded-full text-[9px] font-semibold text-primary bg-primary/5 border border-primary/10 tracking-wide"
                       >
-                        {t}
+                        {tag}
                       </span>
                     ))}
                   </div>
-                </div>
 
-                {/* Social Actions */}
-                <div className="flex items-center gap-3 mt-6 pt-4 border-t border-border/30">
-                  <a href={mentor.socials.linkedin} className="text-muted-foreground hover:text-foreground transition-colors">
-                    <Link2 className="w-3.5 h-3.5" />
-                  </a>
-                  <a href={mentor.socials.github} className="text-muted-foreground hover:text-foreground transition-colors">
-                    <Globe className="w-3.5 h-3.5" />
-                  </a>
+                  {/* Mentor Quote */}
+                  <p className="text-[11px] italic text-muted-foreground/90 font-light pl-2.5 border-l border-primary/30 text-left leading-relaxed">
+                    &ldquo;{mentor.quote}&rdquo;
+                  </p>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* ================= PART 3: Why They Mentor ================= */}
-        <div>
-          <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-6 text-center">
-            Our Core Philosophy
+        {/* ================= PART 2: Core Philosophy ================= */}
+        <div className="pt-10 border-t border-border/40">
+          <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-10 text-center select-none">
+            Our Mentorship Pillars
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -172,19 +205,21 @@ export default function MentorsSection() {
               return (
                 <motion.div
                   key={belief.title}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="rounded-3xl border border-border/50 bg-card/45 backdrop-blur-sm p-6 space-y-4 shadow-sm"
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="rounded-2xl border border-border/30 bg-card/25 backdrop-blur-xs p-5 space-y-3 shadow-xs text-left"
                 >
-                  <div className={`w-10 h-10 rounded-2xl ${belief.bg} flex items-center justify-center`}>
-                    <Icon className={`w-5 h-5 ${belief.color}`} />
+                  <div className={`w-9 h-9 rounded-xl ${belief.bg} flex items-center justify-center shrink-0`}>
+                    <Icon className={`w-4.5 h-4.5 ${belief.color}`} />
                   </div>
                   
-                  <h4 className="text-base font-semibold text-headings">{belief.title}</h4>
+                  <h4 className="text-sm font-bold text-headings tracking-tight">
+                    {belief.title}
+                  </h4>
                   
-                  <p className="text-muted-foreground text-xs leading-relaxed font-light">
+                  <p className="text-muted-foreground text-[11px] leading-relaxed font-light">
                     {belief.description}
                   </p>
                 </motion.div>
