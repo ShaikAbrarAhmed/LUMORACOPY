@@ -6,7 +6,7 @@ export default function PrivacyPage() {
     <main className="flex min-h-screen flex-col bg-background text-foreground">
       <Navbar />
       
-      <div className="flex-1 pt-36 pb-16">
+      <div className="flex-1 pt-32 pb-16 md:pt-36 md:pb-20">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <div className="space-y-8">
             <div>

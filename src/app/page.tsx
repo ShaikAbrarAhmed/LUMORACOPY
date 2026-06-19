@@ -4,6 +4,8 @@ import { IntroScreen } from "@/components/IntroScreen"
 
 import HeroSection from "@/components/sections/HeroSection"
 import { ProblemSection } from "@/components/sections/ProblemSection"
+import WhyLumoraSection from "@/components/sections/WhyLumoraSection"
+import TransformationSection from "@/components/sections/TransformationSection"
 import { CTASection } from "@/components/sections/CTASection"
 
 export default function Home() {
@@ -15,13 +17,19 @@ export default function Home() {
         <Navbar />
 
         <div className="flex-1">
-          {/* 1. Hero */}
+          {/* 1. Hero Section */}
           <HeroSection />
 
           {/* 2. The Problem */}
           <ProblemSection />
 
-          {/* 3. Call to Action */}
+          {/* 3. Why Lumora */}
+          <WhyLumoraSection />
+
+          {/* 4. Transformation path */}
+          <TransformationSection />
+
+          {/* 5. Call to Action */}
           <CTASection />
         </div>
 

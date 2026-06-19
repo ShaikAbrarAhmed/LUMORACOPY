@@ -5,7 +5,7 @@ import { ShowcaseSection } from "@/components/sections/ShowcaseSection"
 
 export default function FeaturesPage() {
   return (
-    <main className="flex min-h-screen flex-col bg-background pt-24 relative overflow-hidden">
+    <main className="flex min-h-screen flex-col bg-background relative overflow-hidden">
       <Navbar />
 
       {/* Decorative page-level ambient gradients (Indigo & Gold together) */}

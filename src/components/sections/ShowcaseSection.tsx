@@ -4,24 +4,27 @@ import { motion } from "framer-motion"
 
 export function ShowcaseSection() {
   return (
-    <section className="py-24 relative overflow-hidden bg-transparent border-t border-border">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-heading font-medium tracking-tight mb-4 text-headings">
+    <section className="py-16 md:py-20 px-6 relative overflow-hidden bg-transparent border-t border-border">
+      <div className="max-w-5xl mx-auto px-6 lg:px-8 relative z-10">
+        <div className="text-left mb-12 space-y-3">
+          <span className="text-xs font-semibold text-primary tracking-[0.2em] uppercase block">
+            DASHBOARD WORKSPACE
+          </span>
+          <h2 className="text-3xl md:text-5xl font-fancy font-light tracking-tight text-headings">
             Built for Action.
           </h2>
-          <p className="text-muted-foreground font-light">
+          <p className="text-muted-foreground font-light text-base md:text-lg max-w-xl">
             A next-generation dashboard that keeps you engaged and accountable.
           </p>
         </div>
 
-        <div className="relative mx-auto max-w-4xl">
+        <div className="relative mx-auto w-full">
           <motion.div
-            initial={{ opacity: 0, y: 20, filter: "blur(5px)" }}
+            initial={{ opacity: 0, y: 30, filter: "blur(5px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="rounded-xl border border-border bg-background p-2 shadow-2xl overflow-hidden"
+            transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+            className="rounded-t-3xl border-t border-x border-white/5 bg-[#0a0a0a]/50 p-2 md:p-4 shadow-[0_24px_70px_rgba(0,0,0,0.9)] overflow-hidden"
           >
             <div className="rounded-lg overflow-hidden bg-card border border-border relative min-h-[360px] md:min-h-0 md:aspect-[16/10] flex flex-col">
               {/* Header / Nav area */}

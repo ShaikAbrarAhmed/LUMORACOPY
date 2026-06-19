@@ -7,28 +7,32 @@ const problems = [
   {
     icon: Compass,
     title: "No Clear Direction",
-    description: "Too many roadmaps. Too many opinions."
+    description: "Too many roadmaps. Too many opinions. Beginners struggle because they don't know what to learn next or how to filter high-quality information.",
+    isHero: true
   },
   {
     icon: BookOpen,
     title: "Tutorial Overload",
-    description: "Watching content without building."
+    description: "Watching content passively without shipping code. Escaping the copy-paste loop is the first step to true builder confidence.",
+    isHero: false
   },
   {
     icon: Users,
     title: "Learning Alone",
-    description: "No support system or peer group."
+    description: "Coding in isolation with no code reviews, system critiques, or peer support squad.",
+    isHero: false
   },
   {
     icon: TrendingUp,
     title: "Lack of Accountability",
-    description: "Starting strong and losing momentum."
+    description: "Starting strong on weekends and losing daily momentum as work friction rises.",
+    isHero: false
   }
 ]
 
 export function ProblemSection() {
   return (
-    <section id="problem" className="py-28 bg-background relative overflow-hidden border-t border-white/5">
+    <section id="problem" className="py-16 md:py-20 px-6 bg-[#050505] text-white relative overflow-hidden border-t border-white/5">
       {/* Background glow effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full" />
@@ -36,75 +40,86 @@ export function ProblemSection() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="uppercase tracking-[0.25em] text-[11px] text-primary font-bold mb-4 block"
-          >
-            THE REAL PROBLEM
-          </motion.span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-semibold tracking-tight text-headings leading-[1.15] mb-6"
-          >
-            Most Students Don't Need More Tutorials.
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-              They Need Direction.
+          {/* ================= LEFT COLUMN: STICKY THESIS (5 cols) ================= */}
+          <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-6">
+            <span className="text-xs font-semibold text-primary tracking-[0.2em] uppercase block">
+              THE REAL PROBLEM
             </span>
-          </motion.h2>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto"
-          >
-            The internet has endless resources.
-            <br className="hidden sm:inline" />
-            But most beginners struggle because they don't know what to learn, where to start, or how to stay consistent.
-          </motion.p>
-        </div>
+            <h2 className="text-4xl md:text-5xl font-fancy font-light text-headings tracking-tight leading-tight">
+              Most Students Don't Lack Talent.
+              <br />
+              <span className="text-muted-foreground font-light">They lack direction.</span>
+            </h2>
+            <p className="text-base text-muted-foreground font-light leading-relaxed">
+              The internet has endless resources. But most beginners struggle because they don't know what to learn, where to start, or how to stay consistent.
+            </p>
+            
+            <div className="pt-8 border-t border-white/5 space-y-4">
+              <p className="text-2xl font-fancy font-light italic text-white/90 leading-relaxed">
+                "Learning alone is a design flaw."
+              </p>
+              <p className="text-xs text-muted-foreground/60 leading-relaxed font-light">
+                Traditional education platforms sell content catalogs, leaving students to navigate the complex engineering roadmap in isolation.
+              </p>
+            </div>
+          </div>
 
-        {/* 4 Problem Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {problems.map((problem, i) => (
-            <motion.div
-              key={problem.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: i * 0.1 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="group relative p-8 rounded-3xl bg-white/[0.03] border border-white/10 shadow-2xl backdrop-blur-md hover:bg-white/[0.08] hover:border-primary/30 hover:shadow-[0_20px_50px_rgba(99,102,241,0.15)] transition-all duration-300"
-            >
-              {/* Glow accent inside the card on hover */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+          {/* ================= RIGHT COLUMN: CARDS STACK WITH HIERARCHY (7 cols) ================= */}
+          <div className="lg:col-span-7 space-y-6">
+            {problems.map((problem, i) => {
+              const Icon = problem.icon
+              return (
+                <motion.div
+                  key={problem.title}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.05 }}
+                  whileHover={{ y: -2, transition: { duration: 0.2 } }}
+                  className={`group relative rounded-3xl backdrop-blur-md transition-all duration-300 ${
+                    problem.isHero 
+                      ? "p-8 md:p-10 bg-[#111214] border border-primary/25 shadow-[0_20px_50px_rgba(255,255,255,0.015)] hover:border-primary/45"
+                      : "p-6 bg-[#111214]/40 border border-white/10 hover:bg-[#111214] hover:border-white/20 hover:shadow-2xl"
+                  }`}
+                >
+                  {/* Glow accent inside the hero card */}
+                  {problem.isHero && (
+                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/5 to-transparent opacity-100 pointer-events-none" />
+                  )}
 
-              <div className="relative z-10">
-                <div className="flex items-center gap-4 mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 transition-colors duration-300">
-                    <problem.icon className="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors duration-300" />
+                  <div className="relative z-10 flex flex-col md:flex-row gap-5 items-start">
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-colors duration-300 ${
+                      problem.isHero
+                        ? "bg-primary/10 border border-primary/20 text-primary"
+                        : "bg-white/5 border border-white/10 text-slate-400 group-hover:bg-primary/10 group-hover:border-primary/20 group-hover:text-primary"
+                    }`}>
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    
+                    <div className="space-y-2 text-left">
+                      <h3 className={`font-semibold tracking-tight transition-colors duration-300 ${
+                        problem.isHero 
+                          ? "text-xl text-white" 
+                          : "text-lg text-headings group-hover:text-primary"
+                      }`}>
+                        {problem.title}
+                      </h3>
+                      <p className={`font-light leading-relaxed ${
+                        problem.isHero 
+                          ? "text-sm text-slate-300" 
+                          : "text-xs md:text-sm text-slate-400"
+                      }`}>
+                        {problem.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-headings tracking-tight group-hover:text-primary transition-colors duration-300">
-                    {problem.title}
-                  </h3>
-                </div>
-                <p className="text-[15px] text-slate-400 font-light leading-relaxed">
-                  {problem.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+                </motion.div>
+              )
+            })}
+          </div>
+
         </div>
       </div>
     </section>

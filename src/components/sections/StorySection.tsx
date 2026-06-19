@@ -32,7 +32,7 @@ export default function StorySection() {
           <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">
             OUR STORY
           </span>
-          <h2 className="text-4xl md:text-6xl font-heading font-bold text-headings tracking-tight leading-[1.08] mb-6">
+          <h2 className="text-4xl md:text-6xl font-fancy font-light text-headings tracking-tight leading-[1.08] mb-6">
             We Didn't Build Lumorous <br className="hidden md:inline" />
             Because We Had All The Answers.
           </h2>

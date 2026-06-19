@@ -47,7 +47,7 @@ const cycleSteps = [
 
 export default function OurStoryPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground relative selection:bg-primary/20 select-none overflow-x-hidden pt-24">
+    <main className="min-h-screen bg-background text-foreground relative selection:bg-primary/20 select-none overflow-x-hidden">
       <Navbar />
 
       {/* Decorative ambient gradients (Deep Indigo dominant) */}
@@ -56,7 +56,7 @@ export default function OurStoryPage() {
       <div className="absolute bottom-[10%] left-[-5%] w-[500px] h-[500px] bg-primary/3 rounded-full blur-[120px] pointer-events-none" />
 
       {/* ================= SECTION 1: HERO ================= */}
-      <section className="relative pt-24 pb-20 px-6 max-w-5xl mx-auto text-center">
+      <section className="relative pt-32 pb-16 md:pt-36 md:pb-20 px-6 max-w-5xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -66,9 +66,9 @@ export default function OurStoryPage() {
           <span className="text-xs font-semibold text-primary tracking-[0.3em] uppercase block mb-2">
             OUR STORY
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold font-heading tracking-tight text-headings leading-[1.1] max-w-4xl mx-auto">
+          <h1 className="text-5xl md:text-7xl font-fancy font-light tracking-tight text-headings leading-[1.1] max-w-4xl mx-auto">
             Why is learning technology <br className="hidden md:inline" />
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent italic">
               so lonely?
             </span>
           </h1>
@@ -80,13 +80,13 @@ export default function OurStoryPage() {
       </section>
 
       {/* ================= SECTION 2: THE BEGINNING (THE CYCLE) ================= */}
-      <section className="py-24 px-6 border-t border-border/40 max-w-6xl mx-auto relative z-10">
+      <section className="py-16 md:py-20 px-6 border-t border-border/40 max-w-6xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-4 space-y-6">
             <span className="text-xs font-semibold text-primary tracking-widest uppercase block">
               THE CYCLE
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold font-heading tracking-tight text-headings leading-[1.2]">
+            <h2 className="text-3xl md:text-4xl font-fancy font-light tracking-tight text-headings leading-[1.2]">
               It Started With Confusion.
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed max-w-md">
@@ -141,7 +141,7 @@ export default function OurStoryPage() {
       </section>
 
       {/* ================= SECTION 3: THE REAL PROBLEM ================= */}
-      <section className="py-28 px-6 bg-muted/40 border-y border-border/40 relative z-10">
+      <section className="py-16 md:py-20 px-6 bg-[#111214]/20 border-y border-border/40 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -150,7 +150,7 @@ export default function OurStoryPage() {
             transition={{ duration: 0.8 }}
             className="space-y-4"
           >
-            <h2 className="text-4xl md:text-6xl font-bold font-heading tracking-tight text-headings">
+            <h2 className="text-4xl md:text-6xl font-fancy font-light tracking-tight text-headings">
               The Problem Was <br className="hidden md:inline" />
               Never <span className="text-destructive line-through decoration-wavy decoration-2">Talent</span>.
             </h2>
@@ -201,10 +201,10 @@ export default function OurStoryPage() {
       </section>
 
       {/* ================= SECTION 4: THE REALIZATION ================= */}
-      <section className="py-28 px-6 max-w-5xl mx-auto relative z-10">
+      <section className="py-16 md:py-20 px-6 max-w-5xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 space-y-6">
-            <h2 className="text-3xl md:text-5xl font-bold font-heading tracking-tight text-headings leading-[1.1]">
+            <h2 className="text-3xl md:text-5xl font-fancy font-light tracking-tight text-headings leading-[1.1]">
               No One Should <br />
               Have To Figure It <br />
               Out Alone.
@@ -247,7 +247,7 @@ export default function OurStoryPage() {
       </section>
 
       {/* ================= SECTION 5: WHY LUMORA EXISTS (MANIFESTO) ================= */}
-      <section className="py-32 px-6 bg-gradient-to-b from-background to-background/20 border-t border-border/40 relative z-10">
+      <section className="py-20 md:py-24 px-6 bg-gradient-to-b from-background to-background/20 border-t border-border/40 relative z-10">
         <div className="max-w-3xl mx-auto text-center space-y-12">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -259,7 +259,7 @@ export default function OurStoryPage() {
             <span className="text-xs font-semibold text-primary tracking-widest uppercase block">
               OUR MANIFESTO
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold font-heading tracking-tight text-headings">
+            <h2 className="text-4xl md:text-5xl font-fancy font-light tracking-tight text-headings">
               More Than A Platform.
             </h2>
           </motion.div>
@@ -293,10 +293,10 @@ export default function OurStoryPage() {
       </section>
 
       {/* ================= SECTION 6: WHAT WE'RE BUILDING (4 PILLARS) ================= */}
-      <section className="py-28 px-6 bg-muted/30 border-y border-border/40 relative z-10">
+      <section className="py-16 md:py-20 px-6 bg-[#111214]/15 border-y border-border/40 relative z-10">
         <div className="max-w-6xl mx-auto space-y-16">
           <div className="text-center space-y-4 max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold font-heading tracking-tight text-headings">
+            <h2 className="text-3xl md:text-5xl font-fancy font-light tracking-tight text-headings">
               The Future We Believe In.
             </h2>
             <p className="text-base text-muted-foreground">
@@ -385,7 +385,7 @@ export default function OurStoryPage() {
       </section>
 
       {/* ================= SECTION 7: FINAL STATEMENT & CTAS ================= */}
-      <section className="py-24 px-6 max-w-5xl mx-auto mb-20 relative z-10">
+      <section className="py-16 md:py-20 px-6 max-w-5xl mx-auto mb-12 relative z-10">
         <div className="relative overflow-hidden bg-gradient-to-tr from-primary/5 via-transparent to-accent/5 rounded-[32px] p-8 md:p-20 border border-border/60 text-center">
           <div className="absolute top-[40px] left-1/2 -translate-x-1/2 text-8xl font-fancy font-bold tracking-tight text-primary/5 pointer-events-none select-none">
             “
@@ -402,7 +402,7 @@ export default function OurStoryPage() {
               <span className="text-xs font-semibold text-primary tracking-widest uppercase block">
                 JOIN THE MISSION
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold font-heading tracking-tight text-headings leading-tight">
+              <h2 className="text-3xl md:text-5xl font-fancy font-light tracking-tight text-headings leading-tight">
                 We're Still Early. <br />
                 But The Mission Is Clear.
               </h2>

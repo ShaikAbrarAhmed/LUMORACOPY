@@ -65,13 +65,13 @@ export function IntroScreen() {
 
   return (
     <div
-      className={`fixed inset-0 z-[99999] bg-[#070A13] flex flex-col items-center justify-center transition-opacity duration-[400ms] ease-in-out pointer-events-none select-none ${
+      className={`fixed inset-0 z-[99999] bg-background flex flex-col items-center justify-center transition-opacity duration-[400ms] ease-in-out pointer-events-none select-none ${
         isDissolving ? "opacity-0" : "opacity-100"
       }`}
     >
-      {/* 1. Ambient Glow (Lumora Indigo - Soft and Premium) */}
+      {/* 1. Ambient Glow (Lumora Accent - Soft and Premium) */}
       <div
-        className={`absolute w-72 h-72 md:w-[350px] md:h-[350px] rounded-full bg-[#574964]/12 blur-[80px] md:blur-[100px] pointer-events-none transition-all duration-[1000ms] ease-out ${
+        className={`absolute w-72 h-72 md:w-[350px] md:h-[350px] rounded-full bg-primary/10 blur-[80px] md:blur-[100px] pointer-events-none transition-all duration-[1000ms] ease-out ${
           isGlowVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
         } ${isDissolving ? "scale-[1.15] opacity-0" : ""}`}
       />
@@ -82,7 +82,7 @@ export function IntroScreen() {
           isLogoVisible ? "opacity-100 scale-[1.03]" : "opacity-0 scale-95"
         } ${isDissolving ? "opacity-0 scale-105 blur-sm" : ""}`}
       >
-        <Logo size="xl" className="bg-[#2D2433]/80 border-white/10 shadow-2xl" />
+        <Logo size="xl" flat className="shadow-2xl" />
       </div>
 
       {/* 3. Typography Content Wrapper */}
@@ -95,10 +95,10 @@ export function IntroScreen() {
               : "opacity-0 translate-y-2"
           } ${isDissolving ? "opacity-0 -translate-y-2 blur-xs" : ""}`}
         >
-          <h1 className="font-heading font-black text-xl md:text-2xl tracking-[0.25em] text-white uppercase leading-none">
+          <h1 className="font-fancy font-light font-black text-xl md:text-2xl tracking-[0.25em] text-white uppercase leading-none">
             From Confused
           </h1>
-          <h1 className="font-heading font-black text-xl md:text-2xl tracking-[0.25em] text-[#C8AAAA] uppercase mt-1 leading-none">
+          <h1 className="font-fancy font-light font-black text-xl md:text-2xl tracking-[0.25em] text-primary uppercase mt-1 leading-none">
             To Confident
           </h1>
         </div>

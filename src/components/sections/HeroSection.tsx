@@ -1,411 +1,172 @@
 "use client"
 
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { useState } from "react"
+import LiquidMesh from "@/components/sections/LiquidMesh"
+// Static background image mode
 
 export default function HeroSection() {
-  const router = useRouter()
-  const [isTransitioning, setIsTransitioning] = useState(false)
-
-  const handleExploreClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (e.metaKey || e.ctrlKey || e.button === 1) return
+  const handleExploreClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    setIsTransitioning(true)
-    setTimeout(() => {
-      router.push("/features")
-    }, 800)
+    const target = document.getElementById("problem")
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
+  // Animation variants for slow-motion, cinematic sequential entrance
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.16,
+        delayChildren: 0.45,
+      },
+    },
+  }
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1.8,
+        ease: [0.16, 1, 0.3, 1] as const, // Luxury cubic-bezier easing (Apple / Linear style)
+      },
+    },
   }
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-background">
-
-      {/* ================= BACKGROUND ================= */}
-
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-
-        {/* Left Glow */}
-        <div className="absolute top-[-10%] left-[-10%] w-[700px] h-[700px] bg-primary/5 blur-[140px] rounded-full" />
-
-        {/* Right Glow */}
-        <div className="absolute bottom-[-20%] right-[-10%] w-[800px] h-[800px] bg-primary/3 blur-[180px] rounded-full" />
-
-        {/* Vertical Beam */}
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[300px] h-full bg-primary/2 blur-[120px]" />
-
-      </div>
-
-      {/* ================= ORBIT RINGS ================= */}
-
-      <motion.div
-        initial={{ rotateX: 70, rotateY: 15, rotateZ: 0 }}
-        animate={{ rotateZ: 360 }}
-        transition={{
-          duration: 60,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-        className="
-          absolute left-1/2 top-1/2
-          w-[80vw] max-w-[1200px]
-          h-[80vw] max-h-[1200px]
-          border border-primary/10
-          rounded-full
-          -translate-x-1/2 -translate-y-1/2
-        "
-        style={{ transformStyle: "preserve-3d" }}
+    <section className="relative min-h-screen w-full bg-[#050505] overflow-hidden flex flex-col justify-center py-24 select-none">
+      
+      {/* 1. Deep Atmospheric Background Glows (Extremely subtle to keep the background graphite-black) */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none" 
+        style={{
+          background: "radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.015), transparent 45%)"
+        }} 
+      />
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none" 
+        style={{
+          background: "radial-gradient(circle at 6% 50%, rgba(255, 255, 255, 0.008), transparent 30%)"
+        }} 
+      />
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none" 
+        style={{
+          background: "radial-gradient(circle at 94% 50%, rgba(255, 255, 255, 0.008), transparent 30%)"
+        }} 
       />
 
-      <motion.div
-        initial={{ rotateX: 65, rotateY: -30, rotateZ: 0 }}
-        animate={{ rotateZ: -360 }}
-        transition={{
-          duration: 80,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-        className="
-          absolute left-1/2 top-1/2
-          w-[65vw] max-w-[950px]
-          h-[65vw] max-h-[950px]
-          border border-primary/10
-          rounded-full
-          -translate-x-1/2 -translate-y-1/2
-        "
-        style={{ transformStyle: "preserve-3d" }}
-      />
-
-
-
-      {/* ================= HERO CONTENT ================= */}
-
-      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-8 min-h-screen flex flex-col items-center justify-start text-center pt-44 md:pt-48">
-
-        {/* ================= FLOATING CORE ================= */}
-
+      {/* 2. Midground: Cinematic Text & CTA Content (z-10 layer) */}
+      {/* Generous whitespace and padding to allow typography to dominate the experience */}
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center flex flex-col items-center justify-center py-12">
+        
         <motion.div
-          initial={{
-            opacity: 0,
-            scale: 0.8,
-            y: 40,
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 1.2,
-          }}
-          className="relative w-[260px] h-[260px] mb-16 md:mb-24 flex items-center justify-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col items-center"
         >
-
-          {/* Outer Glow */}
-          <div className="absolute inset-0 bg-primary/8 blur-[100px] rounded-full" />
-
-          {/* Main Orb */}
+          {/* Label tag: Small, elegant, tracked-out in Space Grotesk */}
           <motion.div
-            animate={{
-              y: [0, -10, 0],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="
-              relative w-[180px] h-[180px]
-              rounded-full
-              bg-gradient-to-br from-white to-primary/5
-              border border-border/50
-              shadow-[0_20px_50px_rgba(79,70,229,0.06)]
-              backdrop-blur-xl
-              flex items-center justify-center
-            "
+            variants={childVariants}
+            className="flex flex-col items-center mb-10"
           >
-
-            {/* Inner Ring */}
-            <motion.div
-              animate={{
-                rotate: 360,
-              }}
-              transition={{
-                duration: 16,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="
-                absolute inset-3
-                rounded-full
-                border border-primary/15
-              "
-            />
-
-            {/* Small Orbit */}
-            <motion.div
-              animate={{
-                rotate: -360,
-              }}
-              transition={{
-                duration: 10,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="absolute inset-0"
-            >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-primary rounded-full shadow-[0_0_20px_rgba(79,70,229,0.4)]" />
-            </motion.div>
-
-            {/* Core */}
-            <div className="relative flex items-center justify-center">
-
-              <div className="absolute w-20 h-20 bg-primary/10 rounded-full blur-2xl" />
-
-              <div className="w-8 h-8 rounded-full bg-primary shadow-[0_0_30px_rgba(91,95,239,0.4)]" />
-
-            </div>
+            <span className="text-[10px] font-semibold text-[#A8A8A8] tracking-[0.35em] font-heading uppercase">
+              FROM CONFUSED TO CONFIDENT
+            </span>
+            {/* Elegant thin line indicator beneath label */}
+            <div className="w-24 h-px bg-white/20 mt-4" />
           </motion.div>
 
-          {/* Floating Card Left */}
-          <motion.div
-            animate={{
-              y: [0, -8, 0],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-            }}
-            className="
-              absolute left-[-40px] top-[30px]
-              bg-card/90 backdrop-blur-xl
-              border border-border
-              rounded-2xl
-              px-4 py-3
-              shadow-[0_4px_20px_rgba(0,0,0,0.02)]
-            "
+          {/* Main Heading: Majestic, massive in Cormorant Garamond */}
+          <motion.h1
+            variants={childVariants}
+            className="text-7xl sm:text-8xl md:text-[10.5rem] font-fancy font-light tracking-[0.03em] leading-[0.85] text-white my-4 select-text drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)]"
           >
-            <p className="text-xs text-muted-foreground">
-              Built first project
-            </p>
-          </motion.div>
+            LUMORA
+          </motion.h1>
 
-          {/* Floating Card Right */}
-          <motion.div
-            animate={{
-              y: [0, 8, 0],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-            }}
-            className="
-              absolute right-[-40px] bottom-[20px]
-              bg-card/90 backdrop-blur-xl
-              border border-border
-              rounded-2xl
-              px-4 py-3
-              shadow-[0_4px_20px_rgba(0,0,0,0.02)]
-            "
-          >
-            <p className="text-xs text-muted-foreground">
-              Mentor guidance
-            </p>
-          </motion.div>
-
-        </motion.div>
-
-        {/* ================= TEXT CONTENT ================= */}
-
-        <div className="relative flex flex-col items-center justify-center">
-
-          {/* Sky Circle */}
-          <motion.div
-            initial={{
-              opacity: 0,
-              scale: 0.7,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-            }}
-            transition={{
-              duration: 1.4,
-            }}
-            className="
-              absolute top-[10px]
-              w-[380px] h-[380px]
-              rounded-full
-              bg-primary/4
-              blur-[90px]
-              z-0
-            "
-          />
-
-          {/* Small Label */}
-          <motion.span
-            initial={{
-              opacity: 0,
-              y: 10,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              delay: 0.2,
-            }}
-            className="
-              relative z-10
-              uppercase tracking-[0.35em]
-              text-[11px]
-              text-primary
-              font-semibold
-              mb-6
-            "
-          >
-            Beginner-First Tech Ecosystem
-          </motion.span>
-
-          {/* Heading */}
-          <motion.div
-            initial={{
-              opacity: 0,
-              scale: 0.9,
-              y: 30,
-              filter: "blur(12px)",
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: 0,
-              filter: "blur(0px)",
-            }}
-            transition={{
-              duration: 1.2,
-              delay: 0.3,
-              ease: "easeOut",
-            }}
-            className="relative z-10"
-          >
-
-            <motion.h1
-              animate={{
-                y: [0, -4, 0],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="
-                text-5xl md:text-6xl lg:text-7xl
-                font-semibold
-                tracking-[-0.07em]
-                leading-[1]
-                text-headings
-              "
-            >
-              FROM CONFUSED
-              <br />
-              TO CONFIDENT.
-            </motion.h1>
-
-          </motion.div>
-
-          {/* Description / Subheadline */}
+          {/* Tagline: Center-aligned, elegant Cormorant Garamond */}
           <motion.p
-            initial={{
-              opacity: 0,
-              y: 10,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              delay: 0.7,
-              duration: 0.8,
-            }}
-            className="
-              relative z-10
-              mt-8 max-w-2xl
-              text-muted-foreground
-              text-base md:text-lg
-              leading-relaxed
-            "
+            variants={childVariants}
+            className="mt-10 text-2xl md:text-3.5xl font-fancy font-light tracking-tight text-white/95 leading-[1.35] drop-shadow-[0_1px_8px_rgba(0,0,0,0.7)]"
           >
-            A beginner-first ecosystem helping students break into tech through guidance, projects, accountability, and community.
+            Talent exists everywhere.
+            <br />
+            <span className="italic">Guidance doesn't.</span>
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* Vertical Separator Line
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.9,
-              duration: 0.8,
-            }}
-            className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 w-full sm:w-auto"
+            variants={childVariants}
+            className="h-14 w-px bg-white/10 my-10"
+          /> */}
+
+          {/* Supporting Copy: Clean, centered Inter copy with updated editorial text */}
+          <motion.p
+            variants={childVariants}
+            className="max-w-[480px] text-muted-foreground text-xs md:text-sm leading-relaxed font-light font-sans select-text opacity-70 tracking-wide"
+          >
+            Helping students grow through mentorship, projects, hackathons, Structured Courses and community.
+          </motion.p>
+
+          {/* Action CTAs in pill shapes */}
+          <motion.div
+            variants={childVariants}
+            className="mt-12 flex flex-row gap-5 items-center justify-center"
           >
             <Link
-              href="/cohorts"
-              className="w-full sm:w-auto btn-primary"
+              href="/create-account"
+              className="h-11 px-8 rounded-full bg-white text-black font-semibold text-xs tracking-wide transition-all hover:bg-white/95 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] flex items-center justify-center gap-1.5 active:translate-y-px"
             >
-              Start Your Journey
+              <span>Join Lumora</span>
+              <span className="text-[14px]">→</span>
             </Link>
-            <Link
-              href="/features"
+            
+            <button
               onClick={handleExploreClick}
-              className="w-full sm:w-auto btn-secondary"
+              className="h-11 px-8 rounded-full border border-white/12 bg-white/[0.01] text-white font-semibold text-xs tracking-wide transition-all hover:bg-white/5 hover:border-white/25 backdrop-blur-md flex items-center justify-center active:translate-y-px"
             >
-              Explore Lumora
-            </Link>
+              Explore The Vision
+            </button>
           </motion.div>
+        </motion.div>
 
-        </div>
       </div>
 
-      <AnimatePresence>
-        {isTransitioning && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-background pointer-events-auto"
-          >
-            <motion.div
-              initial={{ scale: 0.85, opacity: 0, filter: "blur(20px)" }}
-              animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="relative flex flex-col items-center justify-center"
-            >
-              {/* Outer Glow */}
-              <div className="absolute w-[300px] h-[300px] bg-primary/20 blur-[100px] rounded-full" />
-              
-              {/* Center Orbiting Ring */}
-              <div className="relative w-20 h-20 rounded-full border border-primary/20 flex items-center justify-center">
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-0 rounded-full border-t border-primary"
-                />
-                <div className="w-3.5 h-3.5 rounded-full bg-primary shadow-[0_0_20px_rgba(79,70,229,0.5)]" />
-              </div>
-              
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.4 }}
-                className="mt-6 text-xs font-semibold tracking-[0.25em] uppercase text-primary"
-              >
-                Entering Lumora
-              </motion.p>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* 3. Static Background Silk Flow Image + WebGL Animated Mesh (z-0 layer behind text) */}
+      <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden bg-[#050505]">
+        <img
+          src="/silk_flow_bg.png"
+          alt="Silk Flow Background"
+          className="w-full h-full object-cover opacity-30 mix-blend-screen"
+        />
+        <LiquidMesh />
+      </div>
+
+      {/* 4. Mouse Scroll Indicator at Bottom Center (z-30 layer) */}
+      {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center opacity-25 z-30 pointer-events-none">
+        <div className="w-5 h-8 rounded-full border border-white/20 p-1 flex justify-center">
+          <motion.div 
+            animate={{ 
+              y: [0, 8, 0],
+              opacity: [1, 0.4, 1]
+            }}
+            transition={{ 
+              repeat: Infinity, 
+              duration: 2.2, 
+              ease: "easeInOut" 
+            }}
+            className="w-1 h-1.5 bg-white rounded-full"
+          />
+        </div>
+      </div> */}
+
     </section>
   )
 }

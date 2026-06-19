@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react"
 
 export function CTASection() {
   return (
-    <section className="py-28 relative bg-background flex justify-center items-center overflow-hidden">
+    <section className="py-16 md:py-20 px-6 relative bg-background flex justify-center items-center overflow-hidden">
       {/* Background glow behind CTA panel */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-primary/5 blur-[100px] rounded-full" />

@@ -48,7 +48,7 @@ export function WaitlistSection() {
         transition={{ duration: 0.8 }}
         className="relative z-10 w-full max-w-2xl mx-auto px-6 text-center"
       >
-        <h2 className="text-4xl md:text-5xl font-heading font-medium tracking-tight mb-6 text-headings">
+        <h2 className="text-4xl md:text-5xl font-fancy font-light font-medium tracking-tight mb-6 text-headings">
           Ready to build your future?
         </h2>
         <p className="text-lg text-muted-foreground mb-10 font-light max-w-xl mx-auto">
