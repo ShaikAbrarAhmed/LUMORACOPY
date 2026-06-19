@@ -28,7 +28,7 @@ const problems = [
 
 export function ProblemSection() {
   return (
-    <section id="problem" className="py-28 bg-background relative overflow-hidden border-t border-[#E5E7EB]/40">
+    <section id="problem" className="py-28 bg-background relative overflow-hidden border-t border-white/5">
       {/* Background glow effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full" />
@@ -85,21 +85,21 @@ export function ProblemSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: i * 0.1 }}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="group relative p-8 rounded-3xl bg-white/40 border border-[#E5E7EB]/50 shadow-[0_8px_30px_rgba(11,16,32,0.015)] backdrop-blur-md hover:bg-white/80 hover:border-primary/20 hover:shadow-[0_20px_50px_rgba(91,95,239,0.05)] transition-all duration-300"
+              className="group relative p-8 rounded-3xl bg-white/[0.03] border border-white/10 shadow-2xl backdrop-blur-md hover:bg-white/[0.08] hover:border-primary/30 hover:shadow-[0_20px_50px_rgba(99,102,241,0.15)] transition-all duration-300"
             >
               {/* Glow accent inside the card on hover */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-5">
-                  <div className="w-12 h-12 rounded-2xl bg-secondary/15 border border-[#E5E7EB]/60 flex items-center justify-center group-hover:bg-primary/5 group-hover:border-primary/10 transition-colors duration-300">
-                    <problem.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+                  <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/20 transition-colors duration-300">
+                    <problem.icon className="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors duration-300" />
                   </div>
                   <h3 className="text-xl font-semibold text-headings tracking-tight group-hover:text-primary transition-colors duration-300">
                     {problem.title}
                   </h3>
                 </div>
-                <p className="text-[15px] text-muted-foreground font-light leading-relaxed">
+                <p className="text-[15px] text-slate-400 font-light leading-relaxed">
                   {problem.description}
                 </p>
               </div>

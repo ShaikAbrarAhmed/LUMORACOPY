@@ -162,9 +162,9 @@ export default function OurStoryPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="space-y-6 bg-white border border-border/70 rounded-[28px] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.01)]"
+              className="space-y-6 bg-white/[0.03] border border-white/10 rounded-[28px] p-8 shadow-2xl backdrop-blur-md"
             >
-              <h3 className="text-xl font-bold text-muted-foreground">What We Are Told:</h3>
+              <h3 className="text-xl font-bold text-slate-400">What We Are Told:</h3>
               <ul className="space-y-4">
                 <li className="flex items-center gap-3 text-base text-muted-foreground">
                   <span className="w-5 h-5 rounded-full bg-destructive/10 text-destructive flex items-center justify-center text-xs font-bold">✕</span>
@@ -182,7 +182,7 @@ export default function OurStoryPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="space-y-6 bg-white border border-primary/20 rounded-[28px] p-8 shadow-[0_8px_30px_rgba(79,70,229,0.04)]"
+              className="space-y-6 bg-white/[0.05] border border-primary/30 rounded-[28px] p-8 shadow-2xl backdrop-blur-md"
             >
               <h3 className="text-xl font-bold text-primary">The Reality We Found:</h3>
               <ul className="space-y-4">
@@ -216,17 +216,17 @@ export default function OurStoryPage() {
 
           <div className="lg:col-span-7 space-y-6">
             <div className="space-y-4">
-              <div className="flex gap-4 p-5 rounded-[20px] bg-white border border-border/70 shadow-[0_4px_12px_rgba(0,0,0,0.01)] items-center">
+              <div className="flex gap-4 p-5 rounded-[20px] bg-white/[0.02] border border-white/10 shadow-lg items-center">
                 <div className="w-3 h-3 rounded-full bg-destructive" />
-                <span className="text-base text-muted-foreground">Learning alone.</span>
+                <span className="text-base text-slate-350">Learning alone.</span>
               </div>
-              <div className="flex gap-4 p-5 rounded-[20px] bg-white border border-border/70 shadow-[0_4px_12px_rgba(0,0,0,0.01)] items-center">
+              <div className="flex gap-4 p-5 rounded-[20px] bg-white/[0.02] border border-white/10 shadow-lg items-center">
                 <div className="w-3 h-3 rounded-full bg-destructive" />
-                <span className="text-base text-muted-foreground">Building alone.</span>
+                <span className="text-base text-slate-350">Building alone.</span>
               </div>
-              <div className="flex gap-4 p-5 rounded-[20px] bg-white border border-border/70 shadow-[0_4px_12px_rgba(0,0,0,0.01)] items-center">
+              <div className="flex gap-4 p-5 rounded-[20px] bg-white/[0.02] border border-white/10 shadow-lg items-center">
                 <div className="w-3 h-3 rounded-full bg-destructive" />
-                <span className="text-base text-muted-foreground">Growing alone.</span>
+                <span className="text-base text-slate-350">Growing alone.</span>
               </div>
             </div>
 
@@ -247,7 +247,7 @@ export default function OurStoryPage() {
       </section>
 
       {/* ================= SECTION 5: WHY LUMORA EXISTS (MANIFESTO) ================= */}
-      <section className="py-32 px-6 bg-gradient-to-b from-background to-white border-t border-border/40 relative z-10">
+      <section className="py-32 px-6 bg-gradient-to-b from-background to-background/20 border-t border-border/40 relative z-10">
         <div className="max-w-3xl mx-auto text-center space-y-12">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -422,7 +422,7 @@ export default function OurStoryPage() {
               </Link>
               <Link
                 href="/team"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 border border-border bg-white text-foreground font-semibold rounded-2xl hover:bg-muted transition-all duration-200 hover:-translate-y-0.5 text-sm"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/10 bg-white/5 text-white font-semibold rounded-2xl hover:bg-white/10 transition-all duration-200 hover:-translate-y-0.5 text-sm"
               >
                 Meet The Team
               </Link>

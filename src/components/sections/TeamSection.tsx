@@ -124,7 +124,7 @@ export default function TeamSection() {
               <div className="lg:hidden flex flex-col gap-4">
                 <div className="flex items-center gap-4">
                   {/* Portrait Photo Frame */}
-                  <div className="relative aspect-[4/5] w-20 md:w-28 rounded-xl overflow-hidden bg-slate-50 border border-slate-200/50 shadow-xs flex-shrink-0">
+                  <div className="relative aspect-[4/5] w-20 md:w-28 rounded-xl overflow-hidden bg-white/5 border border-white/10 shadow-xs flex-shrink-0">
                     <Image
                       src="/team/abrar.png"
                       alt="Abrar, Founder & CEO of Lumora"
@@ -183,7 +183,7 @@ export default function TeamSection() {
               {/* Desktop Layout (hidden lg:grid) */}
               <div className="hidden lg:grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
                 {/* Portrait Photo Frame (Left Column, Aspect Ratio 4:5) */}
-                <div className="lg:col-span-5 relative aspect-[4/5] lg:w-full lg:max-w-[340px] rounded-[24px] overflow-hidden bg-slate-50 border border-slate-200/50 shadow-md">
+                <div className="lg:col-span-5 relative aspect-[4/5] lg:w-full lg:max-w-[340px] rounded-[24px] overflow-hidden bg-white/5 border border-white/10 shadow-md">
                   <Image
                     src="/team/abrar.png"
                     alt="Abrar, Founder & CEO of Lumora"
@@ -260,9 +260,9 @@ export default function TeamSection() {
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.2 }}
-                className="relative rounded-[24px] md:rounded-[28px] border border-slate-200/50 bg-background/65 shadow-[0_8px_30px_rgba(11,16,32,0.02)] backdrop-blur-md hover:bg-background hover:border-primary/20 hover:shadow-[0_16px_40px_rgba(11,16,32,0.04)] transition-all duration-300 overflow-hidden flex flex-row gap-4 p-4 sm:p-6 md:p-8 items-start h-full"
+                className="relative rounded-[24px] md:rounded-[28px] border border-white/10 bg-[#0A0D18]/45 shadow-[0_8px_30px_rgba(0,0,0,0.3)] backdrop-blur-md hover:bg-[#0A0D18]/70 hover:border-primary/25 hover:shadow-[0_16px_40px_rgba(99,102,241,0.08)] transition-all duration-300 overflow-hidden flex flex-row gap-4 p-4 sm:p-6 md:p-8 items-start h-full"
               >
-            <div className="relative aspect-[4/5] w-20 sm:w-32 rounded-xl md:rounded-2xl overflow-hidden bg-white border border-[#E5E7EB]/80 flex-shrink-0 shadow-xs">
+            <div className="relative aspect-[4/5] w-20 sm:w-32 rounded-xl md:rounded-2xl overflow-hidden bg-white/5 border border-white/10 flex-shrink-0 shadow-xs">
               <Image
                 src="/team/Mouni2.jpeg"
                 alt="Mounika, Head of Community & Growth"
@@ -293,9 +293,9 @@ export default function TeamSection() {
           <motion.div
             whileHover={{ y: -5 }}
             transition={{ duration: 0.2 }}
-            className="relative rounded-[24px] md:rounded-[28px] border border-slate-200/50 bg-background/65 shadow-[0_8px_30px_rgba(11,16,32,0.02)] backdrop-blur-md hover:bg-background hover:border-primary/20 hover:shadow-[0_16px_40px_rgba(11,16,32,0.04)] transition-all duration-300 overflow-hidden flex flex-row gap-4 p-4 sm:p-6 md:p-8 items-start h-full"
+            className="relative rounded-[24px] md:rounded-[28px] border border-white/10 bg-[#0A0D18]/45 shadow-[0_8px_30px_rgba(0,0,0,0.3)] backdrop-blur-md hover:bg-[#0A0D18]/70 hover:border-primary/25 hover:shadow-[0_16px_40px_rgba(99,102,241,0.08)] transition-all duration-300 overflow-hidden flex flex-row gap-4 p-4 sm:p-6 md:p-8 items-start h-full"
           >
-            <div className="relative aspect-[4/5] w-20 sm:w-32 rounded-xl md:rounded-2xl overflow-hidden bg-white border border-[#E5E7EB]/80 flex-shrink-0 shadow-xs">
+            <div className="relative aspect-[4/5] w-20 sm:w-32 rounded-xl md:rounded-2xl overflow-hidden bg-white/5 border border-white/10 flex-shrink-0 shadow-xs">
               <Image
                 src="/team/Ashwini2.jpeg"
                 alt="Ashwini, Lead Coordinator"
@@ -335,9 +335,9 @@ export default function TeamSection() {
               Array.from({ length: 4 }).map((_, i) => <TeamCardSkeleton key={i} />)
             ) : (
               coreTeam.map((member) => (
-                <div key={member.name} className="bg-background border border-border/80 hover:border-slate-300 shadow-[0_4px_20px_rgba(11,16,32,0.01)] hover:shadow-[0_10px_30px_rgba(11,16,32,0.03)] rounded-[20px] md:rounded-[24px] p-4 md:p-5 flex flex-row sm:flex-col items-start sm:items-stretch justify-start gap-4 sm:space-y-4 transition-all duration-300 bg-background/70 backdrop-blur-xs">
+                <div key={member.name} className="bg-[#0A0D18]/45 border border-white/10 hover:border-primary/20 shadow-2xl rounded-[20px] md:rounded-[24px] p-4 md:p-5 flex flex-row sm:flex-col items-start sm:items-stretch justify-start gap-4 sm:space-y-4 transition-all duration-300 backdrop-blur-md">
                   {/* Photo Frame */}
-                  <div className="relative w-20 sm:w-full aspect-[4/5] rounded-xl overflow-hidden bg-slate-50 border border-slate-200/50 flex-shrink-0 shadow-xs">
+                  <div className="relative w-20 sm:w-full aspect-[4/5] rounded-xl overflow-hidden bg-white/5 border border-white/10 flex-shrink-0 shadow-xs">
                     <Image
                       src={member.image}
                       alt={`${member.name}, ${member.role}`}
@@ -395,7 +395,7 @@ export default function TeamSection() {
               We value shipping over memorization, clarity over complexity, and community support over competitive comparisons. We grow together.
             </p>
           </div>
-          <div className="lg:col-span-7 bg-muted border border-border/60 rounded-3xl p-6 md:p-8 space-y-4">
+          <div className="lg:col-span-7 bg-white/[0.02] border border-white/10 rounded-3xl p-6 md:p-8 space-y-4 shadow-xl backdrop-blur-md">
             <p className="text-sm text-muted-foreground leading-relaxed">
               Lumorous is shaped by its active student body. Every coordinator, review facilitator, and workshop lead started as a beginner on our platform.
             </p>

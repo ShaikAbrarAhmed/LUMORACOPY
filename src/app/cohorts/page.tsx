@@ -143,7 +143,7 @@ export default function CohortsPage() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="w-full max-w-4xl bg-white/40 backdrop-blur-xl border border-border/50 rounded-3xl p-8 md:p-12 shadow-[0_12px_40px_rgba(11,16,32,0.02)]"
+          className="w-full max-w-4xl bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl"
         >
           <div className="text-center md:text-left mb-10">
             <h3 className="text-xs font-bold text-primary tracking-widest uppercase mb-2">The Path of Transformation</h3>
@@ -163,14 +163,14 @@ export default function CohortsPage() {
               { label: "Builder", icon: Code2, desc: "Shipping production-ready creations" }
             ].map((node, i) => (
               <div key={i} className="relative z-10 flex flex-col items-center w-full md:w-1/5 text-center group">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center border border-border/80 bg-white shadow-xs group-hover:border-primary/30 group-hover:shadow-[0_8px_30px_rgba(79,70,229,0.05)] transition-all duration-300">
-                  <node.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+                <div className="w-14 h-14 rounded-full flex items-center justify-center border border-white/10 bg-white/5 shadow-xs group-hover:border-primary/30 group-hover:shadow-[0_8px_30px_rgba(99,102,241,0.2)] transition-all duration-300">
+                  <node.icon className="w-5 h-5 text-slate-400 group-hover:text-primary transition-colors duration-300" />
                 </div>
                 <h4 className="mt-4 font-semibold text-sm text-headings">{node.label}</h4>
-                <p className="mt-2 text-xs text-muted-foreground leading-normal max-w-[150px] font-light">
+                <p className="mt-2 text-xs text-slate-400 leading-normal max-w-[150px] font-light">
                   {node.desc}
                 </p>
-                {i < 4 && <div className="md:hidden mt-4 text-muted-foreground/50"><ArrowDown className="w-4 h-4" /></div>}
+                {i < 4 && <div className="md:hidden mt-4 text-slate-400/50"><ArrowDown className="w-4 h-4" /></div>}
               </div>
             ))}
           </div>
@@ -202,15 +202,15 @@ export default function CohortsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="p-8 md:p-12 rounded-3xl bg-slate-50/40 border border-border/60 shadow-[0_8px_30px_rgba(0,0,0,0.01)] backdrop-blur-md relative overflow-hidden flex flex-col justify-between"
+            className="p-8 md:p-12 rounded-3xl bg-white/[0.01] border border-white/5 shadow-2xl backdrop-blur-md relative overflow-hidden flex flex-col justify-between"
           >
             <div>
               <div className="flex items-center justify-between mb-8">
                 <div>
-                  <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Current State</span>
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Current State</span>
                   <h3 className="text-2xl font-bold text-headings mt-1">Today</h3>
                 </div>
-                <div className="w-10 h-10 rounded-xl bg-destructive/5 flex items-center justify-center text-destructive">
+                <div className="w-10 h-10 rounded-xl bg-destructive/10 border border-destructive/20 flex items-center justify-center text-destructive">
                   <X className="w-5 h-5" />
                 </div>
               </div>
@@ -227,7 +227,7 @@ export default function CohortsPage() {
                   <motion.div
                     key={idx}
                     whileHover={{ scale: 1.02 }}
-                    className={`p-4 rounded-2xl bg-white/50 border border-border/40 shadow-[0_4px_12px_rgba(0,0,0,0.005)] flex items-start gap-3 transform ${item.rotate} ${item.translate} transition-all duration-200`}
+                    className={`p-4 rounded-2xl bg-white/5 border border-white/5 shadow-xs flex items-start gap-3 transform ${item.rotate} ${item.translate} transition-all duration-200`}
                   >
                     <X className="w-4 h-4 text-destructive shrink-0 mt-1" />
                     <div>
@@ -250,7 +250,7 @@ export default function CohortsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="p-8 md:p-12 rounded-3xl bg-white/60 border border-primary/20 shadow-[0_12px_40px_rgba(79,70,229,0.03)] backdrop-blur-xl relative overflow-hidden flex flex-col justify-between"
+            className="p-8 md:p-12 rounded-3xl bg-white/[0.03] border border-primary/30 shadow-2xl backdrop-blur-xl relative overflow-hidden flex flex-col justify-between"
           >
             {/* Glowing background gradient inside the card */}
             <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-primary/5 blur-[70px] rounded-full" />
@@ -279,12 +279,12 @@ export default function CohortsPage() {
                   <motion.div
                     key={idx}
                     whileHover={{ scale: 1.02, x: 2 }}
-                    className="p-4 rounded-2xl bg-white border border-border/80 shadow-[0_4px_18px_rgba(79,70,229,0.015)] flex items-start gap-3 transition-all duration-200"
+                    className="p-4 rounded-2xl bg-white/5 border border-white/10 shadow-md flex items-start gap-3 transition-all duration-200"
                   >
                     <Check className="w-4 h-4 text-primary shrink-0 mt-1" />
                     <div>
                       <h4 className="font-semibold text-sm text-headings">{item.text}</h4>
-                      <p className="text-xs text-muted-foreground mt-0.5 font-light leading-normal">{item.desc}</p>
+                      <p className="text-xs text-slate-300 mt-0.5 font-light leading-normal">{item.desc}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -352,13 +352,13 @@ export default function CohortsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.05 }}
-              className="p-8 rounded-3xl bg-white/40 border border-border/50 shadow-[0_8px_30px_rgba(15,23,42,0.015)] backdrop-blur-md hover:bg-white/80 hover:border-primary/20 transition-all duration-300 group"
+              className="p-8 rounded-3xl bg-white/[0.03] border border-white/10 shadow-2xl backdrop-blur-md hover:bg-white/[0.08] hover:border-primary/30 transition-all duration-300 group"
             >
-              <div className="w-10 h-10 rounded-2xl bg-muted border border-border/60 flex items-center justify-center mb-6 group-hover:bg-primary/5 group-hover:border-primary/10 transition-colors">
+              <div className="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-primary/10 group-hover:border-primary/20 transition-colors">
                 <item.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
               </div>
               <h3 className="text-lg font-semibold text-headings mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
-              <p className="text-[14px] text-muted-foreground font-light leading-relaxed">{item.desc}</p>
+              <p className="text-[14px] text-slate-300 font-light leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -419,7 +419,7 @@ export default function CohortsPage() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="p-10 rounded-3xl bg-white/50 border border-primary/20 shadow-[0_12px_40px_rgba(79,70,229,0.03)] backdrop-blur-xl relative flex flex-col justify-between overflow-hidden"
+            className="p-10 rounded-3xl bg-white/[0.03] border border-primary/30 shadow-2xl backdrop-blur-xl relative flex flex-col justify-between overflow-hidden"
           >
             {/* Soft inner glow */}
             <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-primary/5 blur-[50px] rounded-full" />
@@ -517,21 +517,21 @@ export default function CohortsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: i * 0.05 }}
-                  className="p-6 rounded-3xl bg-white/40 border border-border/50 shadow-xs backdrop-blur-md flex flex-col justify-between hover:bg-white/80 transition-all duration-300 relative group"
+                  className="p-6 rounded-3xl bg-white/[0.03] border border-white/10 shadow-2xl backdrop-blur-md flex flex-col justify-between hover:bg-white/[0.08] transition-all duration-300 relative group"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-6">
-                      <div className="w-10 h-10 rounded-xl bg-slate-50 border border-border flex items-center justify-center">
-                        <item.icon className="w-5 h-5 text-muted-foreground" strokeWidth={1.5} />
+                      <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                        <item.icon className="w-5 h-5 text-slate-400" strokeWidth={1.5} />
                       </div>
-                      <span className="text-[9px] font-bold text-muted-foreground uppercase tracking-wider bg-slate-100 px-2 py-0.5 rounded">
+                      <span className="text-[9px] font-bold text-slate-300 uppercase tracking-wider bg-white/10 px-2 py-0.5 rounded">
                         Launching Soon
                       </span>
                     </div>
                     <h3 className="text-base font-semibold text-headings mb-3">{item.title}</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed font-light">{item.desc}</p>
+                    <p className="text-xs text-slate-300 leading-relaxed font-light">{item.desc}</p>
                   </div>
-                  <div className="mt-8 pt-4 border-t border-border/40 text-[10px] text-muted-foreground uppercase tracking-wider font-semibold">
+                  <div className="mt-8 pt-4 border-t border-white/5 text-[10px] text-slate-400 uppercase tracking-wider font-semibold">
                     Ecosystem Initiative
                   </div>
                 </motion.div>

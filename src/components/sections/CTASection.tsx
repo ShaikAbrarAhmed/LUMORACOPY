@@ -18,7 +18,7 @@ export function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative overflow-hidden rounded-3xl bg-white/40 border border-[#E5E7EB]/60 p-12 md:p-16 text-center shadow-[0_12px_40px_rgba(11,16,32,0.02)] backdrop-blur-xl"
+           className="relative overflow-hidden rounded-3xl bg-white/[0.03] border border-white/10 p-6 sm:p-12 md:p-16 text-center shadow-2xl backdrop-blur-xl"
         >
           {/* Subtle inside ambient glows */}
           <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-primary/3 blur-[60px] rounded-full" />

@@ -123,7 +123,7 @@ export default function CommunitySection() {
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                   className="absolute inset-0 rounded-full border border-primary/20"
                 />
-                <div className="relative w-8 h-8 rounded-full bg-white border border-border flex items-center justify-center shadow-xs">
+                <div className="relative w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shadow-xs">
                   <Sparkles className="w-4 h-4 text-primary animate-pulse" />
                 </div>
               </div>
