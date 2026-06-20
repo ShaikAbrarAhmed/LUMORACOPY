@@ -64,23 +64,29 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Ecosystem */}
+          {/* Column 2: Ecosystem & Company */}
           <div className="text-left">
             <h4 className="text-xs font-bold text-headings uppercase tracking-wider mb-3 select-none">
-              Ecosystem
+              Ecosystem & Company
             </h4>
             <ul className="space-y-2">
               <li>
                 <Link href="/features" className="text-xs text-muted-foreground hover:text-primary transition-colors font-light">Features</Link>
               </li>
               <li>
-                <Link href="/mentors" className="text-xs text-muted-foreground hover:text-primary transition-colors font-light">Mentors</Link>
-              </li>
-              <li>
                 <Link href="/cohorts" className="text-xs text-muted-foreground hover:text-primary transition-colors font-light">Cohorts</Link>
               </li>
               <li>
                 <Link href="/community" className="text-xs text-muted-foreground hover:text-primary transition-colors font-light">Community</Link>
+              </li>
+              <li>
+                <Link href="/mentors" className="text-xs text-muted-foreground hover:text-primary transition-colors font-light">Mentors</Link>
+              </li>
+              <li>
+                <Link href="/our-story" className="text-xs text-muted-foreground hover:text-primary transition-colors font-light">Our Story</Link>
+              </li>
+              <li>
+                <Link href="/team" className="text-xs text-muted-foreground hover:text-primary transition-colors font-light">Team</Link>
               </li>
             </ul>
           </div>

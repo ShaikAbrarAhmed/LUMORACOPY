@@ -1,7 +1,16 @@
+import { Metadata } from "next"
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
 
 import CommunitySection from "@/components/sections/CommunitySection"
+
+export const metadata: Metadata = {
+  title: "Builder Community",
+  description: "Join the Lumora student developer and designer community. Collaborate on hackathons, pair program on sprints, and gain feedback from peer builders.",
+  alternates: {
+    canonical: "/community",
+  },
+};
 
 export default function CommunityPage() {
   return (

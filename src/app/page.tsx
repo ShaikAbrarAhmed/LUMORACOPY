@@ -1,3 +1,4 @@
+import { Metadata } from "next"
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
 import { IntroScreen } from "@/components/IntroScreen"
@@ -7,6 +8,14 @@ import { ProblemSection } from "@/components/sections/ProblemSection"
 import WhyLumoraSection from "@/components/sections/WhyLumoraSection"
 import TransformationSection from "@/components/sections/TransformationSection"
 import { CTASection } from "@/components/sections/CTASection"
+
+export const metadata: Metadata = {
+  title: "Lumora – Student Growth Ecosystem for Ambitious Builders",
+  description: "Transition from confusion to confidence. Lumora is a premium student growth ecosystem built for ambitious student builders, offering cohort-based builder programs, active peer accountability networks, and elite engineering mentorship.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (

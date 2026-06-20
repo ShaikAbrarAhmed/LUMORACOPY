@@ -2,8 +2,13 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import LiquidMesh from "@/components/sections/LiquidMesh"
-// Static background image mode
+import Image from "next/image"
+import dynamic from "next/dynamic"
+
+const LiquidMesh = dynamic(() => import("@/components/sections/LiquidMesh"), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 bg-[#050505] opacity-20" />
+})
 
 export default function HeroSection() {
   const handleExploreClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -89,6 +94,7 @@ export default function HeroSection() {
             className="text-7xl sm:text-8xl md:text-[10.5rem] font-fancy font-light tracking-[0.03em] leading-[0.85] text-white my-4 select-text drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)]"
           >
             LUMORA
+            <span className="sr-only"> – The Student Growth Ecosystem for Ambitious Builders</span>
           </motion.h1>
 
           {/* Tagline: Center-aligned, elegant Cormorant Garamond */}
@@ -141,10 +147,13 @@ export default function HeroSection() {
 
       {/* 3. Static Background Silk Flow Image + WebGL Animated Mesh (z-0 layer behind text) */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden bg-[#050505]">
-        <img
+        <Image
           src="/silk_flow_bg.png"
-          alt="Silk Flow Background"
-          className="w-full h-full object-cover opacity-30 mix-blend-screen"
+          alt="Cinematic silk flow design representing student growth and transformation journey"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-30 mix-blend-screen"
         />
         <LiquidMesh />
       </div>

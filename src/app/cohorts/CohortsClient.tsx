@@ -526,12 +526,26 @@ export default function CohortsPage() {
             {[
               {
                 title: "Mentorship",
-                desc: "Get direct feedback on your code, system design, and career path from industry engineers.",
+                desc: (
+                  <>
+                    Get direct feedback on your code, system design, and career path from industry{" "}
+                    <Link href="/mentors" className="text-white hover:underline">
+                      mentors
+                    </Link>.
+                  </>
+                ),
                 icon: Users
               },
               {
                 title: "Community Support",
-                desc: "Build alongside a peer group of motivated students. Share resources, debug together, and celebrate wins.",
+                desc: (
+                  <>
+                    Build alongside a peer group of motivated students. Share resources, debug together, and celebrate wins in our{" "}
+                    <Link href="/community" className="text-white hover:underline">
+                      builder community
+                    </Link>.
+                  </>
+                ),
                 icon: Smile
               },
               {
