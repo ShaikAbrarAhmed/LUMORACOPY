@@ -100,7 +100,7 @@ export default function HeroSection() {
 
           <motion.h1
             variants={letterContainerVariants}
-            className="text-7xl sm:text-8xl md:text-[10.5rem] font-fancy font-light tracking-[0.03em] leading-[0.85] text-white my-4 select-text drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)]"
+            className="text-[15vw] sm:text-8xl md:text-[10.5rem] font-fancy font-light tracking-[0.03em] leading-[0.85] text-white my-4 select-text drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)] whitespace-nowrap"
           >
             {"LUMORA".split("").map((char, index) => (
               <motion.span
