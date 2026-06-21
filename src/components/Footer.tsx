@@ -85,9 +85,7 @@ export function Footer() {
               <li>
                 <Link href="/our-story" className="text-xs text-muted-foreground hover:text-primary transition-colors font-light">Our Story</Link>
               </li>
-              <li>
-                <Link href="/team" className="text-xs text-muted-foreground hover:text-primary transition-colors font-light">Team</Link>
-              </li>
+
             </ul>
           </div>
 

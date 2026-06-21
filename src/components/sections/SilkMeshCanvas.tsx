@@ -412,7 +412,7 @@ export default function SilkMeshCanvas() {
       ribbonMeshes.forEach(({ material }) => material.dispose())
       ribbonPoints.forEach(({ material }) => material.dispose())
       particleMat.dispose()
-      
+
       renderer.dispose()
     }
   }, [])

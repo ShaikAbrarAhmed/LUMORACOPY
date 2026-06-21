@@ -263,13 +263,13 @@ export default function FeaturesSection() {
             </div>
 
             {/* Inner Terminal visual */}
-            <div className="md:col-span-6 w-full bg-card border border-white/5 rounded-2xl p-5 shadow-lg relative overflow-hidden font-mono text-xs text-muted-foreground/80">
+            <div className="md:col-span-6 w-full bg-card border border-white/5 rounded-2xl p-5 shadow-lg relative overflow-x-auto font-mono text-xs text-muted-foreground/80">
               <div className="flex gap-1.5 mb-4">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                 <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
                 <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
               </div>
-              <div className="space-y-1.5">
+              <div className="space-y-1.5 whitespace-nowrap">
                 <div className="flex gap-2"><span className="text-primary/90">$</span> <span>npm run deploy</span></div>
                 <div className="text-slate-500 pl-4">&gt; building client production package...</div>
                 <div className="text-emerald-400 pl-4">✓ build complete. bundles optimized.</div>

@@ -194,7 +194,7 @@ export default function CommunitySection() {
             </div>
             <div className="flex items-center gap-2.5">
               <span className="w-2 h-2 rounded-full bg-white/20" />
-              <span>No feedbac</span>
+              <span>No feedback</span>
             </div>
             <div className="flex items-center gap-2.5">
               <span className="w-2 h-2 rounded-full bg-white/20" />
