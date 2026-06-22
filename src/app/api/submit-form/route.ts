@@ -37,7 +37,7 @@ export async function POST(req: Request) {
     if (apiKey) {
       try {
         const resend = new Resend(apiKey);
-        const adminEmail = (process.env.ADMIN_EMAIL || "admin@example.com").trim();
+        const adminEmail = (process.env.ADMIN_EMAIL || "support.lumoraspace@gmail.com").trim();
         console.log("ADMIN_EMAIL =", adminEmail);
         const { error } = await resend.emails.send({
           from: "Lumora Cohorts <onboarding@resend.dev>", // Resend default for testing
