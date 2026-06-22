@@ -148,7 +148,7 @@ export function Navbar() {
             { label: "FEATURES", href: "/features" },
             { label: "COMMUNITY", href: "/community" },
             { label: "PROGRAMS", href: "/cohorts" },
-            { label: "OUR STORY", href: "/our-story" },
+            { label: "TEAM", href: "/team" },
           ].map((item) => {
             const isActive = pathname === item.href
             return (
@@ -290,14 +290,14 @@ export function Navbar() {
                     Secondary Navigation
                   </span>
 
-                  {/* Our Story */}
+                  {/* Team */}
                   <motion.div variants={itemVariants}>
                     <Link
-                      href="/our-story"
+                      href="/team"
                       onClick={() => setIsOpen(false)}
                       className="w-full text-left px-3.5 py-2.5 rounded-xl text-[14px] font-semibold text-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group"
                     >
-                      <span>Our Story</span>
+                      <span>Team</span>
                       <span className="opacity-0 group-hover:opacity-100 transition-opacity text-xs font-bold">→</span>
                     </Link>
                   </motion.div>
