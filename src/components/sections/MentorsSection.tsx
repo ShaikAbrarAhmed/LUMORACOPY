@@ -145,7 +145,7 @@ export default function MentorsSection() {
 
               <div className="pt-3">
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/gokul-dev1/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white font-semibold tracking-wider uppercase transition-colors"
@@ -198,7 +198,7 @@ export default function MentorsSection() {
 
               <div className="pt-3">
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/purva-kabra-pk"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white font-semibold tracking-wider uppercase transition-colors"
