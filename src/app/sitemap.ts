@@ -9,7 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/community",
     "/cohorts",
     "/mentors",
-    "/team",
     "/our-story",
     "/privacy",
     "/terms"

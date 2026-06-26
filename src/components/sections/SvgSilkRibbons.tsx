@@ -7,17 +7,17 @@ export default function SvgSilkRibbons() {
   return (
     <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-0 overflow-hidden">
       {/* 1. Deep background atmospheric glow matching the new palette */}
-      <div 
+      <div
         className="absolute inset-0 w-full h-full opacity-60"
         style={{
           background: "radial-gradient(circle at 50% 85%, rgba(217, 220, 225, 0.035), transparent 60%)"
         }}
       />
 
-      <svg 
-        viewBox="0 0 1440 700" 
-        fill="none" 
-        xmlns="http://www.w3.org/2000/svg" 
+      <svg
+        viewBox="0 0 1440 700"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
         className="absolute inset-x-0 bottom-0 w-full h-[80%] md:h-[65%] object-cover pointer-events-none"
         preserveAspectRatio="none"
       >
@@ -30,7 +30,7 @@ export default function SvgSilkRibbons() {
             <stop offset="70%" stopColor="#D9DCE1" stopOpacity="0.4" />
             <stop offset="100%" stopColor="#D9DCE1" stopOpacity="0" />
           </linearGradient>
-          
+
           <linearGradient id="ribbon-grad-2" x1="100%" y1="100%" x2="0%" y2="0%">
             <stop offset="0%" stopColor="#D9DCE1" stopOpacity="0" />
             <stop offset="25%" stopColor="#D9DCE1" stopOpacity="0.35" />
@@ -57,7 +57,7 @@ export default function SvgSilkRibbons() {
             <feGaussianBlur stdDeviation="8" />
           </filter>
         </defs>
-        
+
         {/* Layer 1: Large soft ribbon - 12% Opacity for broad ambient flow */}
         <motion.g
           animate={{

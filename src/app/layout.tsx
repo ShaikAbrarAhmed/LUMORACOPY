@@ -65,7 +65,7 @@ export default function RootLayout({
     "sameAs": [
       "https://discord.gg/xWVsJWv8N",
       "https://chat.whatsapp.com/GgKs2Hnh8Os1XOL0pYPZMN",
-      "https://www.instagram.com/lumorous.space"
+      "https://www.instagram.com/lumora.spacee"
     ]
   };
 

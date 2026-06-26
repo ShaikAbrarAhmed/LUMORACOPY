@@ -5,6 +5,23 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { Sparkles, Compass, Users, TrendingUp } from "lucide-react"
 
+// --- Custom Social Media Icons (Prevents Lucide brand icon issues) ---
+const LinkedinIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect x="2" y="9" width="4" height="12" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+)
+
 // --- Custom Skeletons for Team Profiles ---
 const ProfileSkeleton = () => (
   <div className="space-y-4 animate-pulse">
@@ -14,6 +31,17 @@ const ProfileSkeleton = () => (
     <div className="h-4 bg-white/5 rounded w-2/3" />
   </div>
 )
+
+interface TeamMember {
+  name: string
+  role: string
+  image: string
+  statement?: string
+  contribution?: string
+  position?: string
+  linkedin?: string
+  portfolio?: string
+}
 
 export default function TeamSection() {
   const [isLoading, setIsLoading] = useState(true)
@@ -25,45 +53,50 @@ export default function TeamSection() {
     return () => clearTimeout(timer)
   }, [])
 
-  const foundingTeam = [
+  const foundingTeam: TeamMember[] = [
     {
       name: "Shaik Abrar Ahmed",
       role: "Founder",
       image: "/team/abrar.png",
       statement: "Building the ecosystem I wish I had as a student.",
-      position: "top center"
+      position: "top center",
+      linkedin: "https://www.linkedin.com/in/shaikabrarahmed/"
     },
     {
       name: "Mounika",
       role: "Co-Founder",
       image: "/team/Mouni2.jpeg",
       statement: "Making sure no builder has to work in isolation.",
-      position: "top center"
+      position: "top center",
+      linkedin: "https://www.linkedin.com/in/surakarapu-mounika-62b84a2a4?utm_source=share_via&utm_content=profile&utm_medium=member_android"
     },
     {
       name: "Ashwini",
       role: "Co-Founder",
       image: "/team/Ashwini2.jpeg",
       statement: "Bridging the gap between theory and execution.",
-      position: "top center"
+      position: "top center",
+      linkedin: "https://www.linkedin.com/in/ashwini-ravirala-133058377/"
     }
   ]
 
-  const coreTeam = [
+  const coreTeam: TeamMember[] = [
    
     {
       name: "Yuvraj",
       role: "Internal Operations",
       image: "/team/Yuvi.jpeg",
       contribution: "Building systems that turn ideas into execution.",
-      position: "top center"
+      position: "top center",
+      linkedin: "https://www.linkedin.com/in/yuvaraj-dudukuru/"
     },
     {
       name: "Sruthi",
       role: "Design & Experience",
       image: "/team/Sruthi.jpeg",
       contribution: "Crafting experiences that feel as good as they function.",
-      position: "top center"
+      position: "top center",
+      linkedin: "https://www.linkedin.com/in/sruthi-kakarla-380b2235b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
     },
     
     {
@@ -71,7 +104,8 @@ export default function TeamSection() {
       role: "Growth & Partnerships",
       image: "/team/Raji2.jpeg",
       contribution: "Connecting people, ideas, and possibilities.",
-      position: "top center"
+      position: "top center",
+      linkedin: "https://www.linkedin.com/in/rajitha-reddemoni-a24a8533a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
     },
 
      {
@@ -79,7 +113,8 @@ export default function TeamSection() {
       role: "Content Lead",
       image: "/team/Jasmeetg.jpeg",
       contribution: "Turning stories into movements.",
-      position: "top center"
+      position: "top center",
+      linkedin: "https://www.linkedin.com/in/sardar-jasmeeth-singh-raj/"
     }
    
   ]
@@ -160,10 +195,10 @@ export default function TeamSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="group flex flex-col space-y-5"
+                className="group flex flex-col space-y-5 transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Image Card Frame */}
-                <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden bg-[#111214] border border-white/10 shadow-xl">
+                <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden bg-[#111214] border border-white/10 shadow-xl transition-all duration-300 group-hover:border-white/20 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.05)]">
                   <Image
                     src={founder.image}
                     alt={founder.name}
@@ -174,16 +209,42 @@ export default function TeamSection() {
                 </div>
 
                 {/* Details */}
-                <div className="space-y-2 text-left">
+                <div className="space-y-3 text-left">
                   <div className="flex flex-col">
-                    <h3 className="text-2xl font-heading font-bold text-white">{founder.name}</h3>
-                    <span className="text-xs text-slate-400 font-bold uppercase tracking-wider mt-1">
+                    <h3 className="text-2xl font-heading font-semibold text-white">{founder.name}</h3>
+                    <span className="text-xs text-white/60 font-medium uppercase tracking-[0.1em] mt-1.5">
                       {founder.role}
                     </span>
                   </div>
-                  <p className="text-sm md:text-base text-slate-300 font-light italic leading-relaxed pt-2">
+                  <p className="text-sm md:text-base text-white/80 font-light italic leading-relaxed">
                     "{founder.statement}"
                   </p>
+                  
+                  {/* Action Buttons */}
+                  {(founder.linkedin || founder.portfolio) && (
+                    <div className="flex items-center gap-2 pt-1">
+                      {founder.linkedin && (
+                        <a
+                          href={founder.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3.5 py-1 text-xs rounded-full border border-white/10 bg-transparent text-white/70 hover:text-white hover:bg-white/5 hover:border-white/20 transition-all duration-300 font-medium"
+                        >
+                          LinkedIn
+                        </a>
+                      )}
+                      {founder.portfolio && (
+                        <a
+                          href={founder.portfolio}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3.5 py-1 text-xs rounded-full border border-white/10 bg-transparent text-white/70 hover:text-white hover:bg-white/5 hover:border-white/20 transition-all duration-300 font-medium"
+                        >
+                          Portfolio
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))
@@ -213,10 +274,10 @@ export default function TeamSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="group flex flex-col space-y-4"
+                className="group flex flex-col space-y-4 transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Image Frame */}
-                <div className="relative aspect-[4/5] rounded-[20px] overflow-hidden bg-[#111214] border border-white/10 shadow-lg">
+                <div className="relative aspect-[4/5] rounded-[20px] overflow-hidden bg-[#111214] border border-white/10 shadow-lg transition-all duration-300 group-hover:border-white/20 group-hover:shadow-[0_0_25px_rgba(255,255,255,0.04)]">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -227,16 +288,42 @@ export default function TeamSection() {
                 </div>
 
                 {/* Details */}
-                <div className="space-y-1.5 text-left">
+                <div className="space-y-2 text-left">
                   <div>
-                    <h4 className="text-xl font-heading font-bold text-white">{member.name}</h4>
-                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block mt-0.5">
+                    <h4 className="text-xl font-heading font-semibold text-white">{member.name}</h4>
+                    <span className="text-[10px] text-white/60 font-medium uppercase tracking-[0.1em] block mt-1">
                       {member.role}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-400 font-light leading-relaxed">
-                    {member.contribution}
+                  <p className="text-xs text-white/80 font-light italic leading-relaxed">
+                    "{member.contribution}"
                   </p>
+                  
+                  {/* Action Buttons */}
+                  {(member.linkedin || member.portfolio) && (
+                    <div className="flex items-center gap-2 pt-1">
+                      {member.linkedin && (
+                        <a
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-0.5 text-[10px] rounded-full border border-white/10 bg-transparent text-white/70 hover:text-white hover:bg-white/5 hover:border-white/20 transition-all duration-300 font-medium"
+                        >
+                          LinkedIn
+                        </a>
+                      )}
+                      {member.portfolio && (
+                        <a
+                          href={member.portfolio}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-0.5 text-[10px] rounded-full border border-white/10 bg-transparent text-white/70 hover:text-white hover:bg-white/5 hover:border-white/20 transition-all duration-300 font-medium"
+                        >
+                          Portfolio
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))

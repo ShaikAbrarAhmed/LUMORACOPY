@@ -42,7 +42,7 @@ export async function POST(req: Request) {
     if (apiKey) {
       try {
         const resend = new Resend(apiKey);
-        const adminEmail = (process.env.ADMIN_EMAIL || "admin@example.com").trim();
+        const adminEmail = (process.env.ADMIN_EMAIL || "support.lumoraspace@gmail.com").trim();
         const { error } = await resend.emails.send({
           from: "Lumora Waitlist <onboarding@resend.dev>",
           to: [adminEmail],

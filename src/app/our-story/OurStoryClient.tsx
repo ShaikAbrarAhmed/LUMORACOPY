@@ -420,12 +420,6 @@ export default function OurStoryPage() {
                 Join The Journey
                 <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link
-                href="/team"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/10 bg-white/5 text-white font-semibold rounded-2xl hover:bg-white/10 transition-all duration-200 hover:-translate-y-0.5 text-sm"
-              >
-                Meet The Team
-              </Link>
             </div>
           </motion.div>
         </div>

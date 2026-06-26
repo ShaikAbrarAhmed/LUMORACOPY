@@ -194,7 +194,7 @@ export default function CommunitySection() {
             </div>
             <div className="flex items-center gap-2.5">
               <span className="w-2 h-2 rounded-full bg-white/20" />
-              <span>No feedbac</span>
+              <span>No feedback</span>
             </div>
             <div className="flex items-center gap-2.5">
               <span className="w-2 h-2 rounded-full bg-white/20" />
@@ -670,7 +670,7 @@ export default function CommunitySection() {
 
               <div className="mt-6 pt-4 border-t border-white/5 flex justify-end">
                 <a
-                  href="https://instagram.com/lumora"
+                  href="https://www.instagram.com/lumora.spacee?utm_source=qr&igsh=Y3Rxa2poOWk2cXNk"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs text-slate-400 hover:text-white inline-flex items-center gap-1 font-semibold group cursor-pointer"

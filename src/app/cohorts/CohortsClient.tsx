@@ -215,7 +215,7 @@ export default function CohortsPage() {
                   </div>
 
                   {/* Stage Index Badge */}
-                  <span className={`mt-6 text-[10px] font-bold tracking-[0.15em] uppercase px-2.5 py-0.5 rounded-full border ${step.badgeColor}`}>
+                  <span className={`mt-6 text-[10px] font-bold tracking-[0.15em] uppercase px-2.5 py-0.5 rounded-full border whitespace-nowrap ${step.badgeColor}`}>
                     Stage 0{i + 1}
                   </span>
 
