@@ -113,9 +113,9 @@ export default function OurStoryPage() {
                       {step.step}
                     </span>
                     <div className="space-y-1">
-                      <h4 className="text-lg font-bold text-headings">
+                      <h3 className="text-lg font-bold text-headings">
                         {step.title}
-                      </h4>
+                      </h3>
                       <p className="text-sm text-muted-foreground leading-relaxed max-w-xl">
                         {step.desc}
                       </p>
@@ -133,7 +133,7 @@ export default function OurStoryPage() {
               className="pt-12 pb-6 text-center max-w-2xl mx-auto"
             >
               <p className="font-fancy text-2xl md:text-3xl italic text-foreground leading-relaxed">
-                "We know that feeling. The silent belief that everyone else knows something you don't. But the problem was never talent. It was direction."
+                &ldquo;We know that feeling. The silent belief that everyone else knows something you don&apos;t. But the problem was never talent. It was direction.&rdquo;
               </p>
             </motion.div>
           </div>
@@ -238,7 +238,7 @@ export default function OurStoryPage() {
               className="bg-primary/5 border border-primary/10 rounded-[24px] p-6 text-center"
             >
               <p className="text-base text-foreground font-medium leading-relaxed">
-                The issue wasn't access to information. <br />
+                The issue wasn&apos;t access to information. <br />
                 The issue was the absence of <span className="text-primary font-bold">guidance</span>, <span className="text-primary/80 font-bold">community</span>, and <span className="text-accent font-bold">accountability</span>.
               </p>
             </motion.div>
@@ -272,10 +272,10 @@ export default function OurStoryPage() {
             className="space-y-12 text-2xl md:text-3xl text-muted-foreground font-fancy leading-relaxed text-left border-l-4 border-primary pl-8 md:pl-12 max-w-3xl mx-auto my-16"
           >
             <p className="hover:text-foreground transition-colors duration-300">
-              Lumora wasn't created to become another EdTech company.
+              Lumora wasn&apos;t created to become another EdTech company.
             </p>
             <p className="hover:text-foreground transition-colors duration-300">
-              It wasn't created to sell courses.
+              It wasn&apos;t created to sell courses.
             </p>
             <p className="text-foreground font-semibold text-3xl md:text-4xl leading-tight">
               It was created to give students something many of us never had.
@@ -286,7 +286,7 @@ export default function OurStoryPage() {
               </span>
             </div>
             <p className="text-xl md:text-2xl font-sans not-italic text-muted-foreground hover:text-foreground transition-colors duration-300">
-              A place where growth doesn't have to happen alone.
+              A place where growth doesn&apos;t have to happen alone.
             </p>
           </motion.div>
         </div>
@@ -403,13 +403,13 @@ export default function OurStoryPage() {
                 JOIN THE MISSION
               </span>
               <h2 className="text-3xl md:text-5xl font-fancy font-light tracking-tight text-headings leading-tight">
-                We're Still Early. <br />
-                But The Mission Is Clear.
+                We&apos;re Still Early. <br />
+                But the Mission Is Clear.
               </h2>
             </div>
 
             <p className="text-xl md:text-2xl text-primary font-fancy italic leading-relaxed max-w-2xl mx-auto">
-              "No student should have to navigate their journey alone."
+              &ldquo;No student should have to navigate their journey alone.&rdquo;
             </p>
 
             <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">

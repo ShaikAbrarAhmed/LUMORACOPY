@@ -11,9 +11,29 @@ import { CTASection } from "@/components/sections/CTASection"
 
 export const metadata: Metadata = {
   title: "Lumora – Student Growth Ecosystem for Ambitious Builders",
-  description: "Transition from confusion to confidence. Lumora is a premium student growth ecosystem built for ambitious student builders, offering cohort-based builder programs, active peer accountability networks, and elite engineering mentorship.",
+  description: "Transition from confusion to confidence. Lumora is a premium student growth ecosystem built for ambitious student builders to learn, build, and grow.",
   alternates: {
     canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://lumora.space",
+    title: "Lumora – Student Growth Ecosystem for Ambitious Builders",
+    description: "Transition from confusion to confidence. Lumora is a premium student growth ecosystem built for ambitious student builders to learn, build, and grow.",
+    images: [
+      {
+        url: "/logo4.png",
+        width: 1200,
+        height: 630,
+        alt: "Lumora – Student Growth Ecosystem",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lumora – Student Growth Ecosystem for Ambitious Builders",
+    description: "Transition from confusion to confidence. Lumora is a premium student growth ecosystem built for ambitious student builders to learn, build, and grow.",
+    images: ["/logo4.png"],
   },
 };
 

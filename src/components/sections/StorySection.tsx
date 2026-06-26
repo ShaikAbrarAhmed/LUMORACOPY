@@ -33,7 +33,7 @@ export default function StorySection() {
             OUR STORY
           </span>
           <h2 className="text-4xl md:text-6xl font-fancy font-light text-headings tracking-tight leading-[1.08] mb-6">
-            We Didn't Build Lumorous <br className="hidden md:inline" />
+            We Didn&apos;t Build Lumora <br className="hidden md:inline" />
             Because We Had All The Answers.
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-normal leading-relaxed">
@@ -94,7 +94,7 @@ export default function StorySection() {
             </p>
 
             <p>
-              We wanted to build software, create dynamic products, and participate in hackathons. But the path forward was completely blank. Coming from a Tier-3 college, we didn't have access to startup networks or industry veterans.
+              We wanted to build software, create dynamic products, and participate in hackathons. But the path forward was completely blank. Coming from a Tier-3 college, we didn&apos;t have access to startup networks or industry veterans.
             </p>
 
             <p>
@@ -106,7 +106,7 @@ export default function StorySection() {
             </p>
 
             <p>
-              We realized that this is why we built Lumorous.
+              We realized that this is why we built Lumora.
             </p>
 
             <p>
@@ -145,7 +145,7 @@ export default function StorySection() {
           >
             <p className="text-2xl md:text-3xl font-heading font-medium tracking-tight text-foreground leading-relaxed font-fancy italic">
               “Every expert was once a beginner. <br />
-              Lumorous exists to make that journey less lonely.”
+              Lumora exists to make that journey less lonely.”
             </p>
             <p className="text-xs text-muted-foreground font-semibold uppercase tracking-widest mt-4">
               — The Lumora Team

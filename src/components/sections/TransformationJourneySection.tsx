@@ -94,7 +94,7 @@ export default function TransformationJourneySection() {
             Stop Consuming. Start Building.
           </h2>
           <p className="mt-4 text-base md:text-lg text-muted-foreground font-light leading-relaxed">
-            The difference isn't what tutorial you buy. It is how you transition from an anxious consumer to an active creator. Here is your path.
+            The difference isn&apos;t what tutorial you buy. It is how you transition from an anxious consumer to an active creator. Here is your path.
           </p>
         </div>
 

@@ -48,17 +48,17 @@ export function ProblemSection() {
               THE REAL PROBLEM
             </span>
             <h2 className="text-4xl md:text-5xl font-fancy font-light text-headings tracking-tight leading-tight">
-              Most Students Don't Lack Talent.
+              Most Students Don&apos;t Lack Talent.
               <br />
               <span className="text-muted-foreground font-light">They lack direction.</span>
             </h2>
             <p className="text-base text-muted-foreground font-light leading-relaxed">
-              The internet has endless resources. But most beginners struggle because they don't know what to learn, where to start, or how to stay consistent.
+              The internet has endless resources. But most beginners struggle because they don&apos;t know what to learn, where to start, or how to stay consistent.
             </p>
             
             <div className="pt-8 border-t border-white/5 space-y-4">
               <p className="text-2xl font-fancy font-light italic text-white/90 leading-relaxed">
-                "Learning alone is a design flaw."
+                &ldquo;Learning alone is a design flaw.&rdquo;
               </p>
               <p className="text-xs text-muted-foreground/60 leading-relaxed font-light">
                 Traditional education platforms sell content catalogs, leaving students to navigate the complex engineering roadmap in isolation.

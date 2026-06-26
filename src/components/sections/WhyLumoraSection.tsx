@@ -75,7 +75,7 @@ export default function WhyLumoraSection() {
               >
                 <div className="flex items-center justify-between w-full">
                   <span className="text-[10px] font-semibold text-primary tracking-[0.2em] uppercase">
-                    0{idx + 1} // {pillar.title}
+                    0{idx + 1} {"//"} {pillar.title}
                   </span>
                   <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background transition-all duration-300">
                     <Icon className="w-4 h-4" />
@@ -112,7 +112,7 @@ export default function WhyLumoraSection() {
             </div>
             
             <p className="text-sm text-slate-400 leading-relaxed font-light text-left">
-              Learn from people who've already walked the path. Get direct code audits and system reviews from industry vets.
+              Learn from people who&apos;ve already walked the path. Get direct code audits and system reviews from industry vets.
             </p>
           </motion.div>
 

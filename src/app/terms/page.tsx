@@ -18,14 +18,14 @@ export default function TermsPage() {
               <section>
                 <h2 className="text-2xl font-semibold mb-3">1. Agreement to Terms</h2>
                 <p>
-                  By accessing or using Lumorous's website and services, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.
+                  By accessing or using Lumora&apos;s website and services, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.
                 </p>
               </section>
 
               <section>
                 <h2 className="text-2xl font-semibold mb-3">2. Use License</h2>
                 <p>
-                  Permission is granted to temporarily access the materials (information or software) on Lumorous's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+                  Permission is granted to temporarily access the materials (information or software) on Lumora&apos;s website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
                 </p>
                 <ul className="list-disc pl-6 mt-2 space-y-2">
                   <li>modify or copy the materials;</li>
@@ -46,14 +46,14 @@ export default function TermsPage() {
               <section>
                 <h2 className="text-2xl font-semibold mb-3">4. Limitations</h2>
                 <p>
-                  In no event shall Lumorous or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Lumorous's website.
+                  In no event shall Lumora or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Lumora&apos;s website.
                 </p>
               </section>
 
               <section>
                 <h2 className="text-2xl font-semibold mb-3">5. Revisions and Errata</h2>
                 <p>
-                  The materials appearing on Lumorous's website could include technical, typographical, or photographic errors. Lumorous does not warrant that any of the materials on its website are accurate, complete, or current.
+                  The materials appearing on Lumora&apos;s website could include technical, typographical, or photographic errors. Lumora does not warrant that any of the materials on its website are accurate, complete, or current.
                 </p>
               </section>
               

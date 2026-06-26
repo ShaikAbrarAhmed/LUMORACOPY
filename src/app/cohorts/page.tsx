@@ -3,9 +3,29 @@ import CohortsPage from "./CohortsClient";
 
 export const metadata: Metadata = {
   title: "Cohort-Based Builder Programs",
-  description: "Transition from confusion to confidence. Join our guided engineering cohorts, access elite mentors, stay accountable, and ship production-ready MVPs with a peer group.",
+  description: "Join our guided developer cohorts, access elite engineering mentors, stay accountable, and ship production-ready MVPs alongside ambitious student peers.",
   alternates: {
     canonical: "/cohorts",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://lumora.space/cohorts",
+    title: "Cohort-Based Builder Programs | Lumora Space",
+    description: "Join our guided developer cohorts, access elite engineering mentors, stay accountable, and ship production-ready MVPs alongside ambitious student peers.",
+    images: [
+      {
+        url: "/logo4.png",
+        width: 1200,
+        height: 630,
+        alt: "Lumora Cohorts",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cohort-Based Builder Programs | Lumora Space",
+    description: "Join our guided developer cohorts, access elite engineering mentors, stay accountable, and ship production-ready MVPs alongside ambitious student peers.",
+    images: ["/logo4.png"],
   },
 };
 

@@ -36,7 +36,7 @@ export default function FeaturesSection() {
             </span>
           </h2>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto">
-            Growth shouldn't feel confusing, lonely, or directionless.
+            Growth shouldn&apos;t feel confusing, lonely, or directionless.
           </p>
         </div>
 
@@ -258,7 +258,7 @@ export default function FeaturesSection() {
                 <span className="text-primary font-bold">Build belief through action.</span>
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed font-light">
-                Confidence isn't something you learn, it's something you build. By designing, coding, testing, and deploying actual working systems, you gain concrete proofs of concept that end self-doubt loops.
+                Confidence isn&apos;t something you learn, it&apos;s something you build. By designing, coding, testing, and deploying actual working systems, you gain concrete proofs of concept that end self-doubt loops.
               </p>
             </div>
 

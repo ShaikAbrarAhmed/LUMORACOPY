@@ -6,9 +6,29 @@ import { ShowcaseSection } from "@/components/sections/ShowcaseSection"
 
 export const metadata: Metadata = {
   title: "Ecosystem Features",
-  description: "Explore the features of Lumora's student growth ecosystem: structured roadmaps (Direction), peer check-ins (Accountability), and co-working sprints (Community).",
+  description: "Explore features of Lumora&apos;s student growth ecosystem: structured roadmaps (Direction), peer check-ins (Accountability), and co-working sprints.",
   alternates: {
     canonical: "/features",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://lumora.space/features",
+    title: "Ecosystem Features | Lumora Space",
+    description: "Explore features of Lumora&apos;s student growth ecosystem: structured roadmaps (Direction), peer check-ins (Accountability), and co-working sprints.",
+    images: [
+      {
+        url: "/logo4.png",
+        width: 1200,
+        height: 630,
+        alt: "Lumora Features",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ecosystem Features | Lumora Space",
+    description: "Explore features of Lumora&apos;s student growth ecosystem: structured roadmaps (Direction), peer check-ins (Accountability), and co-working sprints.",
+    images: ["/logo4.png"],
   },
 };
 

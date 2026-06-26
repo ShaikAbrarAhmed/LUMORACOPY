@@ -53,7 +53,6 @@ export function Logo({
           alt="Lumora Logo"
           fill
           priority
-          unoptimized
           className="object-contain transition-transform duration-300"
         />
       </div>
@@ -84,7 +83,6 @@ export function Logo({
             alt="Lumora Symbol"
             fill
             priority
-            unoptimized
             className="object-cover object-left"
           />
         </div>

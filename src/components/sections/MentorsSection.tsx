@@ -61,7 +61,7 @@ export default function MentorsSection() {
               THE MENTORSHIP ECOSYSTEM
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-fancy font-light tracking-tight text-white mb-6 leading-tight">
-              Guided By People Who've Walked The Path
+              Guided By People Who&apos;ve Walked The Path
             </h1>
             <p className="text-[#A1A1AA] text-lg md:text-xl font-sans font-light leading-relaxed max-w-xl">
               Learn from professionals, builders, creators, and industry experts who are committed to helping students grow with confidence.<br />
@@ -120,8 +120,8 @@ export default function MentorsSection() {
 
               {/* Large quote */}
               <blockquote className="text-2xl sm:text-3xl md:text-4.5xl font-fancy font-light italic leading-tight text-white">
-                "Students don't need more information. <br className="hidden md:inline" />
-                They need better direction."
+                &ldquo;Students don&apos;t need more information. <br className="hidden md:inline" />
+                They need better direction.&rdquo;
               </blockquote>
 
               <div className="pt-4 border-t border-white/5 space-y-1">
@@ -173,8 +173,8 @@ export default function MentorsSection() {
 
               {/* Large quote */}
               <blockquote className="text-2xl sm:text-3xl md:text-4.5xl font-fancy font-light italic leading-tight text-white">
-                "Success isn't about having all the answers. <br className="hidden md:inline" />
-                It's about asking better questions."
+                &ldquo;Success isn&apos;t about having all the answers. <br className="hidden md:inline" />
+                It&apos;s about asking better questions.&rdquo;
               </blockquote>
 
               <div className="pt-4 border-t border-white/5 space-y-1">

@@ -52,7 +52,7 @@ export function WaitlistSection() {
           Ready to build your future?
         </h2>
         <p className="text-lg text-muted-foreground mb-10 font-light max-w-xl mx-auto">
-          Join the waitlist for Cohort 1. We'll notify you when applications officially open. No spam, ever.
+          Join the waitlist for Cohort 1. We&apos;ll notify you when applications officially open. No spam, ever.
         </p>
 
         {status === "success" ? (
@@ -62,7 +62,7 @@ export function WaitlistSection() {
             className="flex items-center justify-center gap-3 p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-500"
           >
             <CheckCircle2 className="h-5 w-5" />
-            <span className="font-medium">You're on the list. We'll be in touch soon.</span>
+            <span className="font-medium">You&apos;re on the list. We&apos;ll be in touch soon.</span>
           </motion.div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">

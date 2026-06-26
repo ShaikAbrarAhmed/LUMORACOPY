@@ -180,10 +180,10 @@ export default function CommunitySection() {
           </span> */}
           
           <h2 className="text-4xl md:text-6xl font-fancy font-light tracking-tight text-white leading-[1.15] max-w-4xl mx-auto">
-            Most Students Don't Quit Because They're Incapable.
+            Most Students Don&apos;t Quit Because They&apos;re Incapable.
             <br />
             <span className="text-slate-400">
-              They Quit Because They're Building Alone.
+              They Quit Because They&apos;re Building Alone.
             </span>
           </h2>
 
@@ -744,7 +744,7 @@ export default function CommunitySection() {
 
           {/* Supporting Copy */}
           <p className="text-lg md:text-xl text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
-            Growth becomes easier when you're surrounded by people moving in the same direction.
+            Growth becomes easier when you&apos;re surrounded by people moving in the same direction.
           </p>
 
           {/* Action CTA */}
