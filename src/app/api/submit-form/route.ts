@@ -2,15 +2,34 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import * as admin from "firebase-admin";
 import { getFirestoreDb } from "@/lib/firebaseAdmin";
+import { CohortSubmitSchema } from "@/lib/schemas/cohort";
+import { RateLimiter } from "@/lib/rate-limit";
+
+const submitFormLimiter = new RateLimiter({
+  limit: 10,
+  route: "/api/submit-form",
+});
 
 export async function POST(req: Request) {
   try {
-    const data = await req.json();
-    const { name, email, cohort, college, phone, message } = data;
-
-    if (!name || !email || !cohort) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    // Rate limit check
+    const limitResult = await submitFormLimiter.check(req);
+    if (!limitResult.success && limitResult.response) {
+      return limitResult.response;
     }
+
+    const data = await req.json();
+
+    // Zod validation boundary
+    const validationResult = CohortSubmitSchema.safeParse(data);
+    if (!validationResult.success) {
+      return NextResponse.json(
+        { error: "Validation Error", details: validationResult.error.flatten() },
+        { status: 400 }
+      );
+    }
+
+    const { name, email, cohort, college, phone, message } = validationResult.data;
 
     // 1. Save to Firebase Firestore
     const db = getFirestoreDb();

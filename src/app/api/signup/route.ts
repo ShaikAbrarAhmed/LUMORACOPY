@@ -1,20 +1,39 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import * as crypto from "crypto";
+import bcrypt from "bcryptjs";
 import * as admin from "firebase-admin";
 import { getFirestoreDb } from "@/lib/firebaseAdmin";
+import { SignupSchema } from "@/lib/schemas/auth";
+import { RateLimiter } from "@/lib/rate-limit";
+
+const signupLimiter = new RateLimiter({
+  limit: 5,
+  route: "/api/signup",
+});
 
 export async function POST(req: Request) {
   try {
-    const data = await req.json();
-    const { name, email, password } = data;
-
-    if (!name || !email || !password) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    // Rate limit check
+    const limitResult = await signupLimiter.check(req);
+    if (!limitResult.success && limitResult.response) {
+      return limitResult.response;
     }
 
-    // Hash the password with SHA-256 (safe, built-in, no external dependencies required)
-    const hashedPassword = crypto.createHash("sha256").update(password).digest("hex");
+    const data = await req.json();
+    
+    // 1. Zod input validation (Strict)
+    const validationResult = SignupSchema.safeParse(data);
+    if (!validationResult.success) {
+      return NextResponse.json(
+        { error: "Validation Error", details: validationResult.error.flatten() },
+        { status: 400 }
+      );
+    }
+
+    const { name, email, password } = validationResult.data;
+
+    // 2. Hash the password securely with bcryptjs (Salt factor 12)
+    const hashedPassword = await bcrypt.hash(password, 12);
 
     const db = getFirestoreDb();
     if (db) {

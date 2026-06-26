@@ -2,9 +2,21 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import * as admin from "firebase-admin";
 import { getFirestoreDb } from "@/lib/firebaseAdmin";
+import { RateLimiter } from "@/lib/rate-limit";
+
+const waitlistLimiter = new RateLimiter({
+  limit: 10,
+  route: "/api/waitlist",
+});
 
 export async function POST(req: Request) {
   try {
+    // Rate limit check
+    const limitResult = await waitlistLimiter.check(req);
+    if (!limitResult.success && limitResult.response) {
+      return limitResult.response;
+    }
+
     const data = await req.json();
     const { email } = data;
 
