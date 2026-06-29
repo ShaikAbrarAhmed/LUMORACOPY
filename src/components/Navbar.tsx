@@ -18,6 +18,19 @@ const Path = (props: any) => (
   />
 )
 
+interface JoinLumoraButtonProps {
+  className?: string;
+  children: React.ReactNode;
+}
+
+function JoinLumoraButton({ className, children }: JoinLumoraButtonProps) {
+  return (
+    <Link href="/create-account" className={className}>
+      {children}
+    </Link>
+  )
+}
+
 export function Navbar() {
   const router = useRouter()
   const pathname = usePathname()
@@ -49,6 +62,11 @@ export function Navbar() {
       document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [isOpen])
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false)
+  }, [pathname])
 
   // Framer Motion Dropdown Variants
   const dropdownVariants = {
@@ -194,13 +212,12 @@ export function Navbar() {
             </div>
           ) : (
             <>
-              <Link
-                href="/create-account"
+              <JoinLumoraButton
                 className="hidden lg:inline-flex items-center justify-center gap-1.5 rounded-full border border-white/20 px-5 py-1.8 text-[10px] font-bold font-heading text-white hover:bg-white/5 hover:border-white/35 transition-all duration-200 select-none active:translate-y-px"
               >
                 <span>Join Lumora</span>
                 <span className="text-[12px] mt-[-1px]">→</span>
-              </Link>
+              </JoinLumoraButton>
             </>
           )}
 
@@ -249,7 +266,6 @@ export function Navbar() {
                   <motion.div variants={itemVariants}>
                     <Link
                       href="/features"
-                      onClick={() => setIsOpen(false)}
                       className="w-full text-left px-3.5 py-2.5 rounded-xl text-[14px] font-semibold text-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group"
                     >
                       <span>Features</span>
@@ -261,7 +277,6 @@ export function Navbar() {
                   <motion.div variants={itemVariants}>
                     <Link
                       href="/community"
-                      onClick={() => setIsOpen(false)}
                       className="w-full text-left px-3.5 py-2.5 rounded-xl text-[14px] font-semibold text-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group"
                     >
                       <span>Community</span>
@@ -273,7 +288,6 @@ export function Navbar() {
                   <motion.div variants={itemVariants}>
                     <Link
                       href="/cohorts"
-                      onClick={() => setIsOpen(false)}
                       className="w-full text-left px-3.5 py-2.5 rounded-xl text-[14px] font-semibold text-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group"
                     >
                       <span>Cohorts</span>
@@ -295,7 +309,6 @@ export function Navbar() {
                   <motion.div variants={itemVariants}>
                     <Link
                       href="/mentors"
-                      onClick={() => setIsOpen(false)}
                       className="w-full text-left px-3.5 py-2.5 rounded-xl text-[14px] font-semibold text-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group"
                     >
                       <span>Mentors</span>
@@ -307,7 +320,6 @@ export function Navbar() {
                   <motion.div variants={itemVariants}>
                     <Link
                       href="/team"
-                      onClick={() => setIsOpen(false)}
                       className="w-full text-left px-3.5 py-2.5 rounded-xl text-[14px] font-semibold text-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group"
                     >
                       <span>Team</span>
@@ -321,7 +333,6 @@ export function Navbar() {
                   <motion.div variants={itemVariants}>
                     <a
                       href="mailto:Support.lumoraspace@gmail.com"
-                      onClick={() => setIsOpen(false)}
                       className="w-full text-left px-3.5 py-2.5 rounded-xl text-[14px] font-semibold text-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group"
                     >
                       <span>Contact</span>
@@ -374,9 +385,7 @@ export function Navbar() {
 
                   {!session && (
                     <motion.div variants={itemVariants} className="px-1">
-                      <Link
-                        href="/create-account"
-                        onClick={() => setIsOpen(false)}
+                      <JoinLumoraButton
                         className="group w-full py-2.5 px-4 bg-primary hover:bg-primary/95 text-[#050505] text-xs font-bold rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md flex items-center justify-center gap-2 cursor-pointer"
                       >
                         <span className="relative flex h-2 w-2">
@@ -396,7 +405,7 @@ export function Navbar() {
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary shadow-[0_0_8px_rgba(129,140,248,0.7)] group-hover:scale-110 group-hover:shadow-[0_0_14px_rgba(129,140,248,0.9)] transition-all duration-300" />
                         </span>
                         <span>Join Lumora →</span>
-                      </Link>
+                      </JoinLumoraButton>
                     </motion.div>
                   )}
                 </div>
