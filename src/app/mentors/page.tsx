@@ -66,6 +66,21 @@ export default function MentorsPage() {
             "name": "LumberFi"
           }
         }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Person",
+          "name": "Sanskrity Singh",
+          "jobTitle": "Marketing Specialist & Mentor",
+          "url": "https://lumora.space/mentors",
+          "sameAs": "https://www.linkedin.com/in/sanskritysingh",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "BOT Consulting"
+          }
+        }
       }
     ]
   };

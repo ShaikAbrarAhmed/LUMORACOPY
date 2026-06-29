@@ -230,6 +230,80 @@ export default function MentorsSection() {
               </div>
             </motion.div>
           </div>
+
+          {/* MENTOR 03 — SANSKRITY SINGH (Left Image / Right Content) */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center">
+            {/* Left Column: Image (5 cols) */}
+            <motion.div
+              initial={{ opacity: 0, x: -15 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="md:col-span-5"
+            >
+              <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-[#111214] border border-white/5 shadow-2xl">
+                <Image
+                  src="/mentors/Sanskrity1.png"
+                  alt="Sanskrity Singh - Marketing Specialist"
+                  fill
+                  sizes="(max-w-768px) 100vw, 40vw"
+                  className="object-cover"
+                  style={{ objectPosition: "center" }}
+                  priority
+                />
+              </div>
+            </motion.div>
+
+            {/* Right Column: Content (7 cols) */}
+            <motion.div
+              initial={{ opacity: 0, x: 15 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="md:col-span-7 text-left space-y-6"
+            >
+              <span className="text-[9px] font-bold text-slate-400 tracking-[0.2em] font-heading uppercase block">
+                MENTOR 03
+              </span>
+
+              {/* Large quote */}
+              <blockquote className="text-2xl sm:text-3xl md:text-4.5xl font-fancy font-light italic leading-tight text-white">
+                &ldquo;Your skills get you noticed. <br className="hidden md:inline" />
+                Your personal brand gets you remembered.&rdquo;
+              </blockquote>
+
+              <div className="pt-4 border-t border-white/5 space-y-1">
+                <h3 className="text-lg font-heading font-semibold text-white tracking-wide uppercase">
+                  SANSKRITY SINGH
+                </h3>
+                <p className="text-xs text-[#A1A1AA] font-sans font-light">
+                  Marketing Specialist at BOT Consulting
+                </p>
+              </div>
+
+              {/* Quiet Expertise text list */}
+              <div className="pt-4 border-t border-white/[0.03] space-y-1.5">
+                <span className="text-[8px] font-bold text-white/30 tracking-widest font-heading uppercase">
+                  EXPERTISE
+                </span>
+                <p className="text-xs text-[#A1A1AA] font-sans font-light tracking-wide leading-relaxed">
+                  Personal Branding &nbsp;•&nbsp; Marketing Strategy &nbsp;•&nbsp; Business Growth &nbsp;•&nbsp; AI Marketing
+                </p>
+              </div>
+
+              <div className="pt-3">
+                <a
+                  href="https://www.linkedin.com/in/sanskritysingh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white font-semibold tracking-wider uppercase transition-colors"
+                >
+                  <span>LinkedIn Profile</span>
+                  <ArrowRight className="w-3 h-3" />
+                </a>
+              </div>
+            </motion.div>
+          </div>
         </section>
 
         {/* ================= SECTION 3: WHY MENTORSHIP MATTERS ================= */}
