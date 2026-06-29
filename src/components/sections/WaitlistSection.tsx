@@ -24,14 +24,22 @@ export function WaitlistSection() {
           body: JSON.stringify({ email }),
         })
         
-        if (!res.ok) throw new Error("Failed to join")
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData.error || errData.message || "Failed to join");
+        }
         
         setStatus("success")
         setEmail("")
-      } catch (err) {
+      } catch (err: any) {
         console.error(err)
         setStatus("idle")
-        alert("Something went wrong. Please try again.")
+        const errMsg = err.message || "Something went wrong. Please try again."
+        if (process.env.NODE_ENV === "development") {
+          alert(`Dev Error: ${errMsg}`)
+        } else {
+          alert("Something went wrong. Please try again.")
+        }
       }
     }, { email })
   }

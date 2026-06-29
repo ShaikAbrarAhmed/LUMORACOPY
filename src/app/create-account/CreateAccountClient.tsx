@@ -362,7 +362,7 @@ function CreateAccountContent() {
                       <input
                         type="text"
                         required
-                        placeholder="John Doe"
+                        placeholder="Lumora"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         className="w-full pl-11 pr-4 py-3 text-xs rounded-lg border border-white/[0.08] bg-[#111214] text-white placeholder-[#A1A1AA]/30 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/10 transition-all font-sans font-light"
@@ -380,7 +380,7 @@ function CreateAccountContent() {
                       <input
                         type="email"
                         required
-                        placeholder="john@example.com"
+                        placeholder="lumora@gmail.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="w-full pl-11 pr-4 py-3 text-xs rounded-lg border border-white/[0.08] bg-[#111214] text-white placeholder-[#A1A1AA]/30 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/10 transition-all font-sans font-light"

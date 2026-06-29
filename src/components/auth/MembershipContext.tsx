@@ -87,6 +87,12 @@ export function MembershipProvider({ children }: { children: React.ReactNode }) 
       })
       if (res.ok) {
         alert("Success! You've successfully joined the waitlist and registered your interest.")
+      } else {
+        const errData = await res.json().catch(() => ({}));
+        console.error("Auto-waitlist submit failed:", errData.error || "Unknown error");
+        if (process.env.NODE_ENV === "development") {
+          alert(`Dev Error (Auto-waitlist): ${errData.error || "Unknown error"}`);
+        }
       }
     } catch (err) {
       console.error("Auto-waitlist submit failed:", err)

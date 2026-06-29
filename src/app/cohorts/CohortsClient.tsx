@@ -31,6 +31,7 @@ export default function CohortsPage() {
   const { requireMembership } = useMembership()
   const [waitlistEmail, setWaitlistEmail] = useState("")
   const [waitlistStatus, setWaitlistStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const [waitlistError, setWaitlistError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -43,28 +44,28 @@ export default function CohortsPage() {
   const handleWaitlistSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!waitlistEmail) return
+    setWaitlistError(null)
 
     requireMembership("join_waitlist", async () => {
       setWaitlistStatus("loading")
       try {
-        const res = await fetch("/api/submit-form", {
+        const res = await fetch("/api/waitlist", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             email: waitlistEmail,
-            cohort: "Cohort Waitlist Only",
-            name: "Waitlist Subscriber",
-            college: "Waitlist",
-            phone: "None",
-            message: "Joined waitlist from Cohort Page CTA."
           }),
         })
-        if (!res.ok) throw new Error("Failed to subscribe")
+        if (!res.ok) {
+          const errData = await res.json().catch(() => ({}));
+          throw new Error(errData.error || errData.message || "Failed to subscribe");
+        }
         setWaitlistStatus("success")
         setWaitlistEmail("")
-      } catch (err) {
+      } catch (err: any) {
         console.error(err)
         setWaitlistStatus("error")
+        setWaitlistError(err.message || "Something went wrong. Please check connection and try again.")
       }
     }, { email: waitlistEmail })
   }
@@ -667,7 +668,14 @@ export default function CohortsPage() {
               )}
 
               {waitlistStatus === "error" && (
-                <p className="text-red-400 text-xs mt-3">Failed to join waitlist. Please check connection and try again.</p>
+                <div className="text-red-400 text-xs mt-3 flex flex-col items-center gap-1">
+                  <p>Failed to join waitlist. Please check connection and try again.</p>
+                  {process.env.NODE_ENV === "development" && waitlistError && (
+                    <span className="block font-mono text-[10px] text-red-300">
+                      Dev Error: {waitlistError}
+                    </span>
+                  )}
+                </div>
               )}
 
               {/* Secondary Link */}
