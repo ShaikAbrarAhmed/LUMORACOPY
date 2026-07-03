@@ -44,7 +44,7 @@ export default function WhyLumoraSection() {
       <div className="absolute top-[20%] right-[-5%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute bottom-[20%] left-[-5%] w-[450px] h-[450px] bg-white/[0.02] rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="w-full px-6 lg:px-12 xl:px-20 relative z-10">
         
         {/* ================= SECTION HEADER ================= */}
         <div className="max-w-3xl mb-16 text-left">

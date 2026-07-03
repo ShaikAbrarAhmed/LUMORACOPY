@@ -22,7 +22,7 @@ export default function FeaturesSection() {
         <div className="absolute bottom-[10%] left-[-10%] w-[500px] h-[500px] bg-secondary/[0.015] rounded-full blur-[120px]" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8">
+      <div className="relative z-10 w-full px-6 lg:px-12 xl:px-20">
         
         {/* ================= HEADER ================= */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">

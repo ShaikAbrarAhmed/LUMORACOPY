@@ -6,7 +6,7 @@ import { Logo } from "@/components/Logo"
 export function Footer() {
   return (
     <footer className="border-t border-border bg-background relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 pt-10 pb-8 lg:px-8 relative z-10">
+      <div className="w-full px-6 lg:px-12 xl:px-20 pt-10 pb-8 relative z-10">
         
         {/* Compact CTA Strip */}
         {/* <div className="border-b border-border/40 pb-6 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">

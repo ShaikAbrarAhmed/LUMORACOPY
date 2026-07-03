@@ -49,7 +49,7 @@ export default function FeaturesPreviewSection() {
         <div className="absolute top-[30%] right-[-10%] w-[500px] h-[500px] bg-primary/2 blur-[120px] rounded-full" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="w-full px-6 lg:px-12 xl:px-20 relative z-10">
         
         {/* ================= HEADER ================= */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">

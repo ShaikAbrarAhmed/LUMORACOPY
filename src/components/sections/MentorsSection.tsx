@@ -7,10 +7,10 @@ import { Compass, HeartHandshake, ShieldCheck, Target, ArrowRight } from "lucide
 export default function MentorsSection() {
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: 25 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } 
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }
     }
   }
 
@@ -40,15 +40,15 @@ export default function MentorsSection() {
   return (
     <section className="relative w-full bg-[#050505] text-white overflow-hidden pb-16 md:pb-24">
       {/* Subtle top graphite ambient lighting */}
-      <div 
-        className="absolute top-0 left-0 w-full h-[500px] pointer-events-none z-0" 
+      <div
+        className="absolute top-0 left-0 w-full h-[500px] pointer-events-none z-0"
         style={{
           background: "radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.015), transparent 70%)"
         }}
       />
 
       <div className="max-w-[1000px] mx-auto px-6 relative z-10">
-        
+
         {/* ================= SECTION 1: HERO ================= */}
         <div className="w-full text-left pt-32 pb-16 md:pt-36 md:pb-20">
           <motion.div
@@ -317,7 +317,7 @@ export default function MentorsSection() {
                 Guidance Over Resources
               </h2>
             </div>
-            
+
             <div className="md:col-span-8 space-y-6 text-left">
               <p className="text-lg md:text-2xl font-fancy font-light italic leading-relaxed text-white/95">
                 Information Creates Possibility. <br />
@@ -390,11 +390,11 @@ export default function MentorsSection() {
             <span className="text-[9px] font-bold text-white/40 tracking-[0.2em] font-heading uppercase">
               JOIN THE MISSION
             </span>
-            
+
             <h2 className="text-2xl md:text-3xl font-fancy font-light tracking-tight text-white leading-tight">
               Interested In Mentoring?
             </h2>
-            
+
             <p className="text-xs text-[#A1A1AA] font-sans font-light leading-relaxed max-w-sm">
               Help students grow through guidance, experience, and support. Share your industry knowledge and shape the future generation of builders.
             </p>

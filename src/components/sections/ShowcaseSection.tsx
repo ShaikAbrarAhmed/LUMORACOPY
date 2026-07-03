@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 export function ShowcaseSection() {
   return (
     <section className="py-16 md:py-20 px-6 relative overflow-hidden bg-transparent border-t border-border">
-      <div className="max-w-5xl mx-auto px-6 lg:px-8 relative z-10">
+      <div className="w-full px-6 lg:px-12 xl:px-20 relative z-10">
         <div className="text-left mb-12 space-y-3">
           <span className="text-xs font-semibold text-primary tracking-[0.2em] uppercase block">
             DASHBOARD WORKSPACE

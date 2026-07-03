@@ -175,7 +175,7 @@ export default function CommunitySection() {
       <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] bg-white/[0.01] blur-[120px] rounded-full pointer-events-none" />
 
       {/* ================= SECTION 1: HERO ================= */}
-      <section className="relative pt-32 pb-16 md:pt-36 md:pb-20 px-6 max-w-7xl mx-auto flex flex-col items-center text-center z-10">
+      <section className="relative pt-32 pb-16 md:pt-36 md:pb-20 px-6 w-full flex flex-col items-center text-center z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -230,7 +230,7 @@ export default function CommunitySection() {
       </section>
 
       {/* ================= SECTION 2: WHY COMMUNITY EXISTS ================= */}
-      <section className="py-16 md:py-24 px-6 max-w-5xl mx-auto border-t border-white/5 relative z-10 text-center">
+      <section className="py-16 md:py-24 px-6 w-full border-t border-white/5 relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -387,7 +387,7 @@ export default function CommunitySection() {
       </section>
 
       {/* ================= SECTION 4: THE BUILDER JOURNEY ================= */}
-      <section className="py-16 md:py-20 px-6 max-w-7xl mx-auto border-t border-white/5 relative z-10">
+      <section className="py-16 md:py-20 px-6 w-full border-t border-white/5 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-semibold text-slate-400 tracking-[0.2em] uppercase mb-3 block">Timeline</span>
           <h2 className="text-3xl md:text-5xl font-fancy font-light text-white tracking-tight mb-6">
@@ -396,7 +396,7 @@ export default function CommunitySection() {
         </div>
 
         {/* Premium Asymmetric Card Grid Layout */}
-        <div className="grid grid-cols-12 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-12 gap-6 w-full lg:px-12 xl:px-20 mx-auto">
           {/* Row 1: Join & Connect */}
           {/* Card 1: Join */}
           <motion.div
@@ -513,7 +513,7 @@ export default function CommunitySection() {
       </section>
 
       {/* ================= SECTION 5: WHY BUILDERS STAY ================= */}
-      <section className="py-16 md:py-20 px-6 max-w-7xl mx-auto border-t border-white/5 relative z-10 bg-white/[0.01]">
+      <section className="py-16 md:py-20 px-6 w-full border-t border-white/5 relative z-10 bg-white/[0.01]">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-semibold text-slate-400 tracking-[0.2em] uppercase mb-3 block">Retention</span>
           <h2 className="text-3xl md:text-5xl font-fancy font-light text-white tracking-tight mb-4">
@@ -525,7 +525,7 @@ export default function CommunitySection() {
         </div>
 
         {/* 5 Premium Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 w-full lg:px-12 xl:px-20 mx-auto">
           {[
             { title: "Direction", desc: "Find clarity and eliminate roadmap noise with focused guidance.", icon: Compass },
             { title: "Accountability", desc: "Stay consistent through regular check-ins and peer expectations.", icon: Activity },
@@ -557,7 +557,7 @@ export default function CommunitySection() {
       </section>
 
       {/* ================= SECTION 6: WHERE BUILDERS CONNECT ================= */}
-      <section id="platforms" className="py-16 md:py-20 px-6 max-w-7xl mx-auto border-t border-white/5 relative z-10">
+      <section id="platforms" className="py-16 md:py-20 px-6 w-full border-t border-white/5 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-semibold text-slate-400 tracking-[0.2em] uppercase mb-3 block">Platforms</span>
           <h2 className="text-3xl md:text-5xl font-fancy font-light text-white tracking-tight mb-4">
@@ -566,7 +566,7 @@ export default function CommunitySection() {
         </div>
 
         {/* Side-by-Side Platform Cards (Discord dominates WhatsApp & Instagram) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full lg:px-12 xl:px-20 mx-auto items-stretch">
           
           {/* Discord Card (Dominates, spans 7 columns) */}
           <motion.div
@@ -695,13 +695,13 @@ export default function CommunitySection() {
       </section>
 
       {/* ================= SECTION 7: FINAL MANIFESTO ================= */}
-      <section className="py-20 md:py-28 px-6 max-w-4xl mx-auto relative z-10 text-center">
+      <section className="py-20 md:py-28 px-6 w-full relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="space-y-12"
+          className="space-y-12 max-w-4xl mx-auto"
         >
           {/* <span className="text-xs font-semibold text-slate-400 tracking-[0.2em] uppercase block">
             Movement

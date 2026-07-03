@@ -127,7 +127,7 @@ export function Navbar() {
           : "bg-transparent border-transparent py-7"
       }`}
     >
-      <div className="max-w-[1440px] mx-auto w-full px-6 md:px-12 flex items-center justify-between">
+      <div className="w-full px-6 md:px-12 lg:px-20 xl:px-24 flex items-center justify-between">
         <div className="flex-1 flex items-center justify-start min-w-[280px]">
           <Link
   href="/"

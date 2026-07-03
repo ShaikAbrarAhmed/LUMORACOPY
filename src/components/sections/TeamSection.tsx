@@ -81,7 +81,7 @@ export default function TeamSection() {
   ]
 
   const coreTeam: TeamMember[] = [
-   
+
     {
       name: "Yuvraj",
       role: "Internal Operations",
@@ -98,7 +98,7 @@ export default function TeamSection() {
       position: "top center",
       linkedin: "https://www.linkedin.com/in/sruthi-kakarla-380b2235b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
     },
-    
+
     {
       name: "Rajitha",
       role: "Growth & Partnerships",
@@ -108,7 +108,7 @@ export default function TeamSection() {
       linkedin: "https://www.linkedin.com/in/rajitha-reddemoni-a24a8533a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
     },
 
-     {
+    {
       name: "Jassi",
       role: "Content Lead",
       image: "/team/Jasmeetg.jpeg",
@@ -116,12 +116,12 @@ export default function TeamSection() {
       position: "top center",
       linkedin: "https://www.linkedin.com/in/sardar-jasmeeth-singh-raj/"
     }
-   
+
   ]
 
   return (
     <div className="bg-[#050505] text-white min-h-screen relative overflow-hidden selection:bg-white/10">
-      
+
       {/* Soft background glow (Subtle white pearl light) */}
       <div className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] bg-white/[0.01] rounded-full blur-[145px] pointer-events-none" />
       <div className="absolute bottom-[20%] right-[-10%] w-[500px] h-[500px] bg-white/[0.01] rounded-full blur-[120px] pointer-events-none" />
@@ -159,7 +159,7 @@ export default function TeamSection() {
             <p>
               Too many students have talent. What many lack is direction.
             </p>
-            
+
             <p>
               Lumora was created to help students find clarity, confidence, mentorship, and a community where growth feels possible.
             </p>
@@ -219,7 +219,7 @@ export default function TeamSection() {
                   <p className="text-sm md:text-base text-white/80 font-light italic leading-relaxed">
                     "{founder.statement}"
                   </p>
-                  
+
                   {/* Action Buttons */}
                   {(founder.linkedin || founder.portfolio) && (
                     <div className="flex items-center gap-2 pt-1">
@@ -298,7 +298,7 @@ export default function TeamSection() {
                   <p className="text-xs text-white/80 font-light italic leading-relaxed">
                     "{member.contribution}"
                   </p>
-                  
+
                   {/* Action Buttons */}
                   {(member.linkedin || member.portfolio) && (
                     <div className="flex items-center gap-2 pt-1">

@@ -39,7 +39,7 @@ export function ProblemSection() {
         <div className="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] bg-primary/3 blur-[150px] rounded-full" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+      <div className="w-full px-6 lg:px-12 xl:px-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* ================= LEFT COLUMN: STICKY THESIS (5 cols) ================= */}
@@ -47,16 +47,16 @@ export function ProblemSection() {
             <span className="text-xs font-semibold text-primary tracking-[0.2em] uppercase block">
               THE REAL PROBLEM
             </span>
-            <h2 className="text-4xl md:text-5xl font-fancy font-light text-headings tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl font-fancy font-light text-headings tracking-tight leading-tight max-w-md">
               Most Students Don&apos;t Lack Talent.
               <br />
               <span className="text-muted-foreground font-light">They lack direction.</span>
             </h2>
-            <p className="text-base text-muted-foreground font-light leading-relaxed">
+            <p className="text-base text-muted-foreground font-light leading-relaxed max-w-md">
               The internet has endless resources. But most beginners struggle because they don&apos;t know what to learn, where to start, or how to stay consistent.
             </p>
             
-            <div className="pt-8 border-t border-white/5 space-y-4">
+            <div className="pt-8 border-t border-white/5 space-y-4 max-w-md">
               <p className="text-2xl font-fancy font-light italic text-white/90 leading-relaxed">
                 &ldquo;Learning alone is a design flaw.&rdquo;
               </p>

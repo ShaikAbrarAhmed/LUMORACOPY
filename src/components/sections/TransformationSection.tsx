@@ -35,7 +35,7 @@ export default function TransformationSection() {
       {/* Futuristic Grid Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none opacity-60" />
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10 text-center">
+      <div className="w-full px-6 lg:px-12 xl:px-20 relative z-10 text-center">
         
         {/* ================= SECTION HEADER ================= */}
         <div className="max-w-2xl mx-auto mb-12">

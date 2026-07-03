@@ -91,7 +91,7 @@ export default function CohortsPage() {
       </div>
 
       {/* ================= SECTION 1: HERO ================= */}
-      <section className="relative pt-32 pb-16 md:pt-36 md:pb-20 px-6 max-w-7xl mx-auto flex flex-col items-center text-center z-10">
+      <section className="relative pt-32 pb-16 md:pt-36 md:pb-20 px-6 w-full flex flex-col items-center text-center z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -142,7 +142,7 @@ export default function CohortsPage() {
       </section>
 
       {/* ================= SECTION 2: THE PATH OF TRANSFORMATION ================= */}
-      <section id="transformation" className="py-16 md:py-20 px-6 max-w-7xl mx-auto border-t border-white/5 relative z-10">
+      <section id="transformation" className="py-16 md:py-20 px-6 w-full border-t border-white/5 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-semibold text-slate-400 tracking-[0.2em] uppercase mb-3 block">Journey</span>
           <h2 className="text-4xl md:text-5xl font-fancy font-light text-white tracking-tight mb-6">
@@ -244,7 +244,7 @@ export default function CohortsPage() {
       </section>
 
       {/* ================= SECTION 3: THE DIFFERENCE ================= */}
-      <section className="py-16 md:py-20 px-6 max-w-7xl mx-auto border-t border-white/5 relative z-10">
+      <section className="py-16 md:py-20 px-6 w-full border-t border-white/5 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-semibold text-slate-400 tracking-[0.2em] uppercase mb-3 block">The Model</span>
           <h2 className="text-4xl md:text-5xl font-fancy font-light text-white tracking-tight mb-6">
@@ -256,7 +256,7 @@ export default function CohortsPage() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch w-full lg:px-12 xl:px-20 mx-auto">
           {/* Traditional Learning Card (Muted, Left) */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -348,7 +348,7 @@ export default function CohortsPage() {
       </section>
 
       {/* ================= SECTION 4: BUILDER PROGRAMS ================= */}
-      <section className="py-16 md:py-20 px-6 max-w-7xl mx-auto border-t border-white/5 relative z-10">
+      <section className="py-16 md:py-20 px-6 w-full border-t border-white/5 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-semibold text-slate-400 tracking-[0.2em] uppercase mb-3 block">Programs</span>
           <h2 className="text-4xl md:text-5xl font-fancy font-light text-white tracking-tight mb-6">
@@ -360,7 +360,7 @@ export default function CohortsPage() {
         </div>
 
         {/* Program Cards Stack with Hierarchy */}
-        <div className="space-y-8 max-w-5xl mx-auto">
+        <div className="space-y-8 w-full lg:px-12 xl:px-20 mx-auto">
           {/* HERO CARD: Web Builder (Launching First) */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -502,7 +502,7 @@ export default function CohortsPage() {
       </section>
 
       {/* ================= SECTION 5: WHAT EVERY PROGRAM INCLUDES ================= */}
-      <section className="py-16 md:py-20 px-6 max-w-7xl mx-auto border-t border-white/5 bg-white/[0.01] relative z-10">
+      <section className="py-16 md:py-20 px-6 w-full border-t border-white/5 bg-white/[0.01] relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-semibold text-slate-400 tracking-[0.2em] uppercase mb-3 block">Inclusions</span>
           <h2 className="text-4xl md:text-5xl font-fancy font-light text-white tracking-tight mb-6">
@@ -515,7 +515,7 @@ export default function CohortsPage() {
 
         {isLoading ? (
           <div className="space-y-16">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full lg:px-12 xl:px-20 mx-auto">
               {Array.from({ length: 6 }).map((_, i) => (
                 <CohortCardSkeleton key={i} />
               ))}
@@ -523,7 +523,7 @@ export default function CohortsPage() {
           </div>
         ) : (
           /* 6 Feature Inclusions Grid */
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full lg:px-12 xl:px-20 mx-auto">
             {[
               {
                 title: "Mentorship",
@@ -600,7 +600,7 @@ export default function CohortsPage() {
       </section>
 
       {/* ================= SECTION 6: FINAL CTA ================= */}
-      <section id="waitlist" className="py-20 md:py-28 px-6 max-w-4xl mx-auto relative z-10 text-center">
+      <section id="waitlist" className="py-20 md:py-28 px-6 w-full relative z-10 text-center">
         {isLoading ? (
           <CohortCtaSkeleton />
         ) : (
@@ -609,7 +609,7 @@ export default function CohortsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="space-y-12"
+            className="space-y-12 max-w-4xl mx-auto"
           >
             {/* Invitation Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-slate-400 text-xs font-semibold uppercase tracking-[0.2em]">
