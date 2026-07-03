@@ -1,9 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useRouter } from "next/navigation"
 import { useMembership } from "@/components/auth/MembershipContext"
+import useEmblaCarousel from "embla-carousel-react"
 import { 
   Sparkles, 
   Compass, 
@@ -44,58 +45,120 @@ const DiscordIcon = () => (
 export default function CommunitySection() {
   const router = useRouter()
   const { requireMembership } = useMembership()
-  const [activeNodeId, setActiveNodeId] = useState<number | null>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true, 
+    align: 'center',
+    skipSnaps: false
+  })
 
-  const nodes = [
-    { 
-      id: 0, 
-      name: "MENTORS", 
-      angle: 270, 
-      title: "Mentors", 
-      desc: "Industry veterans and engineers offering code audits, architecture feedback, and structured career guidance.",
-      stat: "15+ active mentors" 
+  const pillars = [
+    {
+      title: "Build Together",
+      tag: "Action",
+      icon: Code2,
+      shortDesc: "Collaborate on real repositories.",
+      richDesc: "Move past isolated coding. Team up with other builders to write clean codebases, manage pull requests, and deploy functional applications to public URLs.",
+      cta: "View Projects",
+      link: "/cohorts/join"
     },
-    { 
-      id: 1, 
-      name: "ENGINEERING STUDENTS", 
-      angle: 330, 
-      title: "Engineering Students", 
-      desc: "Ambitious university students building production systems, bypassing roadmap noise, and learning industry practices.",
-      stat: "40% of the ecosystem" 
+    {
+      title: "Accountability Circles",
+      tag: "Habits",
+      icon: Target,
+      shortDesc: "Daily check-ins for consistency.",
+      richDesc: "Beat tutorial paralysis. Check in with your dedicated circle to share daily progress, unblock technical issues, and stay on track every week.",
+      cta: "Explore Cohorts",
+      link: "/cohorts/join"
     },
-    { 
-      id: 2, 
-      name: "HACKATHON BUILDERS", 
-      angle: 30, 
-      title: "Hackathon Builders", 
-      desc: "Builders assembling product squads for rapid sprints, shipping functional MVPs and SaaS tools on deadlines.",
-      stat: "8 Capstones shipped" 
+    {
+      title: "Mentor Sessions",
+      tag: "Guidance",
+      icon: Compass,
+      shortDesc: "Feedback from industry veterans.",
+      richDesc: "Get your code, design, and architecture audited by active software engineers who understand how high-performing production systems are built.",
+      cta: "Meet Mentors",
+      link: "/mentors"
     },
-    { 
-      id: 3, 
-      name: "FUTURE FOUNDERS", 
-      angle: 90, 
-      title: "Future Founders", 
-      desc: "Technical builders translating codebase skills into startups, products, and early co-founder matches.",
-      stat: "3 MVPs live" 
+    {
+      title: "Hackathons",
+      tag: "Sprints",
+      icon: Zap,
+      shortDesc: "Assemble squads to build rapidly.",
+      richDesc: "Participate in regular ecosystem sprints. Form a team, design an MVP under constraint, and showcase your finished project to the community.",
+      cta: "Join Sprints",
+      link: "/cohorts/join"
     },
-    { 
-      id: 4, 
-      name: "DESIGNERS", 
-      angle: 150, 
-      title: "Designers", 
-      desc: "UI/UX and product designers collaborating with developers to shape gorgeous interfaces and seamless flows.",
-      stat: "15+ capstone collaboration" 
+    {
+      title: "Networking",
+      tag: "Ecosystem",
+      icon: Users,
+      shortDesc: "High-signal social circles.",
+      richDesc: "Connect with university students, self-taught builders, and professional engineers. Share job postings, tech stacks, and career milestones.",
+      cta: "Join Discord",
+      link: "https://discord.gg/lumora"
     },
-    { 
-      id: 5, 
-      name: "ASPIRING DEVELOPERS", 
-      angle: 210, 
-      title: "Aspiring Developers", 
-      desc: "Self-taught developers escaping the tutorial loop, writing real repositories, and deploying to public URLs.",
-      stat: "100% builder-first" 
+    {
+      title: "Weekly Challenges",
+      tag: "Skills",
+      icon: Sparkles,
+      shortDesc: "Bite-sized coding exercises.",
+      richDesc: "Test your skills with weekly puzzles ranging from performance optimization to frontend UI replicas. Compete with peers and share solutions.",
+      cta: "See Challenges",
+      link: "https://discord.gg/lumora"
+    },
+    {
+      title: "Project Reviews",
+      tag: "Feedback",
+      icon: MessageSquare,
+      shortDesc: "Constructive feedback on your apps.",
+      richDesc: "Submit your live project links and repositories for detailed peer reviews. Get constructive roasting on code quality, UI layout, and user flows.",
+      cta: "Request Review",
+      link: "https://discord.gg/lumora"
+    },
+    {
+      title: "Community Events",
+      tag: "Events",
+      icon: Rocket,
+      shortDesc: "Live demos and workshop nights.",
+      richDesc: "Join our weekly interactive streams featuring guest speakers, product demos, interactive pair programming, and casual hangout sessions.",
+      cta: "View Calendar",
+      link: "https://discord.gg/lumora"
     }
   ]
+
+  // Track active slide index
+  useEffect(() => {
+    if (!emblaApi) return
+
+    const onSelect = () => {
+      setActiveIndex(emblaApi.selectedScrollSnap())
+    }
+
+    emblaApi.on('select', onSelect)
+    emblaApi.on('reInit', onSelect)
+
+    // Initial call
+    onSelect()
+
+    return () => {
+      emblaApi.off('select', onSelect)
+      emblaApi.off('reInit', onSelect)
+    }
+  }, [emblaApi])
+
+  const scrollToIndex = (index: number) => {
+    if (emblaApi) {
+      emblaApi.scrollTo(index)
+    }
+  }
+
+  const handleCardClick = (index: number) => {
+    if (!emblaApi) return
+    if ((emblaApi as any).clickAllowed ? (emblaApi as any).clickAllowed() : true) {
+      emblaApi.scrollTo(index)
+    }
+  }
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
@@ -208,206 +271,116 @@ export default function CommunitySection() {
         </motion.div>
       </section>
 
-      {/* ================= SECTION 3: THE ECOSYSTEM ================= */}
-      <section id="ecosystem" className="py-16 md:py-20 px-6 max-w-7xl mx-auto border-t border-white/5 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+      {/* ================= SECTION 3: THE COMMUNITY PILLARS ================= */}
+      <section id="ecosystem" className="py-16 md:py-24 border-t border-white/5 relative z-10 overflow-hidden w-full">
+        <div className="text-center max-w-3xl mx-auto mb-12 px-6">
           <span className="text-xs font-semibold text-slate-400 tracking-[0.2em] uppercase mb-3 block">
-            PEERS VISUALIZATION
+            Ecosystem Pillars
           </span>
           <h2 className="text-3xl md:text-5xl font-fancy font-light text-white tracking-tight">
-            The Lumora Ecosystem
+            How We Build Together
           </h2>
+          <p className="mt-4 text-slate-400 text-sm md:text-base font-light leading-relaxed max-w-2xl mx-auto">
+            Lumora is structured around action, feedback, and consistency. Discover the pillars that shape our community ecosystem.
+          </p>
         </div>
 
-        {/* Interactive Hexagon Visualization Container */}
-        <div className="relative w-full max-w-[650px] aspect-square mx-auto flex items-center justify-center">
+        {/* Snapping Card Carousel Container */}
+        <div className="relative w-full overflow-hidden" ref={emblaRef}>
           
-          {/* SVG for connections and dot markers */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 500 500">
-            {/* Dashed Center-Radial Lines */}
-            {nodes.map((node) => {
-              const angleRad = (node.angle * Math.PI) / 180
-              const x = 250 + 180 * Math.cos(angleRad)
-              const y = 250 + 180 * Math.sin(angleRad)
-              const isActive = activeNodeId === node.id
-              return (
-                <line
-                  key={`radial-${node.id}`}
-                  x1="250"
-                  y1="250"
-                  x2={x}
-                  y2={y}
-                  stroke={isActive ? "rgba(255, 255, 255, 0.35)" : "rgba(255, 255, 255, 0.06)"}
-                  strokeWidth={isActive ? "1.5" : "1"}
-                  strokeDasharray="6,6"
-                  className="transition-all duration-300"
-                />
-              )
-            })}
-
-            {/* Solid Outer Hexagon Border Lines */}
-            {nodes.map((node, idx) => {
-              const nextNode = nodes[(idx + 1) % nodes.length]
-              
-              const angleRad1 = (node.angle * Math.PI) / 180
-              const x1 = 250 + 180 * Math.cos(angleRad1)
-              const y1 = 250 + 180 * Math.sin(angleRad1)
-
-              const angleRad2 = (nextNode.angle * Math.PI) / 180
-              const x2 = 250 + 180 * Math.cos(angleRad2)
-              const y2 = 250 + 180 * Math.sin(angleRad2)
-
-              const isLineActive = activeNodeId === node.id || activeNodeId === nextNode.id
+          {/* Scrollable Container */}
+          <div className="flex gap-6 py-10 w-full">
+            {pillars.map((pillar, idx) => {
+              const Icon = pillar.icon
+              const isActive = idx === activeIndex
 
               return (
-                <line
-                  key={`hexagon-${idx}`}
-                  x1={x1}
-                  y1={y1}
-                  x2={x2}
-                  y2={y2}
-                  stroke={isLineActive ? "rgba(255, 255, 255, 0.25)" : "rgba(255, 255, 255, 0.08)"}
-                  strokeWidth={isLineActive ? "1.5" : "1"}
-                  className="transition-all duration-300"
-                />
-              )
-            })}
-
-            {/* Glowing active connector lines overlay */}
-            {activeNodeId !== null && (() => {
-              const node = nodes[activeNodeId]
-              const angleRad = (node.angle * Math.PI) / 180
-              const x = 250 + 180 * Math.cos(angleRad)
-              const y = 250 + 180 * Math.sin(angleRad)
-              return (
-                <motion.line
-                  x1="250"
-                  y1="250"
-                  x2={x}
-                  y2={y}
-                  stroke="rgba(255, 255, 255, 0.8)"
-                  strokeWidth="2"
-                  strokeDasharray="8 8"
-                  initial={{ strokeDashoffset: 100 }}
-                  animate={{ strokeDashoffset: 0 }}
-                  transition={{ repeat: Infinity, duration: 2.5, ease: "linear" }}
-                />
-              )
-            })()}
-
-            {/* Outer Dots on Vertices */}
-            {nodes.map((node) => {
-              const angleRad = (node.angle * Math.PI) / 180
-              const x = 250 + 180 * Math.cos(angleRad)
-              const y = 250 + 180 * Math.sin(angleRad)
-              const isActive = activeNodeId === node.id
-              return (
-                <g key={`dot-${node.id}`}>
-                  {/* Outer Pulsing Aura (if active) */}
-                  {isActive && (
-                    <circle
-                      cx={x}
-                      cy={y}
-                      r="10"
-                      fill="none"
-                      stroke="rgba(255, 255, 255, 0.2)"
-                      strokeWidth="1"
-                      className="animate-ping"
+                <div
+                  key={pillar.title}
+                  onClick={() => handleCardClick(idx)}
+                  className="shrink-0 w-[300px] md:w-[400px] cursor-pointer"
+                >
+                  <motion.div
+                    initial={{ scale: 0.95, opacity: 0.6, borderColor: "rgba(255, 255, 255, 0.06)" }}
+                    animate={{
+                      scale: isActive ? 1.03 : 0.95,
+                      borderColor: isActive ? "rgba(99, 102, 241, 0.35)" : "rgba(255, 255, 255, 0.06)",
+                      opacity: isActive ? 1 : 0.6,
+                    }}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    className={`min-h-[360px] md:min-h-[400px] p-8 md:p-10 rounded-[28px] bg-[#111214] border flex flex-col justify-between transition-all duration-300 relative group overflow-hidden ${
+                      isActive 
+                        ? "shadow-[0_0_50px_rgba(99,102,241,0.15)]" 
+                        : "hover:border-white/10 shadow-[0_0_20px_rgba(255,255,255,0.02)]"
+                    }`}
+                  >
+                    {/* Indigo Glow Accent Layer */}
+                    <div 
+                      className={`absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(99,102,241,0.08),transparent_70%)] pointer-events-none transition-opacity duration-500 ${
+                        isActive ? "opacity-100" : "opacity-0"
+                      }`} 
                     />
-                  )}
-                  {/* Outer Dot */}
-                  <circle
-                    cx={x}
-                    cy={y}
-                    r="4.5"
-                    fill="#050505"
-                    stroke={isActive ? "#ffffff" : "rgba(255, 255, 255, 0.35)"}
-                    strokeWidth="1.5"
-                    className="transition-all duration-300"
-                  />
-                </g>
+
+                    {/* Header: Tag & Icon */}
+                    <div className="flex justify-between items-center relative z-10">
+                      <span className="text-[10px] md:text-xs font-mono font-bold tracking-widest text-slate-500 uppercase">
+                        {pillar.tag}
+                      </span>
+                      <div className={`w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 group-hover:text-white transition-colors`}>
+                        <Icon className="w-5 h-5" strokeWidth={1.5} />
+                      </div>
+                    </div>
+
+                    {/* Body Content */}
+                    <div className="space-y-3 mt-6 text-left relative z-10 flex-grow flex flex-col justify-end">
+                      <h3 className="text-xl md:text-2xl font-heading font-bold text-white leading-tight">
+                        {pillar.title}
+                      </h3>
+
+                      <p className="text-xs md:text-sm text-slate-400 font-light leading-relaxed">
+                        {pillar.shortDesc}
+                      </p>
+
+                      {/* Expanding Rich Details (Active State) */}
+                      <AnimatePresence initial={false}>
+                        {isActive && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                            className="overflow-hidden"
+                          >
+                            <p className="text-xs md:text-sm text-slate-350 font-light leading-relaxed mt-3 pt-3 border-t border-white/5">
+                              {pillar.richDesc}
+                            </p>
+
+
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+
+                  </motion.div>
+                </div>
               )
             })}
-          </svg>
+          </div>
 
-          {/* Interactive HTML Node Labels */}
-          {nodes.map((node) => {
-            const angleRad = (node.angle * Math.PI) / 180
-            const pct_x = 50 + 36 * Math.cos(angleRad)
-            const pct_y = 50 + 36 * Math.sin(angleRad)
-            const isActive = activeNodeId === node.id
-
-            let translateClass = ""
-            if (node.id === 0) translateClass = "translate-y-4.5 -translate-x-1/2"
-            else if (node.id === 1 || node.id === 2) translateClass = "-translate-x-[105%] -translate-y-1/2"
-            else if (node.id === 3) translateClass = "-translate-y-[135%] -translate-x-1/2"
-            else if (node.id === 4 || node.id === 5) translateClass = "translate-x-[5%] -translate-y-1/2"
-
-            return (
-              <div
-                key={node.id}
-                style={{ left: `${pct_x}%`, top: `${pct_y}%` }}
-                className={`absolute z-20 ${translateClass} transition-all duration-300`}
-                onMouseEnter={() => setActiveNodeId(node.id)}
-                onMouseLeave={() => setActiveNodeId(null)}
-              >
-                <button
-                  className={`px-3 py-1.5 md:px-4 md:py-2 rounded-full border text-[10px] md:text-xs font-semibold tracking-wider transition-all duration-300 cursor-default select-none uppercase font-heading ${
-                    isActive 
-                      ? "bg-white text-black border-white shadow-[0_0_15px_rgba(255,255,255,0.1)] font-bold"
-                      : "bg-[#111214]/60 text-slate-400 border-white/5 hover:border-white/10 hover:text-white"
-                  }`}
-                >
-                  {node.name}
-                </button>
-              </div>
-            )
-          })}
-
-          {/* Center Info Panel Circle */}
-          <div className="absolute inset-[28%] md:inset-[26%] bg-[#111214]/90 border border-white/10 rounded-full flex flex-col items-center justify-center p-4 md:p-6 text-center z-15 shadow-[0_0_35px_rgba(255,255,255,0.015)] select-none pointer-events-none overflow-hidden">
-            {/* Ambient pearl glow inside */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.02),transparent_70%)] pointer-events-none" />
-
-            <AnimatePresence mode="wait">
-              {activeNodeId === null ? (
-                <motion.div
-                  key="default"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
-                  className="flex flex-col items-center justify-center h-full relative z-10"
-                >
-                  {/* <Sparkles className="w-5 h-5 text-slate-400 mb-2 animate-none" /> */}
-                  <span className="font-heading font-semibold text-[10px] tracking-[0.25em] text-white uppercase">
-                    LUMORA CORE
-                  </span>
-                  <p className="text-[10px] md:text-[11px] text-slate-500 font-light leading-normal max-w-[150px] md:max-w-[180px] mt-2">
-                    Hover any role around the circle to explore your future peers.
-                  </p>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key={activeNodeId}
-                  initial={{ opacity: 0, scale: 0.97 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.97 }}
-                  transition={{ duration: 0.2 }}
-                  className="flex flex-col items-center justify-center h-full relative z-10"
-                >
-                  <span className="font-heading font-bold text-xs md:text-sm text-white">
-                    {nodes[activeNodeId].title}
-                  </span>
-                  <p className="text-[9px] md:text-[11px] text-slate-350 font-light leading-normal max-w-[150px] md:max-w-[185px] mt-1.5 md:mt-2">
-                    {nodes[activeNodeId].desc}
-                  </p>
-                  <span className="text-[8px] font-bold text-slate-500 tracking-wider uppercase mt-2 md:mt-3 block">
-                    {nodes[activeNodeId].stat}
-                  </span>
-                </motion.div>
-              )}
-            </AnimatePresence>
+          {/* Dots Indicator Controls */}
+          <div className="flex justify-center items-center gap-2.5 mt-6">
+            {pillars.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => scrollToIndex(idx)}
+                className={`h-2 rounded-full transition-all duration-350 ${
+                  idx === activeIndex
+                    ? "w-8 bg-white"
+                    : "w-2 bg-white/20 hover:bg-white/40"
+                }`}
+                aria-label={`Go to pillar ${idx + 1}`}
+              />
+            ))}
           </div>
 
         </div>
