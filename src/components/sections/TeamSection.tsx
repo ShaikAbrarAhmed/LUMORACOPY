@@ -102,7 +102,7 @@ export default function TeamSection() {
     {
       name: "Rajitha",
       role: "Growth & Partnerships",
-      image: "/team/Raji2.jpeg",
+      image: "/team/raji2.jpeg",
       contribution: "Connecting people, ideas, and possibilities.",
       position: "top center",
       linkedin: "https://www.linkedin.com/in/rajitha-reddemoni-a24a8533a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
