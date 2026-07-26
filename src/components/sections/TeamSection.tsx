@@ -90,19 +90,19 @@ export default function TeamSection() {
       position: "top center",
       linkedin: "https://www.linkedin.com/in/yuvaraj-dudukuru/"
     },
-    {
-      name: "Sruthi",
-      role: "Design & Experience",
-      image: "/team/Sruthi.jpeg",
-      contribution: "Crafting experiences that feel as good as they function.",
-      position: "top center",
-      linkedin: "https://www.linkedin.com/in/sruthi-kakarla-380b2235b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-    },
+    // {
+    //   name: "Sruthi",
+    //   role: "Design & Experience",
+    //   image: "/team/Sruthi.jpeg",
+    //   contribution: "Crafting experiences that feel as good as they function.",
+    //   position: "top center",
+    //   linkedin: "https://www.linkedin.com/in/sruthi-kakarla-380b2235b?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+    // },
 
     {
       name: "Rajitha",
       role: "Growth & Partnerships",
-      image: "/team/raji2.jpeg",
+      image: "/team/Rajitha.jpeg",
       contribution: "Connecting people, ideas, and possibilities.",
       position: "top center",
       linkedin: "https://www.linkedin.com/in/rajitha-reddemoni-a24a8533a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
