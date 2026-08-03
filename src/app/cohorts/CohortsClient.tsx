@@ -401,13 +401,13 @@ export default function CohortsPage() {
                 </div>
 
                 <div className="pt-6">
-                  <button
-                    onClick={() => scrollToSection("waitlist")}
+                  <Link
+                    href="/courses/web-builder"
                     className="px-6 py-3 bg-white text-black text-sm font-semibold rounded-full hover:bg-slate-200 transition-all duration-300 flex items-center gap-2 group cursor-pointer"
                   >
-                    Join Program Waitlist
+                    Explore Now
                     <ArrowRight className="w-4 h-4 text-black transition-transform group-hover:translate-x-1" />
-                  </button>
+                  </Link>
                 </div>
               </div>
 
@@ -490,9 +490,12 @@ export default function CohortsPage() {
                   </div>
 
                   <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between">
-                    <span className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">
-                      Future Release
-                    </span>
+                    <Link
+                      href={program.title === "Python Builder" ? "/courses/python-builder" : program.title === "Data Analyst" ? "/courses/data-analyst" : "/courses/ai-builder"}
+                      className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold hover:text-white transition-colors cursor-pointer"
+                    >
+                      Explore Now
+                    </Link>
                   </div>
                 </motion.div>
               )
