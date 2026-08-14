@@ -91,7 +91,7 @@ export async function POST(req: Request) {
         const adminEmail = (process.env.ADMIN_EMAIL || "support@lumoraspace.in").trim().toLowerCase();
         console.log("ADMIN_EMAIL =", adminEmail);
         const { error } = await resend.emails.send({
-          from: `LumoraSpace <${process.env.RESEND_FROM_EMAIL}>`, // Resend default for testing
+          from: "LumoraSpace <support@lumoraspace.in>",
           to: [adminEmail],
           subject: `New Cohort Application: ${name} for ${cohort}`,
           html: `
