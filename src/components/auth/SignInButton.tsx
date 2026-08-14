@@ -1,6 +1,7 @@
 "use client";
 
 import { signIn, signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { LogOut, LogIn } from "lucide-react";
 
@@ -18,9 +19,11 @@ export default function SignInButton() {
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-2">
           {session.user.image && (
-            <img
+            <Image
               src={session.user.image}
               alt="Profile"
+              width={28}
+              height={28}
               className="w-7 h-7 rounded-full border border-border"
             />
           )}

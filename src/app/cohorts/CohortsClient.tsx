@@ -5,9 +5,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
-import { useRouter } from "next/navigation"
-import { useMembership } from "@/components/auth/MembershipContext"
-import { CohortCardSkeleton, CohortCtaSkeleton, Skeleton } from "@/components/ui/Skeleton"
+import { CohortCardSkeleton } from "@/components/ui/Skeleton"
 import { 
   Compass, 
   ArrowRight, 
@@ -27,11 +25,6 @@ import {
 } from "lucide-react"
 
 export default function CohortsPage() {
-  const router = useRouter()
-  const { requireMembership } = useMembership()
-  const [waitlistEmail, setWaitlistEmail] = useState("")
-  const [waitlistStatus, setWaitlistStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
-  const [waitlistError, setWaitlistError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -40,35 +33,6 @@ export default function CohortsPage() {
     }, 600)
     return () => clearTimeout(timer)
   }, [])
-
-  const handleWaitlistSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!waitlistEmail) return
-    setWaitlistError(null)
-
-    requireMembership("join_waitlist", async () => {
-      setWaitlistStatus("loading")
-      try {
-        const res = await fetch("/api/waitlist", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: waitlistEmail,
-          }),
-        })
-        if (!res.ok) {
-          const errData = await res.json().catch(() => ({}));
-          throw new Error(errData.error || errData.message || "Failed to subscribe");
-        }
-        setWaitlistStatus("success")
-        setWaitlistEmail("")
-      } catch (err: any) {
-        console.error(err)
-        setWaitlistStatus("error")
-        setWaitlistError(err.message || "Something went wrong. Please check connection and try again.")
-      }
-    }, { email: waitlistEmail })
-  }
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
@@ -101,7 +65,7 @@ export default function CohortsPage() {
           {/* Badge */}
           {/* <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs font-semibold uppercase tracking-[0.2em] mb-8">
             <Sparkles className="w-3.5 h-3.5 text-slate-400" />
-            LUMORA PROGRAMS
+            LUMORASPACE PROGRAMS
           </div> */}
 
           {/* Headline */}
@@ -115,20 +79,20 @@ export default function CohortsPage() {
 
           {/* Supporting Copy */}
           <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed max-w-3xl mx-auto mb-12">
-            Most students don't need more content.
+            Most students don&apos;t need more content.
             <br className="hidden md:inline" />
             They need direction, mentorship, accountability, and a place to build.
             <br className="hidden md:inline" />
-            Lumora programs are designed to help students move from confusion to confidence through structured learning, practical implementation, and community support.
+            LumoraSpace programs are designed to help students move from confusion to confidence through structured learning, practical implementation, and community support.
           </p>
 
           {/* Action CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto">
             <button
-              onClick={() => scrollToSection("waitlist")}
+              onClick={() => scrollToSection("builder-programs")}
               className="w-full sm:w-auto px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-slate-200 transition-all duration-300 shadow-md hover:-translate-y-0.5 text-center text-sm cursor-pointer"
             >
-              Join Waitlist
+              Join Program
             </button>
             <button
               onClick={() => scrollToSection("transformation")}
@@ -149,7 +113,7 @@ export default function CohortsPage() {
             The Path Of Transformation
           </h2>
           <p className="text-slate-400 text-base md:text-lg font-light leading-relaxed">
-            Every Lumora cohort is designed to help students progress through these stages by learning, building, and growing alongside a community.
+            Every LumoraSpace cohort is designed to help students progress through these stages by learning, building, and growing alongside a community.
           </p>
         </div>
 
@@ -248,10 +212,10 @@ export default function CohortsPage() {
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-semibold text-slate-400 tracking-[0.2em] uppercase mb-3 block">The Model</span>
           <h2 className="text-4xl md:text-5xl font-fancy font-light text-white tracking-tight mb-6">
-            The Difference Isn't What You Learn.
+            The Difference Isn&apos;t What You Learn.
             <br />
             <span className="text-slate-400">
-              It's Who You Become.
+              It&apos;s Who You Become.
             </span>
           </h2>
         </div>
@@ -297,7 +261,7 @@ export default function CohortsPage() {
             </div>
           </motion.div>
 
-          {/* Lumora Cohorts Card (Elevated, Glowing, Right) */}
+          {/* LumoraSpace Cohorts Card (Elevated, Glowing, Right) */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -314,7 +278,7 @@ export default function CohortsPage() {
                   <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-white">
                     <Check className="w-5 h-5" />
                   </div>
-                  <h3 className="text-xl font-heading font-bold text-white">Lumora Cohorts</h3>
+                  <h3 className="text-xl font-heading font-bold text-white">LumoraSpace Cohorts</h3>
                 </div>
                 <span className="text-[10px] font-bold text-white uppercase tracking-wider bg-white/5 px-2.5 py-1 rounded-full border border-white/10">
                   BUILDER-FIRST
@@ -348,14 +312,14 @@ export default function CohortsPage() {
       </section>
 
       {/* ================= SECTION 4: BUILDER PROGRAMS ================= */}
-      <section className="py-16 md:py-20 px-6 w-full border-t border-white/5 relative z-10">
+      <section id="builder-programs" className="py-16 md:py-20 px-6 w-full border-t border-white/5 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-semibold text-slate-400 tracking-[0.2em] uppercase mb-3 block">Programs</span>
           <h2 className="text-4xl md:text-5xl font-fancy font-light text-white tracking-tight mb-6">
             Builder Programs
           </h2>
           <p className="text-slate-400 text-base md:text-lg font-light leading-relaxed">
-            We're building experiences designed to help students learn by creating, grow with guidance, and gain confidence through implementation.
+            We&apos;re building experiences designed to help students learn by creating, grow with guidance, and gain confidence through implementation.
           </p>
         </div>
 
@@ -402,7 +366,7 @@ export default function CohortsPage() {
 
                 <div className="pt-6">
                   <Link
-                    href="/courses/web-builder"
+                    href="/programs/web-development-with-genai"
                     className="px-6 py-3 bg-white text-black text-sm font-semibold rounded-full hover:bg-slate-200 transition-all duration-300 flex items-center gap-2 group cursor-pointer"
                   >
                     Explore Now
@@ -491,7 +455,7 @@ export default function CohortsPage() {
 
                   <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between">
                     <Link
-                      href={program.title === "Python Builder" ? "/courses/python-builder" : program.title === "Data Analyst" ? "/courses/data-analyst" : "/courses/ai-builder"}
+                      href={program.title === "Python Builder" ? "/programs/python-builder" : program.title === "Data Analyst" ? "/programs/data-analyst" : "/programs/ai-builder"}
                       className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold hover:text-white transition-colors cursor-pointer"
                     >
                       Explore Now
@@ -602,104 +566,7 @@ export default function CohortsPage() {
         )}
       </section>
 
-      {/* ================= SECTION 6: FINAL CTA ================= */}
-      <section id="waitlist" className="py-20 md:py-28 px-6 w-full relative z-10 text-center">
-        {isLoading ? (
-          <CohortCtaSkeleton />
-        ) : (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="space-y-12 max-w-4xl mx-auto"
-          >
-            {/* Invitation Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-slate-400 text-xs font-semibold uppercase tracking-[0.2em]">
-              {/* <Sparkles className="w-3 h-3 text-slate-400" /> */}
-              Invitation
-            </div>
 
-            {/* Headline */}
-            <h2 className="text-5xl md:text-7xl font-fancy font-light tracking-tight text-white leading-[1.08]">
-              Talent Exists Everywhere.
-              <br />
-              <span className="text-slate-400 italic">
-                Guidance Doesn't.
-              </span>
-            </h2>
-
-            {/* Supporting Copy */}
-            <div className="max-w-2xl mx-auto space-y-4">
-              <p className="text-lg md:text-xl text-slate-300 font-light leading-relaxed">
-                Most students don't need more information.
-              </p>
-              <p className="text-lg md:text-xl text-slate-300 font-light leading-relaxed">
-                They need direction, mentorship, accountability, and a place to build.
-              </p>
-            </div>
-
-            {/* Action / Form Area (Plain typography driven, no borders/glass cards) */}
-            <div className="max-w-md mx-auto pt-6">
-              {waitlistStatus === "success" ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="p-4 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-sm flex items-center justify-center gap-2"
-                >
-                  <Check className="w-4 h-4 shrink-0 text-white" />
-                  <span>You've been added to the waitlist.</span>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleWaitlistSubmit} className="flex flex-col sm:flex-row gap-3 w-full">
-                  <input
-                    type="email"
-                    required
-                    placeholder="Enter your email address"
-                    value={waitlistEmail}
-                    onChange={(e) => setWaitlistEmail(e.target.value)}
-                    className="flex-1 h-12 px-5 rounded-full bg-white/5 border border-white/10 text-white placeholder:text-slate-500 focus:outline-none focus:bg-white/10 focus:border-white/30 text-sm transition-all"
-                  />
-                  <button
-                    type="submit"
-                    disabled={waitlistStatus === "loading"}
-                    className="h-12 px-8 bg-white text-black hover:bg-slate-200 font-semibold rounded-full text-sm transition-all duration-300 shadow-md hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer flex-shrink-0"
-                  >
-                    {waitlistStatus === "loading" ? "Joining..." : "Join Waitlist"}
-                  </button>
-                </form>
-              )}
-
-              {waitlistStatus === "error" && (
-                <div className="text-red-400 text-xs mt-3 flex flex-col items-center gap-1">
-                  <p>Failed to join waitlist. Please check connection and try again.</p>
-                  {process.env.NODE_ENV === "development" && waitlistError && (
-                    <span className="block font-mono text-[10px] text-red-300">
-                      Dev Error: {waitlistError}
-                    </span>
-                  )}
-                </div>
-              )}
-
-              {/* Secondary Link */}
-              <div className="mt-8">
-                <button 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    requireMembership("apply_cohort", () => {
-                      router.push("/cohorts/join");
-                    });
-                  }}
-                  className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-white underline underline-offset-4 font-semibold tracking-wide cursor-pointer bg-transparent border-none p-0 transition-colors"
-                >
-                  Become An Early Member
-                  <ArrowRight className="w-3 h-3" />
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </section>
 
       <Footer />
     </main>

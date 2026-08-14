@@ -18,8 +18,8 @@ const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://lumora.space";
 export const metadata: Metadata = {
   metadataBase: new URL(appUrl),
   title: {
-    default: "Lumora – Student Growth Ecosystem for Ambitious Builders",
-    template: "%s | Lumora Space",
+    default: "LumoraSpace – Student Growth Ecosystem for Ambitious Builders",
+    template: "%s | LumoraSpace Space",
   },
   description: "Transition from confusion to confidence. Build production-grade software, access elite engineering mentors, maintain accountability, and grow alongside an ambitious peer community.",
   alternates: {
@@ -45,21 +45,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: appUrl,
-    siteName: "Lumora",
-    title: "Lumora – Student Growth Ecosystem",
+    siteName: "LumoraSpace",
+    title: "LumoraSpace – Student Growth Ecosystem",
     description: "Build real tech skills through mentorship, project-first sprints, accountability, and community-driven growth.",
     images: [
       {
         url: "/logo4.png",
         width: 1200,
         height: 630,
-        alt: "Lumora – Student Growth Ecosystem",
+        alt: "LumoraSpace – Student Growth Ecosystem",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lumora – Student Growth Ecosystem",
+    title: "LumoraSpace – Student Growth Ecosystem",
     description: "Build real tech skills through mentorship, project-first sprints, accountability, and community-driven growth.",
     images: ["/logo4.png"],
   },
@@ -74,7 +74,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "@id": `${appUrl}/#organization`,
-    "name": "Lumora",
+    "name": "LumoraSpace",
     "url": appUrl,
     "logo": `${appUrl}/logo.png`,
     "description": "Premium student growth ecosystem helping ambitious builders learn by shipping production-grade software with active peer support and elite industry mentorship.",

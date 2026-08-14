@@ -4,7 +4,10 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 
 
+import { useSession } from "next-auth/react"
+
 export default function HeroSection() {
+  const { data: session } = useSession()
   const handleExploreClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     const target = document.getElementById("problem")
@@ -100,9 +103,9 @@ export default function HeroSection() {
 
           <motion.h1
             variants={letterContainerVariants}
-            className="text-[15vw] sm:text-8xl md:text-[10.5rem] font-fancy font-light tracking-[0.03em] leading-[0.85] text-white my-4 select-text drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)] whitespace-nowrap"
+            className="text-[12vw] sm:text-7xl md:text-[6.5rem] lg:text-[7.5rem] font-fancy font-light tracking-[0.02em] leading-[0.9] text-white my-8 select-text drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)] whitespace-nowrap"
           >
-            {"LUMORA".split("").map((char, index) => (
+            {"LumoraSpace".split("").map((char, index) => (
               <motion.span
                 key={index}
                 variants={letterVariants}
@@ -134,13 +137,15 @@ export default function HeroSection() {
             variants={childVariants}
             className="mt-12 flex flex-row gap-5 items-center justify-center"
           >
-            <Link
-              href="/create-account"
-              className="h-11 px-8 rounded-full bg-white text-black font-semibold text-xs tracking-wide transition-all hover:bg-white/95 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] flex items-center justify-center gap-1.5 active:translate-y-px"
-            >
-              <span>Join Lumora</span>
-              <span className="text-[14px]">→</span>
-            </Link>
+            {!session && (
+              <Link
+                href="/create-account"
+                className="h-11 px-8 rounded-full bg-white text-black font-semibold text-xs tracking-wide transition-all hover:bg-white/95 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] flex items-center justify-center gap-1.5 active:translate-y-px"
+              >
+                <span>Join LumoraSpace</span>
+                <span className="text-[14px]">→</span>
+              </Link>
+            )}
 
             <button
               onClick={handleExploreClick}

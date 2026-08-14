@@ -10,20 +10,20 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://lumora.space/cohorts",
-    title: "Cohort-Based Builder Programs | Lumora Space",
+    title: "Cohort-Based Builder Programs | LumoraSpace Space",
     description: "Join our guided developer cohorts, access elite engineering mentors, stay accountable, and ship production-ready MVPs alongside ambitious student peers.",
     images: [
       {
         url: "/logo4.png",
         width: 1200,
         height: 630,
-        alt: "Lumora Cohorts",
+        alt: "LumoraSpace Cohorts",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cohort-Based Builder Programs | Lumora Space",
+    title: "Cohort-Based Builder Programs | LumoraSpace Space",
     description: "Join our guided developer cohorts, access elite engineering mentors, stay accountable, and ship production-ready MVPs alongside ambitious student peers.",
     images: ["/logo4.png"],
   },
@@ -35,7 +35,7 @@ export default function Page() {
   const courseSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Lumora Builder Programs",
+    "name": "LumoraSpace Builder Programs",
     "description": "Mentorship-led, project-first developer cohorts designed for ambitious students.",
     "itemListElement": [
       {
@@ -47,7 +47,7 @@ export default function Page() {
           "description": "Build strong web development and frontend architecture foundations through practical team projects and elite mentorship.",
           "provider": {
             "@type": "EducationalOrganization",
-            "name": "Lumora",
+            "name": "LumoraSpace",
             "url": appUrl
           },
           "programPrerequisites": "Basic understanding of HTML, CSS, and programming logic.",
@@ -68,7 +68,7 @@ export default function Page() {
           "description": "Learn programming fundamentals, algorithms, and practical scripting systems through hands-on milestones.",
           "provider": {
             "@type": "EducationalOrganization",
-            "name": "Lumora",
+            "name": "LumoraSpace",
             "url": appUrl
           },
           "programPrerequisites": "None",

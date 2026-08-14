@@ -1,14 +1,15 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect, useRef } from "react"
 import { Logo } from "@/components/Logo"
-import { useRouter, usePathname } from "next/navigation"
+import { usePathname } from "next/navigation"
 import { signOut, useSession } from "next-auth/react"
 
 // --- Custom Animated Path Component for Dynamic Hamburger -> X Icon ---
-const Path = (props: any) => (
+const Path = (props: React.ComponentProps<typeof motion.path>) => (
   <motion.path
     fill="transparent"
     strokeWidth="2"
@@ -18,12 +19,12 @@ const Path = (props: any) => (
   />
 )
 
-interface JoinLumoraButtonProps {
+interface JoinLumoraSpaceButtonProps {
   className?: string;
   children: React.ReactNode;
 }
 
-function JoinLumoraButton({ className, children }: JoinLumoraButtonProps) {
+function JoinLumoraSpaceButton({ className, children }: JoinLumoraSpaceButtonProps) {
   return (
     <Link href="/create-account" className={className}>
       {children}
@@ -32,7 +33,6 @@ function JoinLumoraButton({ className, children }: JoinLumoraButtonProps) {
 }
 
 export function Navbar() {
-  const router = useRouter()
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
@@ -63,10 +63,7 @@ export function Navbar() {
     }
   }, [isOpen])
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsOpen(false)
-  }, [pathname])
+
 
   // Framer Motion Dropdown Variants
   const dropdownVariants = {
@@ -153,9 +150,7 @@ export function Navbar() {
       text-white
       uppercase
     "
-  >
-    LUMORA
-  </span>
+  >LUMORASPACE</span>
 </Link>
         </div>
 
@@ -193,9 +188,11 @@ export function Navbar() {
             <div className="hidden lg:flex items-center gap-3">
               <div className="flex items-center gap-2 max-w-[150px] overflow-hidden">
                 {session.user.image && (
-                  <img
+                  <Image
                     src={session.user.image}
                     alt="Profile Avatar"
+                    width={24}
+                    height={24}
                     className="w-6 h-6 rounded-full border border-border flex-shrink-0"
                   />
                 )}
@@ -212,12 +209,12 @@ export function Navbar() {
             </div>
           ) : (
             <>
-              <JoinLumoraButton
+              <JoinLumoraSpaceButton
                 className="hidden lg:inline-flex items-center justify-center gap-1.5 rounded-full border border-white/20 px-5 py-1.8 text-[10px] font-bold font-heading text-white hover:bg-white/5 hover:border-white/35 transition-all duration-200 select-none active:translate-y-px"
               >
-                <span>Join Lumora</span>
+                <span>Join LumoraSpace</span>
                 <span className="text-[12px] mt-[-1px]">→</span>
-              </JoinLumoraButton>
+              </JoinLumoraSpaceButton>
             </>
           )}
 
@@ -266,6 +263,7 @@ export function Navbar() {
                   <motion.div variants={itemVariants}>
                     <Link
                       href="/features"
+                      onClick={() => setIsOpen(false)}
                       className="w-full text-left px-3.5 py-2.5 rounded-xl text-[14px] font-semibold text-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group"
                     >
                       <span>Features</span>
@@ -277,6 +275,7 @@ export function Navbar() {
                   <motion.div variants={itemVariants}>
                     <Link
                       href="/community"
+                      onClick={() => setIsOpen(false)}
                       className="w-full text-left px-3.5 py-2.5 rounded-xl text-[14px] font-semibold text-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group"
                     >
                       <span>Community</span>
@@ -288,6 +287,7 @@ export function Navbar() {
                   <motion.div variants={itemVariants}>
                     <Link
                       href="/cohorts"
+                      onClick={() => setIsOpen(false)}
                       className="w-full text-left px-3.5 py-2.5 rounded-xl text-[14px] font-semibold text-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group"
                     >
                       <span>Cohorts</span>
@@ -309,6 +309,7 @@ export function Navbar() {
                   <motion.div variants={itemVariants}>
                     <Link
                       href="/mentors"
+                      onClick={() => setIsOpen(false)}
                       className="w-full text-left px-3.5 py-2.5 rounded-xl text-[14px] font-semibold text-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group"
                     >
                       <span>Mentors</span>
@@ -320,6 +321,7 @@ export function Navbar() {
                   <motion.div variants={itemVariants}>
                     <Link
                       href="/team"
+                      onClick={() => setIsOpen(false)}
                       className="w-full text-left px-3.5 py-2.5 rounded-xl text-[14px] font-semibold text-foreground hover:bg-muted hover:text-primary transition-all flex items-center justify-between group"
                     >
                       <span>Team</span>
@@ -360,9 +362,11 @@ export function Navbar() {
                       <div className="flex items-center justify-between gap-3 p-2 bg-muted border border-border/40 rounded-xl">
                         <div className="flex items-center gap-2 overflow-hidden">
                           {session.user.image && (
-                            <img
+                            <Image
                               src={session.user.image}
                               alt="Profile Avatar"
+                              width={28}
+                              height={28}
                               className="w-7 h-7 rounded-full border border-border flex-shrink-0"
                             />
                           )}
@@ -385,7 +389,7 @@ export function Navbar() {
 
                   {!session && (
                     <motion.div variants={itemVariants} className="px-1">
-                      <JoinLumoraButton
+                      <JoinLumoraSpaceButton
                         className="group w-full py-2.5 px-4 bg-primary hover:bg-primary/95 text-[#050505] text-xs font-bold rounded-xl transition-all shadow-sm shadow-primary/20 hover:shadow-md flex items-center justify-center gap-2 cursor-pointer"
                       >
                         <span className="relative flex h-2 w-2">
@@ -404,8 +408,8 @@ export function Navbar() {
                           />
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-secondary shadow-[0_0_8px_rgba(129,140,248,0.7)] group-hover:scale-110 group-hover:shadow-[0_0_14px_rgba(129,140,248,0.9)] transition-all duration-300" />
                         </span>
-                        <span>Join Lumora →</span>
-                      </JoinLumoraButton>
+                        <span>Join LumoraSpace →</span>
+                      </JoinLumoraSpaceButton>
                     </motion.div>
                   )}
                 </div>

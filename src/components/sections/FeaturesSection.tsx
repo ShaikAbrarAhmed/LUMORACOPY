@@ -6,8 +6,6 @@ import {
   Users,
   Rocket,
   Flame,
-  Activity,
-  Sparkles,
   Trophy,
   ArrowRight
 } from "lucide-react"
@@ -27,7 +25,7 @@ export default function FeaturesSection() {
         {/* ================= HEADER ================= */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
             {/* <span className="inline-block px-3.5 py-1.5 rounded-full text-primary text-[10px] font-bold uppercase tracking-[0.25em] mb-4 bg-primary/5 border border-primary/10 select-none">
-              Lumora Features
+              LumoraSpace Features
             </span> */}
           <h2 className="text-4xl md:text-6xl font-fancy font-light font-black tracking-tight leading-[1.08] text-headings">
             Everything We Wish We Had <br />

@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Ignore agent benchmarking framework and loose scripts
+    "ponytail/**",
+    "*.js"
   ]),
 ]);
 

@@ -254,7 +254,7 @@ function SignInContent() {
             href="/create-account"
             className="text-xs text-[#A1A1AA] hover:text-white transition-colors font-sans font-light"
           >
-            Don't have an account? <span className="font-bold underline">Join Lumora</span>
+            Don&apos;t have an account? <span className="font-bold underline">Join LumoraSpace</span>
           </Link>
         </div>
 

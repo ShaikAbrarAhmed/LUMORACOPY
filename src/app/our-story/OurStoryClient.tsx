@@ -73,7 +73,7 @@ export default function OurStoryPage() {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground font-normal leading-relaxed max-w-2xl mx-auto pt-4">
-            We built Lumora not because we had all the answers. <br />
+            We built LumoraSpace not because we had all the answers. <br />
             <span className="text-foreground font-medium">But because we were asking the same questions.</span>
           </p>
         </motion.div>
@@ -246,7 +246,7 @@ export default function OurStoryPage() {
         </div>
       </section>
 
-      {/* ================= SECTION 5: WHY LUMORA EXISTS (MANIFESTO) ================= */}
+      {/* ================= SECTION 5: WHY LUMORASPACE EXISTS (MANIFESTO) ================= */}
       <section className="py-20 md:py-24 px-6 bg-gradient-to-b from-background to-background/20 border-t border-border/40 relative z-10">
         <div className="max-w-3xl mx-auto text-center space-y-12">
           <motion.div
@@ -272,7 +272,7 @@ export default function OurStoryPage() {
             className="space-y-12 text-2xl md:text-3xl text-muted-foreground font-fancy leading-relaxed text-left border-l-4 border-primary pl-8 md:pl-12 max-w-3xl mx-auto my-16"
           >
             <p className="hover:text-foreground transition-colors duration-300">
-              Lumora wasn&apos;t created to become another EdTech company.
+              LumoraSpace wasn&apos;t created to become another EdTech company.
             </p>
             <p className="hover:text-foreground transition-colors duration-300">
               It wasn&apos;t created to sell courses.

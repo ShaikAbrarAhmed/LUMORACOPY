@@ -106,7 +106,7 @@ export default function WaterBubbleBg() {
     if (!ctx) return;
 
     let animationFrameId: number;
-    let bubbles: Bubble[] = [];
+    const bubbles: Bubble[] = [];
 
     const mouse = {
       x: undefined as number | undefined,

@@ -77,7 +77,7 @@ export function ShowcaseSection() {
                     </div>
                     {/* Simulated Code/Terminal area */}
                     <div className="flex-1 bg-card rounded border border-border p-4 font-mono text-[10px] text-muted-foreground/50 space-y-2 overflow-x-auto">
-                      <div className="flex gap-2 whitespace-nowrap"><span className="text-primary/70">import</span> <span>{'{'} createClient {'}'}</span> <span className="text-primary/70">from</span> <span>'@lumora/client'</span></div>
+                      <div className="flex gap-2 whitespace-nowrap"><span className="text-primary/70">import</span> <span>{'{'} createClient {'}'}</span> <span className="text-primary/70">from</span> <span>&apos;@lumora/client&apos;</span></div>
                       <div className="h-2" />
                       <div className="flex gap-2 whitespace-nowrap"><span className="text-primary/70">const</span> <span>lumora</span> = <span>createClient()</span></div>
                       <div className="h-2" />

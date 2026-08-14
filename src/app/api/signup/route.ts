@@ -65,7 +65,7 @@ export async function POST(req: Request) {
         const resend = new Resend(apiKey);
         const adminEmail = (process.env.ADMIN_EMAIL || "admin@example.com").trim();
         await resend.emails.send({
-          from: "Lumora Ecosystem <onboarding@resend.dev>",
+          from: "LumoraSpace Ecosystem <onboarding@resend.dev>",
           to: [adminEmail],
           subject: `New Ecosystem Account Created: ${name}`,
           html: `

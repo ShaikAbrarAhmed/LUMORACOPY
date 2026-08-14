@@ -12,20 +12,20 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://lumora.space/mentors",
-    title: "Industry Mentors | Lumora Space",
+    title: "Industry Mentors | LumoraSpace Space",
     description: "Get guided by tech industry experts, engineering leads, and product managers. Receive practical code audits, system critiques, and structured career advice.",
     images: [
       {
         url: "/logo4.png",
         width: 1200,
         height: 630,
-        alt: "Lumora Mentors",
+        alt: "LumoraSpace Mentors",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Industry Mentors | Lumora Space",
+    title: "Industry Mentors | LumoraSpace Space",
     description: "Get guided by tech industry experts, engineering leads, and product managers. Receive practical code audits, system critiques, and structured career advice.",
     images: ["/logo4.png"],
   },
@@ -35,7 +35,7 @@ export default function MentorsPage() {
   const mentorsSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Lumora Industry Mentors",
+    "name": "LumoraSpace Industry Mentors",
     "itemListElement": [
       {
         "@type": "ListItem",

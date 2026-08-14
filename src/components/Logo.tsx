@@ -50,7 +50,7 @@ export function Logo({
       >
         <Image
           src="/logo4.png"
-          alt="Lumora Logo"
+          alt="LumoraSpace Logo"
           fill
           priority
           className="object-contain transition-transform duration-300"
@@ -80,7 +80,7 @@ export function Logo({
         <div className="relative w-full h-full overflow-hidden">
           <Image
             src="/logo4.png"
-            alt="Lumora Symbol"
+            alt="LumoraSpace Symbol"
             fill
             priority
             className="object-cover object-left"

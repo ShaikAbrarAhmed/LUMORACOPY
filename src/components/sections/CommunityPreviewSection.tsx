@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Users, Shield, MessageSquare, Compass, ArrowRight } from "lucide-react"
+import { Users, Shield, MessageSquare, ArrowRight } from "lucide-react"
 
 export default function CommunityPreviewSection() {
   const cultures = [
@@ -84,7 +84,7 @@ export default function CommunityPreviewSection() {
                   <Users className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-sm text-headings">The Lumora Hub</h3>
+                  <h3 className="font-semibold text-sm text-headings">The LumoraSpace Hub</h3>
                   <p className="text-[10px] text-muted-foreground">300+ active student builders connected daily</p>
                 </div>
               </div>

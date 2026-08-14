@@ -18,8 +18,8 @@ export function getClientIp(req: Request): string {
   if (xRealIp) return xRealIp;
 
   // 3. NextRequest internal ip property
-  if ("ip" in req && typeof (req as any).ip === "string") {
-    return (req as any).ip;
+  if ("ip" in req && typeof (req as Request & { ip?: string }).ip === "string") {
+    return (req as Request & { ip?: string }).ip as string;
   }
 
   // 4. Default fallback

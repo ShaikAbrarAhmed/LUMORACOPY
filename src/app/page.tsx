@@ -10,29 +10,29 @@ import TransformationSection from "@/components/sections/TransformationSection"
 import { CTASection } from "@/components/sections/CTASection"
 
 export const metadata: Metadata = {
-  title: "Lumora – Student Growth Ecosystem for Ambitious Builders",
-  description: "Transition from confusion to confidence. Lumora is a premium student growth ecosystem built for ambitious student builders to learn, build, and grow.",
+  title: "LumoraSpace – Student Growth Ecosystem for Ambitious Builders",
+  description: "Transition from confusion to confidence. LumoraSpace is a premium student growth ecosystem built for ambitious student builders to learn, build, and grow.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     url: "https://lumora.space",
-    title: "Lumora – Student Growth Ecosystem for Ambitious Builders",
-    description: "Transition from confusion to confidence. Lumora is a premium student growth ecosystem built for ambitious student builders to learn, build, and grow.",
+    title: "LumoraSpace – Student Growth Ecosystem for Ambitious Builders",
+    description: "Transition from confusion to confidence. LumoraSpace is a premium student growth ecosystem built for ambitious student builders to learn, build, and grow.",
     images: [
       {
         url: "/logo4.png",
         width: 1200,
         height: 630,
-        alt: "Lumora – Student Growth Ecosystem",
+        alt: "LumoraSpace – Student Growth Ecosystem",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lumora – Student Growth Ecosystem for Ambitious Builders",
-    description: "Transition from confusion to confidence. Lumora is a premium student growth ecosystem built for ambitious student builders to learn, build, and grow.",
+    title: "LumoraSpace – Student Growth Ecosystem for Ambitious Builders",
+    description: "Transition from confusion to confidence. LumoraSpace is a premium student growth ecosystem built for ambitious student builders to learn, build, and grow.",
     images: ["/logo4.png"],
   },
 };
@@ -52,7 +52,7 @@ export default function Home() {
           {/* 2. The Problem */}
           <ProblemSection />
 
-          {/* 3. Why Lumora */}
+          {/* 3. Why LumoraSpace */}
           <WhyLumoraSection />
 
           {/* 4. Transformation path */}

@@ -100,15 +100,15 @@ const handler = NextAuth({
   },
   callbacks: {
     async session({ session, token }) {
-      if (session.user) {
-        (session.user as any).id = token.sub;
+      if (session.user && token.sub) {
+        session.user.id = token.sub;
       }
       return session;
     },
   },
 });
 
-async function authHandler(req: Request, context: any) {
+async function authHandler(req: Request, context: { params: Promise<{ nextauth: string[] }> }) {
   if (req.method === "POST") {
     const url = new URL(req.url);
     if (

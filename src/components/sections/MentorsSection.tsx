@@ -400,7 +400,7 @@ export default function MentorsSection() {
             </p>
 
             <a
-              href="mailto:Support.lumoraspace@gmail.com?subject=Interested%20in%20Mentoring%20at%20Lumora"
+              href="mailto:Support.lumoraspace@gmail.com?subject=Interested%20in%20Mentoring%20at%20LumoraSpace"
               className="inline-flex items-center justify-center gap-1.5 px-8 py-3.5 bg-white text-black font-semibold text-xs tracking-wider uppercase rounded-full hover:bg-[#EAEAEA] active:translate-y-px transition-all duration-300 shadow-md cursor-pointer animate-none"
             >
               <span>Apply As Mentor</span>

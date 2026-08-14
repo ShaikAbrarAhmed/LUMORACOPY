@@ -36,7 +36,7 @@ export function getSafeOrderColumn(selectedColumn: string): string {
  * @param prismaRaw The Prisma.raw helper function passed from the query execution context.
  * @returns A safe, raw SQL segment of the verified table name.
  */
-export function getSafeTableSql(tableName: string, prismaRaw?: (text: string) => any): any {
+export function getSafeTableSql<T>(tableName: string, prismaRaw?: (text: string) => T): T | string {
   const allowedTables = ["Cohort", "User", "Mentor"];
 
   if (!allowedTables.includes(tableName)) {

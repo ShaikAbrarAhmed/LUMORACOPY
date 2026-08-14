@@ -30,6 +30,7 @@ export default function JoinCohortPage() {
 
   useEffect(() => {
     if (session?.user) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData(prev => ({
         ...prev,
         name: session.user?.name || "",
@@ -89,7 +90,7 @@ export default function JoinCohortPage() {
           </div>
           <h2 className="text-3xl font-heading font-semibold text-[#E7E7E7] mb-4">Application Received!</h2>
           <p className="text-[#A1A1AA] mb-8 font-light">
-            Thank you for applying to the {formData.cohort} cohort. We have sent an email notification to our team and we will get back to you shortly!
+            What program are you applying for? Don&apos;t worry, you can discuss this with the team later. sent an email notification to our team and we will get back to you shortly!
           </p>
           <button 
             onClick={() => window.location.href = "/"}
@@ -118,7 +119,7 @@ export default function JoinCohortPage() {
             Join a Cohort
           </h1>
           <p className="text-lg text-[#A1A1AA] font-light">
-            Take the first step towards building real tech skills. Fill out the form below and we'll get in touch.
+            Take the first step towards building real tech skills. Fill out the form below and we&apos;ll get in touch.
           </p>
         </motion.div>
 

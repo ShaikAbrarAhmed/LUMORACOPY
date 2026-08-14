@@ -52,13 +52,14 @@ function CreateAccountContent() {
     "Establishing secure network link...",
     "Provisioning sandbox ecosystem...",
     "Aligning community cohorts...",
-    "Welcome to Lumora!"
+    "Welcome to LumoraSpace!"
   ];
 
   // Sync mode with URL query params
   useEffect(() => {
     const urlMode = searchParams.get("mode");
     if (urlMode === "welcome") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setMode("welcome");
     } else {
       setMode("signup");
@@ -228,10 +229,10 @@ function CreateAccountContent() {
               {/* Title & Copy */}
               <div className="text-center space-y-2.5">
                 <h1 className="text-3xl md:text-4xl font-fancy font-light text-white tracking-normal leading-none">
-                  Welcome to Lumora
+                  Welcome to LumoraSpace
                 </h1>
                 <p className="text-xs text-[#A1A1AA] leading-relaxed max-w-[280px] mx-auto font-sans font-light">
-                  You're officially part of the ecosystem. Customize your learning focus profile.
+                  You&apos;re officially part of the ecosystem. Customize your learning focus profile.
                 </p>
               </div>
 
@@ -325,7 +326,7 @@ function CreateAccountContent() {
                 </p>
               </div>
 
-              {/* Lumora Pillars Badges */}
+              {/* LumoraSpace Pillars Badges */}
               <div className="flex flex-wrap items-center justify-center gap-1.5 py-1">
                 {["Direction", "Mentorship", "Accountability", "Community"].map((pillar) => (
                   <span 
@@ -362,7 +363,7 @@ function CreateAccountContent() {
                       <input
                         type="text"
                         required
-                        placeholder="Lumora"
+                        placeholder="LumoraSpace"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         className="w-full pl-11 pr-4 py-3 text-xs rounded-lg border border-white/[0.08] bg-[#111214] text-white placeholder-[#A1A1AA]/30 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/10 transition-all font-sans font-light"
@@ -380,7 +381,7 @@ function CreateAccountContent() {
                       <input
                         type="email"
                         required
-                        placeholder="lumora@gmail.com"
+                        placeholder="lumoraspace@gmail.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="w-full pl-11 pr-4 py-3 text-xs rounded-lg border border-white/[0.08] bg-[#111214] text-white placeholder-[#A1A1AA]/30 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/10 transition-all font-sans font-light"
@@ -459,12 +460,7 @@ function CreateAccountContent() {
 
               {/* Redirect to signin */}
               <div className="text-center pt-2">
-                <Link
-                  href="/signin"
-                  className="text-xs text-[#A1A1AA] hover:text-white transition-colors font-sans font-light"
-                >
-                  Already have an account? <span className="font-bold underline">Sign In</span>
-                </Link>
+                <p className="text-xs text-[#A1A1AA] font-light">Already have an account? <Link href="/signin" className="text-white hover:underline transition-colors font-semibold">Sign In</Link></p>
               </div>
             </motion.div>
           )}

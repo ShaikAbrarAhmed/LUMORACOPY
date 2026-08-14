@@ -1,9 +1,10 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useRouter } from "next/navigation"
 import { useMembership } from "@/components/auth/MembershipContext"
+import { useSession } from "next-auth/react"
 import useEmblaCarousel from "embla-carousel-react"
 import { 
   Sparkles, 
@@ -16,8 +17,6 @@ import {
   Activity, 
   Zap, 
   Code2, 
-  Check, 
-  X,
   MessageSquare
 } from "lucide-react"
 
@@ -45,6 +44,7 @@ const DiscordIcon = () => (
 export default function CommunitySection() {
   const router = useRouter()
   const { requireMembership } = useMembership()
+  const { data: session } = useSession()
   const [activeIndex, setActiveIndex] = useState(0)
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true, 
@@ -155,7 +155,7 @@ export default function CommunitySection() {
 
   const handleCardClick = (index: number) => {
     if (!emblaApi) return
-    if ((emblaApi as any).clickAllowed ? (emblaApi as any).clickAllowed() : true) {
+    if ((emblaApi as unknown as { clickAllowed: () => boolean }).clickAllowed ? (emblaApi as unknown as { clickAllowed: () => boolean }).clickAllowed() : true) {
       emblaApi.scrollTo(index)
     }
   }
@@ -185,7 +185,7 @@ export default function CommunitySection() {
           {/* Label Tag */}
           {/* <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs font-semibold uppercase tracking-[0.2em] mb-8">
             <Sparkles className="w-3.5 h-3.5 text-slate-400" />
-            LUMORA COMMUNITY
+            LUMORASPACE COMMUNITY
           </div> */}
 
           {/* Headline */}
@@ -207,7 +207,7 @@ export default function CommunitySection() {
 
           {/* Supporting Copy */}
           <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed max-w-2xl mx-auto mb-12">
-            Lumora is where students find direction, builders find momentum, and ambitious people grow alongside others on the same journey.
+            LumoraSpace is where students find direction, builders find momentum, and ambitious people grow alongside others on the same journey.
           </p>
 
           {/* Action CTAs */}
@@ -266,7 +266,7 @@ export default function CommunitySection() {
           </div>
 
           {/* <p className="text-xl md:text-2xl font-heading font-medium text-white max-w-xl mx-auto pt-6 border-t border-white/5">
-            Lumora exists to change that.
+            LumoraSpace exists to change that.
           </p> */}
         </motion.div>
       </section>
@@ -281,7 +281,7 @@ export default function CommunitySection() {
             How We Build Together
           </h2>
           <p className="mt-4 text-slate-400 text-sm md:text-base font-light leading-relaxed max-w-2xl mx-auto">
-            Lumora is structured around action, feedback, and consistency. Discover the pillars that shape our community ecosystem.
+            LumoraSpace is structured around action, feedback, and consistency. Discover the pillars that shape our community ecosystem.
           </p>
         </div>
 
@@ -721,18 +721,20 @@ export default function CommunitySection() {
           </p>
 
           {/* Action CTA */}
-          <div className="pt-6">
-            <button
-              onClick={() => {
-                requireMembership("join_community", () => {
-                  router.push("/cohorts/join")
-                })
-              }}
-              className="px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-slate-200 transition-all duration-300 shadow-md hover:-translate-y-0.5 cursor-pointer text-sm"
-            >
-              Join Lumora
-            </button>
-          </div>
+          {!session && (
+            <div className="pt-6">
+              <button
+                onClick={() => {
+                  requireMembership("join_community", () => {
+                    router.push("/cohorts/join")
+                  })
+                }}
+                className="px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-slate-200 transition-all duration-300 shadow-md hover:-translate-y-0.5 cursor-pointer text-sm"
+              >
+                Join LumoraSpace
+              </button>
+            </div>
+          )}
         </motion.div>
       </section>
 

@@ -5,23 +5,6 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { Sparkles, Compass, Users, TrendingUp } from "lucide-react"
 
-// --- Custom Social Media Icons (Prevents Lucide brand icon issues) ---
-const LinkedinIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
-  <svg
-    className={className}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect x="2" y="9" width="4" height="12" />
-    <circle cx="4" cy="4" r="2" />
-  </svg>
-)
-
 // --- Custom Skeletons for Team Profiles ---
 const ProfileSkeleton = () => (
   <div className="space-y-4 animate-pulse">
@@ -64,7 +47,7 @@ export default function TeamSection() {
     },
     {
       name: "Mounika",
-      role: "Co-Founder",
+      role: "Co-Founder · R&D & Research Lead",
       image: "/team/Mouni2.jpeg",
       statement: "Making sure no builder has to work in isolation.",
       position: "top center",
@@ -72,7 +55,7 @@ export default function TeamSection() {
     },
     {
       name: "Ashwini",
-      role: "Co-Founder",
+      role: "Co-Founder · Growth & Partnerships Lead",
       image: "/team/Ashwini2.jpeg",
       statement: "Bridging the gap between theory and execution.",
       position: "top center",
@@ -84,7 +67,7 @@ export default function TeamSection() {
 
     {
       name: "Yuvraj",
-      role: "Internal Operations",
+      role: "Tech Lead",
       image: "/team/Yuvi.jpeg",
       contribution: "Building systems that turn ideas into execution.",
       position: "top center",
@@ -100,21 +83,21 @@ export default function TeamSection() {
     // },
 
     {
-      name: "Rajitha",
-      role: "Growth & Partnerships",
-      image: "/team/Rajitha.jpeg",
-      contribution: "Connecting people, ideas, and possibilities.",
-      position: "top center",
-      linkedin: "https://www.linkedin.com/in/rajitha-reddemoni-a24a8533a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-    },
-
-    {
       name: "Jassi",
-      role: "Content Lead",
+      role: "Community & Operations Lead",
       image: "/team/Jasmeetg.jpeg",
       contribution: "Turning stories into movements.",
       position: "top center",
       linkedin: "https://www.linkedin.com/in/sardar-jasmeeth-singh-raj/"
+    },
+
+    {
+      name: "Raji",
+      role: "Product & Innovation Research",
+      image: "/team/Rajitha.jpeg",
+      contribution: "Connecting ideas, research, and possibilities.",
+      position: "top center",
+      linkedin: "https://www.linkedin.com/in/rajitha-reddemoni-a24a8533a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
     }
 
   ]
@@ -133,12 +116,12 @@ export default function TeamSection() {
             The Team
           </span>
           <h1 className="text-5xl md:text-7xl font-fancy font-light tracking-tight text-white leading-[1.08] mb-8">
-            The People Behind Lumora
+            The People Behind LumoraSpace
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 font-light leading-relaxed max-w-2xl">
             Built by students. Driven by purpose.
             <br />
-            We're building the support system we wish existed when we started.
+            We&apos;re building the support system we wish existed when we started.
           </p>
         </div>
       </section>
@@ -151,7 +134,7 @@ export default function TeamSection() {
               Thesis
             </span> */}
             <h2 className="text-3xl md:text-4xl font-fancy font-light text-white tracking-tight">
-              Why Lumora Exists
+              Why LumoraSpace Exists
             </h2>
           </div>
 
@@ -161,7 +144,7 @@ export default function TeamSection() {
             </p>
 
             <p>
-              Lumora was created to help students find clarity, confidence, mentorship, and a community where growth feels possible.
+              LumoraSpace was created to help students find clarity, confidence, mentorship, and a community where growth feels possible.
             </p>
             <p className="text-white font-medium">
               We believe learning should not feel lonely.
@@ -217,7 +200,7 @@ export default function TeamSection() {
                     </span>
                   </div>
                   <p className="text-sm md:text-base text-white/80 font-light italic leading-relaxed">
-                    "{founder.statement}"
+                    &quot;{founder.statement}&quot;
                   </p>
 
                   {/* Action Buttons */}
@@ -296,7 +279,7 @@ export default function TeamSection() {
                     </span>
                   </div>
                   <p className="text-xs text-white/80 font-light italic leading-relaxed">
-                    "{member.contribution}"
+                    &quot;{member.contribution}&quot;
                   </p>
 
                   {/* Action Buttons */}
@@ -401,11 +384,11 @@ export default function TeamSection() {
             Talent exists everywhere.
             <br />
             <span className="text-slate-400 italic">
-              Guidance doesn't.
+              Guidance doesn&apos;t.
             </span>
           </p>
           <p className="text-xs font-semibold tracking-[0.2em] text-slate-500 uppercase mt-4 block">
-            ~ Team Lumora
+            ~ Team LumoraSpace
           </p>
         </motion.div>
       </section>

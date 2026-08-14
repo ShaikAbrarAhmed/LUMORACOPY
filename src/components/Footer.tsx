@@ -12,7 +12,7 @@ export function Footer() {
         {/* <div className="border-b border-border/40 pb-6 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-left">
             <h3 className="font-heading font-bold text-base md:text-lg text-headings">
-              Ready to Build With Lumora?
+              Ready to Build With LumoraSpace?
             </h3>
             <p className="text-xs text-muted-foreground font-light">
               Join our next builder cohort and translate your ideas into production-grade software.
@@ -22,7 +22,7 @@ export function Footer() {
             href="/create-account"
             className="btn-primary py-2.5 px-6 text-xs font-semibold rounded-full shadow-sm shadow-primary/20 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 shrink-0"
           >
-            Join Lumora
+            Join LumoraSpace
           </Link>
         </div> */}
 
@@ -130,7 +130,7 @@ export function Footer() {
         {/* Footer Bottom copyright block */}
         <div className="mt-10 pt-5 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[11px] text-muted-foreground font-light">
-            &copy; {new Date().getFullYear()} Lumora. All rights reserved.
+            &copy; {new Date().getFullYear()} LumoraSpace. All rights reserved.
           </p>
           <p className="text-[11px] text-muted-foreground font-light">
             Built for the future of tech.
@@ -141,9 +141,7 @@ export function Footer() {
 
       {/* Reduced visual dominancy watermark (approx 70% smaller and moved out of flow) */}
       <div className="absolute inset-x-0 bottom-0 pointer-events-none select-none overflow-hidden z-0 flex flex-col items-center justify-end h-full">
-        <div className="font-heading font-black tracking-tighter text-foreground/[0.005] leading-none text-[clamp(2rem,7vw,6rem)] translate-y-[15%] select-none pointer-events-none text-center">
-          LUMORA
-        </div>
+        <div className="font-heading font-black tracking-tighter text-foreground/[0.005] leading-none text-[clamp(2rem,7vw,6rem)] translate-y-[15%] select-none pointer-events-none text-center">LUMORASPACE</div>
         <div className="font-heading font-bold tracking-[0.4em] text-foreground/[0.003] text-[clamp(0.4rem,1vw,0.8rem)] translate-y-[5%] select-none pointer-events-none text-center uppercase pb-3 mt-1">
           LEARN • BUILD • GROW • BELONG
         </div>

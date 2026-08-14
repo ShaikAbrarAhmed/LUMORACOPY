@@ -4,6 +4,7 @@ import * as admin from "firebase-admin";
 import { getFirestoreDb } from "@/lib/firebaseAdmin";
 import { CohortSubmitSchema } from "@/lib/schemas/cohort";
 import { RateLimiter } from "@/lib/rate-limit";
+import { programs } from "@/data/programs";
 
 const submitFormLimiter = new RateLimiter({
   limit: 10,
@@ -29,7 +30,23 @@ export async function POST(req: Request) {
       );
     }
 
-    const { name, email, cohort, college, phone, message } = validationResult.data;
+    const { 
+      name, email, college, phone, message,
+      year, status, paymentPlan, programSlug 
+    } = validationResult.data;
+
+    // Validate program on the server
+    const program = programSlug ? programs[programSlug] : undefined;
+    if (!program) {
+      return NextResponse.json(
+        { error: "Invalid or missing program" },
+        { status: 400 }
+      );
+    }
+
+    const cohort = program.title;
+    const programDuration = program.duration;
+    const programFee = program.fee;
 
     // 1. Save to Firebase Firestore
     const db = getFirestoreDb();
@@ -49,12 +66,19 @@ export async function POST(req: Request) {
         college,
         phone,
         message,
+        year: year || null,
+        status: status || null,
+        paymentPlan: paymentPlan || null,
+        programSlug: programSlug || null,
+        programDuration: programDuration || null,
+        programFee: programFee || null,
         createdAt: admin.firestore.FieldValue.serverTimestamp(),
       });
-    } catch (dbError: any) {
+    } catch (dbError: unknown) {
       console.error("Error saving to Firestore:", dbError);
+      const err = dbError as Error;
       return NextResponse.json(
-        { error: `Database write failed: ${dbError.message || dbError}` },
+        { error: `Database write failed: ${err.message || String(dbError)}` },
         { status: 500 }
       );
     }
@@ -64,10 +88,10 @@ export async function POST(req: Request) {
     if (apiKey) {
       try {
         const resend = new Resend(apiKey);
-        const adminEmail = (process.env.ADMIN_EMAIL || "support.lumoraspace@gmail.com").trim().toLowerCase();
+        const adminEmail = (process.env.ADMIN_EMAIL || "support@lumoraspace.in").trim().toLowerCase();
         console.log("ADMIN_EMAIL =", adminEmail);
         const { error } = await resend.emails.send({
-          from: "Lumora Cohorts <onboarding@resend.dev>", // Resend default for testing
+          from: `LumoraSpace <${process.env.RESEND_FROM_EMAIL}>`, // Resend default for testing
           to: [adminEmail],
           subject: `New Cohort Application: ${name} for ${cohort}`,
           html: `
@@ -75,10 +99,16 @@ export async function POST(req: Request) {
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Phone:</strong> ${phone}</p>
-            <p><strong>College:</strong> ${college}</p>
-            <p><strong>Cohort:</strong> ${cohort}</p>
-            <p><strong>Message:</strong></p>
-            <p>${message}</p>
+            <p><strong>College/University:</strong> ${college || "N/A"}</p>
+            <p><strong>Current Year:</strong> ${year || "N/A"}</p>
+            <p><strong>Current Status:</strong> ${status || "N/A"}</p>
+            <p><strong>Cohort/Program:</strong> ${cohort}</p>
+            <p><strong>Program Slug:</strong> ${programSlug || "N/A"}</p>
+            <p><strong>Program Duration:</strong> ${programDuration || "N/A"}</p>
+            <p><strong>Program Fee:</strong> ${programFee || "N/A"}</p>
+            <p><strong>Selected Payment Plan:</strong> ${paymentPlan || "N/A"}</p>
+            <p><strong>Message/Interest:</strong></p>
+            <p>${message || "None provided"}</p>
           `,
         });
 
@@ -89,10 +119,11 @@ export async function POST(req: Request) {
             { status: 500 }
           );
         }
-      } catch (emailError: any) {
+      } catch (emailError: unknown) {
         console.error("Error sending email:", emailError);
+        const err = emailError as Error;
         return NextResponse.json(
-          { error: `Email dispatch failed: ${emailError.message || emailError}` },
+          { error: `Email dispatch failed: ${err.message || String(emailError)}` },
           { status: 500 }
         );
       }

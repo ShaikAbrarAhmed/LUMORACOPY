@@ -9,9 +9,6 @@ export const CohortSubmitSchema = z.object({
     .max(100, "Email must not exceed 100 characters")
     .toLowerCase()
     .trim(),
-  cohort: z.string()
-    .min(2, "Cohort name is required")
-    .max(100, "Cohort name is too long"),
   college: z.string()
     .min(2, "College name must be at least 2 characters")
     .max(100, "College name is too long")
@@ -25,6 +22,18 @@ export const CohortSubmitSchema = z.object({
     .max(500, "Message must not exceed 500 characters")
     .optional()
     .or(z.literal("")),
+  year: z.string()
+    .min(1, "Year is required")
+    .max(50, "Year is too long")
+    .optional()
+    .or(z.literal("")),
+  status: z.string()
+    .min(1, "Status is required")
+    .max(50, "Status is too long")
+    .optional()
+    .or(z.literal("")),
+  paymentPlan: z.enum(["FULL PAYMENT", "SPLIT PAYMENT"]).optional(),
+  programSlug: z.string().min(1, "Program slug is required"),
 });
 
 export type CohortSubmitInput = z.infer<typeof CohortSubmitSchema>;

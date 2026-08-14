@@ -69,7 +69,7 @@ export function IntroScreen() {
         isDissolving ? "opacity-0" : "opacity-100"
       }`}
     >
-      {/* 1. Ambient Glow (Lumora Accent - Soft and Premium) */}
+      {/* 1. Ambient Glow (LumoraSpace Accent - Soft and Premium) */}
       <div
         className={`absolute w-72 h-72 md:w-[350px] md:h-[350px] rounded-full bg-primary/10 blur-[80px] md:blur-[100px] pointer-events-none transition-all duration-[1000ms] ease-out ${
           isGlowVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"

@@ -12,15 +12,6 @@ export default function TransformationSection() {
     { label: "Builder", icon: Code2, desc: "Deploying production-ready creations" },
   ]
 
-  // SVG Line Animation Variants
-  const pathVariants = {
-    hidden: { pathLength: 0 },
-    visible: {
-      pathLength: 1,
-      transition: { duration: 2, ease: "easeInOut" },
-    },
-  }
-
   return (
     <section 
       className="relative py-16 md:py-20 px-6 overflow-hidden border-t border-white/5"
