@@ -2,7 +2,10 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { FileText, Code2, Database, Terminal, Layout, Server, Shield, Zap, Rocket, LucideIcon } from "lucide-react";
+import { 
+  FileText, Code2, Database, Terminal, Layout, Server, Shield, Zap, Rocket, LucideIcon,
+  FileSpreadsheet, BarChart3, Search, Target, LineChart, PieChart, Brain, Workflow
+} from "lucide-react";
 import type { Program } from "@/data/programs";
 import { useState } from "react";
 import { JoinProgramModal } from "./JoinProgramModal";
@@ -16,6 +19,14 @@ const IconMap: Record<string, LucideIcon> = {
   terminal: Terminal,
   zap: Zap,
   rocket: Rocket,
+  "file-spreadsheet": FileSpreadsheet,
+  "bar-chart": BarChart3,
+  search: Search,
+  target: Target,
+  "line-chart": LineChart,
+  "pie-chart": PieChart,
+  brain: Brain,
+  workflow: Workflow,
 };
 
 export function ProgramHero({ program }: { program: Program }) {
@@ -211,7 +222,89 @@ export function ProgramCompetencies({ program }: { program: Program }) {
   );
 }
 
+export function ProgramCurriculum({ program }: { program: Program }) {
+  const [openWeek, setOpenWeek] = useState<number | null>(0);
 
+  if (program.showCurriculum === false || !program.curriculum || program.curriculum.length === 0) return null;
+
+  return (
+    <section className="py-16 md:py-24 px-6 w-full relative z-10 border-t border-white/5 bg-[#050505]">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-xs font-semibold text-slate-400 tracking-[0.2em] uppercase mb-3 block">Syllabus</span>
+          <h2 className="text-4xl md:text-5xl font-fancy font-light text-white tracking-tight">Curriculum Roadmap</h2>
+        </div>
+
+        <div className="space-y-4">
+          {program.curriculum.map((item, idx) => {
+            const isOpen = openWeek === idx;
+            return (
+              <div
+                key={idx}
+                className="bg-[#111214] border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/15"
+              >
+                <button
+                  onClick={() => setOpenWeek(isOpen ? null : idx)}
+                  className="w-full p-5 md:p-6 text-left flex items-center justify-between gap-4 cursor-pointer"
+                >
+                  <div className="flex items-center gap-4 min-w-0">
+                    <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-slate-300 shrink-0">
+                      WEEK {item.week}
+                    </span>
+                    <h3 className="text-base md:text-lg font-heading font-bold text-white truncate">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <div className="flex items-center gap-3 shrink-0">
+                    {item.milestone && (
+                      <span className="hidden sm:inline-block text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                        {item.milestone}
+                      </span>
+                    )}
+                    <span className={`text-slate-400 transition-transform duration-300 text-lg ${isOpen ? 'rotate-180' : ''}`}>
+                      ↓
+                    </span>
+                  </div>
+                </button>
+
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden border-t border-white/5 bg-black/30"
+                    >
+                      <div className="p-5 md:p-6 space-y-4">
+                        <div>
+                          <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Key Topics</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {item.topics.map((topic, i) => (
+                              <span key={i} className="text-xs text-slate-300 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
+                                {topic}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        {item.practicalWork && (
+                          <div className="pt-2">
+                            <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Practical Execution</h4>
+                            <p className="text-sm text-slate-300 font-light leading-relaxed">{item.practicalWork}</p>
+                          </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export function ProgramProjects({ program }: { program: Program }) {
   return (

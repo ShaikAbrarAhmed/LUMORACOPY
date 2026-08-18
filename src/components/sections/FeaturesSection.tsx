@@ -219,7 +219,7 @@ export default function FeaturesSection() {
                 {[
                   { name: "WEB BUILDER", status: "Launching Soon", active: true },
                   { name: "PYTHON BUILDER", status: "Coming Soon", active: false },
-                  { name: "DATA ANALYST", status: "Coming Soon", active: false },
+                  { name: "DATA ANALYST", status: "Active Cohort", active: true },
                   { name: "UI/UX BUILDER", status: "Coming Soon", active: false }
                 ].map((prog) => (
                   <div key={prog.name} className="p-3 bg-card border border-white/[0.02] rounded-xl flex flex-col justify-between min-h-[80px]">

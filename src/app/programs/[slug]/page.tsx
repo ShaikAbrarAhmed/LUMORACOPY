@@ -7,6 +7,7 @@ import {
   ProgramMedia,
   ProgramOverview,
   ProgramCompetencies,
+  ProgramCurriculum,
   ProgramProjects,
   ProgramGenAI,
   ProgramCareerPrep,
@@ -41,6 +42,7 @@ export default async function ProgramDetailsPage({
       <ProgramMedia program={program} />
       <ProgramOverview program={program} />
       <ProgramCompetencies program={program} />
+      <ProgramCurriculum program={program} />
       <ProgramCareerPrep program={program} />
       <ProgramProjects program={program} />
       <ProgramGenAI program={program} />

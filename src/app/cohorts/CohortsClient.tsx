@@ -410,10 +410,10 @@ export default function CohortsPage() {
               },
               {
                 title: "Data Analyst",
-                status: "Coming Soon",
+                status: "Enrollment Open",
                 desc: "Learn how to work with data, uncover insights, and develop analytical thinking.",
                 icon: Database,
-                tagColor: "bg-white/5 text-slate-300 border-white/10"
+                tagColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
               },
               {
                 title: "AI Builder",
