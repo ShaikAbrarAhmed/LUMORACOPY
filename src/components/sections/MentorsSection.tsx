@@ -83,227 +83,148 @@ export default function MentorsSection() {
             </h2>
           </motion.div>
 
-          {/* MENTOR 01 — GOKUL (Left Image / Right Content) */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center">
-            {/* Left Column: Image (5 cols) */}
-            <motion.div
-              initial={{ opacity: 0, x: -15 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="md:col-span-5"
-            >
-              <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-[#111214] border border-white/5 shadow-2xl">
-                <Image
-                  src="/mentors/Gokul.jpeg"
-                  alt="Gokul - Project Manager"
-                  fill
-                  sizes="(max-w-768px) 100vw, 40vw"
-                  className="object-cover"
-                  style={{ objectPosition: "center" }}
-                  priority
-                />
-              </div>
-            </motion.div>
-
-            {/* Right Column: Content (7 cols) */}
-            <motion.div
-              initial={{ opacity: 0, x: 15 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="md:col-span-7 text-left space-y-6"
-            >
-              <span className="text-[9px] font-bold text-slate-400 tracking-[0.2em] font-heading uppercase block">
-                MENTOR 01
-              </span>
-
-              {/* Large quote */}
-              <blockquote className="text-2xl sm:text-3xl md:text-4.5xl font-fancy font-light italic leading-tight text-white">
-                &ldquo;Students don&apos;t need more information. <br className="hidden md:inline" />
-                They need better direction.&rdquo;
-              </blockquote>
-
-              <div className="pt-4 border-t border-white/5 space-y-1">
-                <h3 className="text-lg font-heading font-semibold text-white tracking-wide uppercase">
-                  GOKUL
-                </h3>
-                <p className="text-xs text-[#A1A1AA] font-sans font-light">
-                  Project Manager at Cirakas Consultancy
-                </p>
-              </div>
-
-              {/* Quiet Expertise text list */}
-              <div className="pt-4 border-t border-white/[0.03] space-y-1.5">
-                <span className="text-[8px] font-bold text-white/30 tracking-widest font-heading uppercase">
-                  EXPERTISE
-                </span>
-                <p className="text-xs text-[#A1A1AA] font-sans font-light tracking-wide leading-relaxed">
-                  Leadership &nbsp;•&nbsp; Product Management &nbsp;•&nbsp; Software Development &nbsp;•&nbsp; Career Growth
-                </p>
-              </div>
-
-              <div className="pt-3">
-                <a
-                  href="https://www.linkedin.com/in/gokul-dev1/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white font-semibold tracking-wider uppercase transition-colors"
+          {[
+            {
+              id: "gokul",
+              number: "MENTOR 01",
+              name: "GOKUL",
+              role: "Project Manager at Cirakas Consultancy",
+              quote: "Students don't need more information. They need better direction.",
+              expertise: ["Leadership", "Product Management", "Software Development", "Career Growth"],
+              image: "/mentors/Gokul.jpeg",
+              altText: "Gokul — LumoraSpace Mentor",
+              linkedin: "https://www.linkedin.com/in/gokul-dev1/",
+              imagePosition: "left"
+            },
+            {
+              id: "purva-kabra",
+              number: "MENTOR 02",
+              name: "PURVA KABRA",
+              role: "Product Manager at LumberFi",
+              quote: "Success isn't about having all the answers. It's about asking better questions.",
+              expertise: [
+                "Product Management",
+                "Design Thinking",
+                "Structured Thinking",
+                "Marketing & Sales",
+                "Operations & Processes",
+                "Founder Mindset",
+                "Career Guidance",
+                "Decision Making"
+              ],
+              image: "/mentors/Purva.png",
+              altText: "Purva Kabra — LumoraSpace Mentor",
+              linkedin: "https://www.linkedin.com/in/purva-kabra-pk",
+              imagePosition: "right"
+            },
+            {
+              id: "sanskrity-singh",
+              number: "MENTOR 03",
+              name: "SANSKRITY SINGH",
+              role: "Marketing Specialist at BOT Consulting",
+              quote: "Your skills get you noticed. Your personal brand gets you remembered.",
+              expertise: ["Personal Branding", "Marketing Strategy", "Business Growth", "AI Marketing"],
+              image: "/mentors/Sanskrity1.png",
+              altText: "Sanskrity Singh — LumoraSpace Mentor",
+              linkedin: "https://www.linkedin.com/in/sanskritysingh",
+              imagePosition: "left"
+            },
+            {
+              id: "sandeep",
+              number: "MENTOR 04",
+              name: "SANDEEP",
+              role: "Data Science Trainer & Mentor at byteXL",
+              quote: "Technology keeps evolving. Your ability to learn should too.",
+              expertise: [
+                "Python",
+                "Data Science",
+                "Machine Learning",
+                "SQL",
+                "Power BI",
+                "Statistics",
+                "Data Analytics"
+              ],
+              image: "/mentors/sandeep.jpeg",
+              altText: "Sandeep — LumoraSpace Mentor",
+              linkedin: "https://www.linkedin.com/in/sandeepgivari",
+              imagePosition: "left"
+            }
+          ].map((mentor, index) => {
+            const isRightImage = mentor.imagePosition === "right"
+            return (
+              <div key={mentor.id} className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center">
+                {/* Image Column */}
+                <motion.div
+                  initial={{ opacity: 0, x: isRightImage ? 15 : -15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className={`md:col-span-5 ${isRightImage ? "order-1 md:order-2" : ""}`}
                 >
-                  <span>LinkedIn Profile</span>
-                  <ArrowRight className="w-3 h-3" />
-                </a>
-              </div>
-            </motion.div>
-          </div>
+                  <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-[#111214] border border-white/5 shadow-2xl">
+                    <Image
+                      src={mentor.image}
+                      alt={mentor.altText}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 40vw"
+                      className="object-cover"
+                      style={{ objectPosition: "center" }}
+                      priority={index < 2}
+                    />
+                  </div>
+                </motion.div>
 
-          {/* MENTOR 02 — PURVA KABRA (Left Content / Right Image - Stacks image on top for mobile) */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center">
-            {/* Left Column on Desktop, appears below image on Mobile */}
-            <motion.div
-              initial={{ opacity: 0, x: -15 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="md:col-span-7 text-left space-y-6 order-2 md:order-1"
-            >
-              <span className="text-[9px] font-bold text-slate-400 tracking-[0.2em] font-heading uppercase block">
-                MENTOR 02
-              </span>
-
-              {/* Large quote */}
-              <blockquote className="text-2xl sm:text-3xl md:text-4.5xl font-fancy font-light italic leading-tight text-white">
-                &ldquo;Success isn&apos;t about having all the answers. <br className="hidden md:inline" />
-                It&apos;s about asking better questions.&rdquo;
-              </blockquote>
-
-              <div className="pt-4 border-t border-white/5 space-y-1">
-                <h3 className="text-lg font-heading font-semibold text-white tracking-wide uppercase">
-                  PURVA KABRA
-                </h3>
-                <p className="text-xs text-[#A1A1AA] font-sans font-light">
-                  Product Manager at LumberFi
-                </p>
-              </div>
-
-              {/* Quiet Expertise text list */}
-              <div className="pt-4 border-t border-white/[0.03] space-y-1.5">
-                <span className="text-[8px] font-bold text-white/30 tracking-widest font-heading uppercase">
-                  EXPERTISE
-                </span>
-                <p className="text-xs text-[#A1A1AA] font-sans font-light tracking-wide leading-relaxed">
-                  Product Management &nbsp;•&nbsp; Design Thinking &nbsp;•&nbsp; Structured Thinking &nbsp;•&nbsp; Marketing & Sales &nbsp;•&nbsp; Operations & Processes &nbsp;•&nbsp; Founder Mindset &nbsp;•&nbsp; Career Guidance &nbsp;•&nbsp; Decision Making
-                </p>
-              </div>
-
-              <div className="pt-3">
-                <a
-                  href="https://www.linkedin.com/in/purva-kabra-pk"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white font-semibold tracking-wider uppercase transition-colors"
+                {/* Content Column */}
+                <motion.div
+                  initial={{ opacity: 0, x: isRightImage ? -15 : 15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className={`md:col-span-7 text-left space-y-6 ${isRightImage ? "order-2 md:order-1" : ""}`}
                 >
-                  <span>LinkedIn Profile</span>
-                  <ArrowRight className="w-3 h-3" />
-                </a>
+                  <span className="text-[9px] font-bold text-slate-400 tracking-[0.2em] font-heading uppercase block">
+                    {mentor.number}
+                  </span>
+
+                  {/* Large quote */}
+                  <blockquote className="text-2xl sm:text-3xl md:text-4.5xl font-fancy font-light italic leading-tight text-white">
+                    &ldquo;{mentor.quote}&rdquo;
+                  </blockquote>
+
+                  <div className="pt-4 border-t border-white/5 space-y-1">
+                    <h3 className="text-lg font-heading font-semibold text-white tracking-wide uppercase">
+                      {mentor.name}
+                    </h3>
+                    <p className="text-xs text-[#A1A1AA] font-sans font-light">
+                      {mentor.role}
+                    </p>
+                  </div>
+
+                  {/* Quiet Expertise text list */}
+                  <div className="pt-4 border-t border-white/[0.03] space-y-1.5">
+                    <span className="text-[8px] font-bold text-white/30 tracking-widest font-heading uppercase">
+                      EXPERTISE
+                    </span>
+                    <p className="text-xs text-[#A1A1AA] font-sans font-light tracking-wide leading-relaxed">
+                      {mentor.expertise.join(" \u00a0\u2022\u00a0 ")}
+                    </p>
+                  </div>
+
+                  <div className="pt-3">
+                    <a
+                      href={mentor.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white font-semibold tracking-wider uppercase transition-colors"
+                    >
+                      <span>LinkedIn Profile</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </a>
+                  </div>
+                </motion.div>
               </div>
-            </motion.div>
-
-            {/* Right Column on Desktop, appears on top on Mobile */}
-            <motion.div
-              initial={{ opacity: 0, x: 15 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="md:col-span-5 order-1 md:order-2"
-            >
-              <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-[#111214] border border-white/5 shadow-2xl">
-                <Image
-                  src="/mentors/Purva.png"
-                  alt="Purva Kabra - Product Manager"
-                  fill
-                  sizes="(max-w-768px) 100vw, 40vw"
-                  className="object-cover"
-                  style={{ objectPosition: "center" }}
-                  priority
-                />
-              </div>
-            </motion.div>
-          </div>
-
-          {/* MENTOR 03 — SANSKRITY SINGH (Left Image / Right Content) */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center">
-            {/* Left Column: Image (5 cols) */}
-            <motion.div
-              initial={{ opacity: 0, x: -15 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="md:col-span-5"
-            >
-              <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-[#111214] border border-white/5 shadow-2xl">
-                <Image
-                  src="/mentors/Sanskrity1.png"
-                  alt="Sanskrity Singh - Marketing Specialist"
-                  fill
-                  sizes="(max-w-768px) 100vw, 40vw"
-                  className="object-cover"
-                  style={{ objectPosition: "center" }}
-                  priority
-                />
-              </div>
-            </motion.div>
-
-            {/* Right Column: Content (7 cols) */}
-            <motion.div
-              initial={{ opacity: 0, x: 15 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="md:col-span-7 text-left space-y-6"
-            >
-              <span className="text-[9px] font-bold text-slate-400 tracking-[0.2em] font-heading uppercase block">
-                MENTOR 03
-              </span>
-
-              {/* Large quote */}
-              <blockquote className="text-2xl sm:text-3xl md:text-4.5xl font-fancy font-light italic leading-tight text-white">
-                &ldquo;Your skills get you noticed. <br className="hidden md:inline" />
-                Your personal brand gets you remembered.&rdquo;
-              </blockquote>
-
-              <div className="pt-4 border-t border-white/5 space-y-1">
-                <h3 className="text-lg font-heading font-semibold text-white tracking-wide uppercase">
-                  SANSKRITY SINGH
-                </h3>
-                <p className="text-xs text-[#A1A1AA] font-sans font-light">
-                  Marketing Specialist at BOT Consulting
-                </p>
-              </div>
-
-              {/* Quiet Expertise text list */}
-              <div className="pt-4 border-t border-white/[0.03] space-y-1.5">
-                <span className="text-[8px] font-bold text-white/30 tracking-widest font-heading uppercase">
-                  EXPERTISE
-                </span>
-                <p className="text-xs text-[#A1A1AA] font-sans font-light tracking-wide leading-relaxed">
-                  Personal Branding &nbsp;•&nbsp; Marketing Strategy &nbsp;•&nbsp; Business Growth &nbsp;•&nbsp; AI Marketing
-                </p>
-              </div>
-
-              <div className="pt-3">
-                <a
-                  href="https://www.linkedin.com/in/sanskritysingh"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white font-semibold tracking-wider uppercase transition-colors"
-                >
-                  <span>LinkedIn Profile</span>
-                  <ArrowRight className="w-3 h-3" />
-                </a>
-              </div>
-            </motion.div>
-          </div>
+            )
+          })}
         </section>
 
         {/* ================= SECTION 3: WHY MENTORSHIP MATTERS ================= */}

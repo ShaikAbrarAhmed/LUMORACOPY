@@ -81,6 +81,21 @@ export default function MentorsPage() {
             "name": "BOT Consulting"
           }
         }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "Person",
+          "name": "Sandeep",
+          "jobTitle": "Data Science Trainer & Mentor",
+          "url": "https://lumora.space/mentors",
+          "sameAs": "https://www.linkedin.com/in/sandeepgivari",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "byteXL"
+          }
+        }
       }
     ]
   };

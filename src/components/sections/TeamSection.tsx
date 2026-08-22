@@ -83,7 +83,7 @@ export default function TeamSection() {
     // },
 
     {
-      name: "Jassi",
+      name: "Jasmeeth Singh",
       role: "Community & Operations Lead",
       image: "/team/Jasmeetg.jpeg",
       contribution: "Turning stories into movements.",
@@ -92,7 +92,7 @@ export default function TeamSection() {
     },
 
     {
-      name: "Raji",
+      name: "Rajitha",
       role: "Product & Innovation Research",
       image: "/team/Rajitha.jpeg",
       contribution: "Connecting ideas, research, and possibilities.",

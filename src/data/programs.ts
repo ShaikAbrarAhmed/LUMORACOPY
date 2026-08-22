@@ -79,6 +79,7 @@ export const programs: Record<string, Program> = {
     mode: "Live Online & Hands-on Building",
     fee: "₹4,999",
     feeAmount: 4999,
+    showCurriculum: false,
     promotionalGraphic: "/programs/mern-stack-with-gen-ai.jpg",
     brochureUrl: "/brochures/mern-genai.pdf",
     overview: {
@@ -335,7 +336,7 @@ export const programs: Record<string, Program> = {
     fee: "₹4,999",
     feeAmount: 4999,
     showCurriculum: false,
-    promotionalGraphic: "/programs/data-analyst.jpg",
+    promotionalGraphic: "/programs/DataAnalytics.jpeg",
     overview: {
       whatIsIt: "A comprehensive, practical program designed to turn beginners and aspiring analysts into data-driven decision makers. You will master analytical thinking, database querying, data visualization, and business intelligence.",
       whatYouWorkOn: "From writing complex SQL queries and cleaning raw datasets to building interactive Power BI dashboards and automating analysis with Python and AI tooling.",
